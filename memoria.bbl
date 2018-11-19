@@ -1,0 +1,446 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global}
+  \entry{hansen2006}{article}{}
+    \name{author}{5}{}{%
+      {{hash=HT}{%
+         family={Hansen},
+         familyi={H\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=JJ}{%
+         family={Jeppesen},
+         familyi={J\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=RS}{%
+         family={Rasmussen},
+         familyi={R\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=IH}{%
+         family={Ibsen},
+         familyi={I\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=TPC}{%
+         family={Torp-Pedersen.},
+         familyi={T\bibinitperiod-P\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HT+1}
+    \strng{fullhash}{HTJJRSIHTPC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{H}
+    \field{sortinithash}{H}
+    \field{title}{Ambulatory blood pressure monitoring and risk of
+  cardiovascular disease: a population based study.}
+    \verb{url}
+    \verb https://doi.org/10.1016/j.amjhyper.2005.09.018
+    \endverb
+    \field{journaltitle}{Amer. J. Of Hypertension, Ltd.}
+    \field{year}{2006}
+  \endentry
+
+  \entry{laurent2006}{article}{}
+    \name{author}{10}{}{%
+      {{hash=LS}{%
+         family={Laurent},
+         familyi={L\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=CJ}{%
+         family={Cockcroft},
+         familyi={C\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=BLV}{%
+         family={Bortel},
+         familyi={B\bibinitperiod},
+         given={L.\bibnamedelima Van},
+         giveni={L\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+      {{hash=BP}{%
+         family={Boutouyrie},
+         familyi={B\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=GC}{%
+         family={Giannattasio},
+         familyi={G\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=HD}{%
+         family={Hayoz},
+         familyi={H\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=PB}{%
+         family={Pannier},
+         familyi={P\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=VC}{%
+         family={Vlachopoulos},
+         familyi={V\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=WI}{%
+         family={Wilkinson},
+         familyi={W\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=SBH}{%
+         family={Struijker-Boudier.},
+         familyi={S\bibinitperiod-B\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LS+1}
+    \strng{fullhash}{LSCJBLVBPGCHDPBVCWISBH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{L}
+    \field{sortinithash}{L}
+    \field{title}{Expert consensus document on arterial stiffness:
+  methodological issues and clinical applications.}
+    \verb{url}
+    \verb https://doi.org/10.1093/eurheartj/ehl254
+    \endverb
+    \field{journaltitle}{European Heart J.}
+    \field{year}{2006}
+  \endentry
+
+  \entry{nichols2008}{article}{}
+    \name{author}{5}{}{%
+      {{hash=NW}{%
+         family={Nichols},
+         familyi={N\bibinitperiod},
+         given={W.W.},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=DS}{%
+         family={Denardo},
+         familyi={D\bibinitperiod},
+         given={S.J.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={McEniery},
+         familyi={M\bibinitperiod},
+         given={C.M},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=CJ}{%
+         family={Cockcroft},
+         familyi={C\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=OM}{%
+         family={O’Rourke.},
+         familyi={O\bibinitperiod},
+         given={M.F.},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NW+1}
+    \strng{fullhash}{NWDSMCCJOM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
+    \field{title}{Effects of arterial stiffness, pulse wave velocity, and wave
+  reflections on the central aortic pressure waveform.}
+    \verb{url}
+    \verb https://doi.org/10.1111/j.1751-7176.2008.04746.x
+    \endverb
+    \field{journaltitle}{J of Clinical Hypertension.}
+    \field{year}{2008}
+  \endentry
+
+  \entry{omboni2016}{article}{}
+    \name{author}{5}{}{%
+      {{hash=OS}{%
+         family={Omboni},
+         familyi={O\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Posokhov},
+         familyi={P\bibinitperiod},
+         given={I.N.},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=KY}{%
+         family={Kotovskaya},
+         familyi={K\bibinitperiod},
+         given={Y.V.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Protogerou},
+         familyi={P\bibinitperiod},
+         given={A.D.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BJ}{%
+         family={Blacher.},
+         familyi={B\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OS+1}
+    \strng{fullhash}{OSPIKYPABJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{title}{Twenty-four-hour ambulatory pulse wave analysis in
+  hypertension management: current evidence and perspectives.}
+    \verb{url}
+    \verb https://doi.org/10.1007/s11906-016-0681-2
+    \endverb
+    \field{journaltitle}{Current Hypertension Rep.}
+    \field{year}{2016}
+  \endentry
+
+  \entry{who2015}{online}{}
+    \name{author}{1}{}{%
+      {{hash=OWH}{%
+         family={Organization},
+         familyi={O\bibinitperiod},
+         given={World\bibnamedelima Health},
+         giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OWH1}
+    \strng{fullhash}{OWH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{title}{QAs on hypertension}
+    \verb{url}
+    \verb https://www.who.int/features/qa/82/en/
+    \endverb
+    \field{year}{2015}
+  \endentry
+
+  \entry{staensen1999}{article}{}
+    \name{author}{12}{}{%
+      {{hash=SJ}{%
+         family={Staensen},
+         familyi={S\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=TL}{%
+         family={Thijs},
+         familyi={T\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=FR}{%
+         family={Fagard},
+         familyi={F\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=OE}{%
+         family={O’Brien},
+         familyi={O\bibinitperiod},
+         given={E.},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=CD}{%
+         family={Clement},
+         familyi={C\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=dLP}{%
+         prefix={de},
+         prefixi={d\bibinitperiod},
+         family={Leeuw},
+         familyi={L\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=MG}{%
+         family={Mancia},
+         familyi={M\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=NC}{%
+         family={Nachev},
+         familyi={N\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=PP}{%
+         family={Palatini},
+         familyi={P\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=PG}{%
+         family={Parati},
+         familyi={P\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=TJ}{%
+         family={Tuomilehto},
+         familyi={T\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=WJ}{%
+         family={Webster.},
+         familyi={W\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SJ+1}
+    \strng{fullhash}{SJTLFROECDLPdMGNCPPPGTJWJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{title}{Predicting Cardiovascular Risk Using Conventional vs
+  Ambulatory Blood Pressure in Older Patients With Systolic Hypertension}
+    \verb{url}
+    \verb https://doi.org/10.1001/jama.282.6.539
+    \endverb
+    \field{journaltitle}{JAMA}
+    \field{year}{1999}
+  \endentry
+
+  \entry{verdecchia1993}{article}{}
+    \name{author}{12}{}{%
+      {{hash=VP}{%
+         family={Verdecchia},
+         familyi={V\bibinitperiod},
+         given={P.},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=PC}{%
+         family={Porcellati},
+         familyi={P\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Schillaci},
+         familyi={S\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=BC}{%
+         family={Borgioni},
+         familyi={B\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Ciucci},
+         familyi={C\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Battistelli},
+         familyi={B\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Guerrieri},
+         familyi={G\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GC}{%
+         family={Gatteschi},
+         familyi={G\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=ZI}{%
+         family={Zampi},
+         familyi={Z\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Santucci},
+         familyi={S\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SC}{%
+         family={Santucci},
+         familyi={S\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=RG}{%
+         family={Reboldi.},
+         familyi={R\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{VP+1}
+    \strng{fullhash}{VPPCSGBCCABMGMGCZISASCRG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{V}
+    \field{sortinithash}{V}
+    \field{title}{Ambulatory blood pressure. An independent predictor of
+  prognosis in essential hypertension}
+    \verb{url}
+    \verb https://doi.org/10.1161/01.HYP.24.6.793
+    \endverb
+    \field{journaltitle}{Hypertension}
+    \field{year}{1993}
+  \endentry
+\enddatalist
+\endinput

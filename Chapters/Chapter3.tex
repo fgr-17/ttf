@@ -34,6 +34,19 @@
   morecomment=[s]{/*}{*/}%
 }
 
+%--------------------------------------
+
+\section{Implementación del sistema}
+El equipo consiste en un sistema embebido portátil basado en un microcontrolador ARM de 32 bits, Cortex M3: LPC1769, un conversor analógico digital de alta resolución (ADS1292), módulos de comunicación (serie, BLE, USB), almacenamiento masivo (SD) y módulo de regulación de energía y carga de batería. Puede verse un diagrama en bloques en la Figura \ref{fig:diag_bloques} . Para este proyecto se utilizaron en forma intensiva la gran mayoría de los contenidos y herramientas vistas durante el Curso de Especialización CESE. Se utilizaron técnicas de Gestión de Proyectos, documentación manual y automática del trabajo, sistema de versionado de software y hardware. En cuanto a lo técnico se emplearon conocimientos específicos sobre arquitectura del microcontrolador, modelos de programación, sistema operativo de tiempo real freeRTOS, protocolos de comunicación (BLE, SPI, USB, y de alto nivel), testing unitarios, etc.
+
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=\textwidth]{./Figures/diag_bloques.png}
+	\caption{Diagrama en bloques del equipo.}
+	\label{fig:diag_bloques}
+\end{figure}
+
 
 %----------------------------------------------------------------------------------------
 %	SECTION 1

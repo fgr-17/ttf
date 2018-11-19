@@ -31,25 +31,42 @@ El proyecto aquí presentado consiste en un sistema de adquisición portátil pa
 	\label{fig:vop}
 \end{figure}
 
-El equipo consiste en un sistema embebido portátil basado en un microcontrolador ARM de 32 bits, Cortex M3: LPC1769, un conversor analógico digital de alta resolución (ADS1292), módulos de comunicación (serie, BLE, USB), almacenamiento masivo (SD) y módulo de regulación de energía y carga de batería. Puede verse un diagrama en bloques en la Figura \ref{fig:diag_bloques} . Para este proyecto se utilizaron en forma intensiva la gran mayoría de los contenidos y herramientas vistas durante el Curso de Especialización CESE. Se utilizaron técnicas de Gestión de Proyectos, documentación manual y automática del trabajo, sistema de versionado de software y hardware. En cuanto a lo técnico se emplearon conocimientos específicos sobre arquitectura del microcontrolador, modelos de programación, sistema operativo de tiempo real freeRTOS, protocolos de comunicación (BLE, SPI, USB, y de alto nivel), testing unitarios, etc.
+Este dispositivo está orientado a ser utilizado por investigadores médicos, ingenieros biomédicos, biólogos y veterinarios en grupos de trabajo en general aplicado a cardiología. En particular este trabajo se realiza para la Universidad Favaloro, y es importante porque permitirá avanzar a futuro en el conocimiento de formas de medición de presión ambulatoria indirecta, más precisas y menos invasivas.
 
+\subsection{Bases físicas de la medición}
+
+De acuerdo a la Organización Mundial de la Salud, la presión sanguínea humana es medida de la presión que ejerce la sangre circulante sobre las paredes de los vasos sanguíneos \cite{who2015}. Esta onda de presión es originada por el latido del corazón y transmitida hacia todo el árbol arterial. La composición entre la onda incidente y la reflejada dan origen a la onda estacionaria de presión, cuyo máximo y mínimo dan origen a los valores característicos conocidos como \textbf{presion sistólica} y \textbf{presión diastólica}. Estos valores tienen una gran importancia en la clínica. En un adulto sano, estos valores son aproximadamente 120mmHg para la presión sistólica y 80mmHg para la presión diastólica. En la figura \ref{fig:periodopresion} puede observarse una forma de onda característica.
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=\textwidth]{./Figures/diag_bloques.png}
-	\caption{Diagrama en bloques del equipo.}
-	\label{fig:diag_bloques}
+	\includegraphics[width=\textwidth]{./Figures/periodopresion.png}
+	\caption{Forma de onda de un ciclo de una señal de presión humana típica}
+	\label{fig:periodopresion}
 \end{figure}
 
-Para este proyecto se utilizaron en forma intensiva la gran mayoría de los contenidos y herramientas vistas durante el Curso de Especialización CESE. Se utilizaron técnicas de Gestión de Proyectos, documentación manual y automática del trabajo, sistema de versionado de software y hardware. En cuanto a lo técnico se emplearon conocimientos específicos sobre arquitectura del microcontrolador, modelos de programación, sistema operativo de tiempo real freeRTOS, protocolos de comunicación (BLE, SPI, USB, y de alto nivel), testing unitarios, etc.
+
+\subsection{Estado del arte}
+
+El rol de la medición ambulatoria de presión arterial (MAPA) \citep{hansen2006} \citep{staensen1999} \citep{verdecchia1993} 24 hs braquial para predecir riesgo cardiovascular y mortalidad es ampliamente aceptado. Se sabe que la variabilidad de la presión arterial y su pulsatilidad son el resultado de una compleja interacción entre el corazón y la red vascular. En particular, y para la evaluación de las características biomecánicas de la red arterial, se utiliza la velocidad de onda de pulso (VOP) como indicador indirecto de rigidez arterial \citep{nichols2008}.
+
+\subsection{Medicion ambulatoria de presión arterial}
+
+El método más aceptado para medir VOP en pacientes consiste en el registro simultáneo de señales de presión en carótida y femoral. Conociendo la distancia y el desfasaje temporal entre estas mediciones de presión, se puede estimar la VOP como su cociente. La medición de VOP ha ingresado en las últimas guías de recomendación europeas como indicadora (Clase IIa; Nivel de evidencia B) para la evaluación subclínica de daño en órganos en pacientes hipertensos. El interés clínico en esta medición ha llevado al desarrollo de numerosos dispositivos para medir VOP y cuyas características y limitaciones están siendo analizadas actualmente para hallar un estándar internacional \citep{laurent2006} Así como la MAPA braquial ha impulsado el desarrollo de dispositivos de registro y análisis cada vez más sofisticados, la posibilidad de realizar un registro ambulatorio de VOP genera nuevos campos de investigación, así como la necesidad de que existan nuevos dispositivos \citep{omboni2016}.
+
+
+Existen otros metodos de estimacion de la MAPA, pero se generan numerosas controversias debido a la complejidad matemática de las estimaciones y al uso de modelos matemáticos  arteriales unificados que suponen ser válidos para todos los pacientes. 
+La presión arterial humana responde a una curva que tiene un pico y un valle, y una forma de onda característica. De esta curva pueden calcularse toda una serie de parámetros que modelizan el arbol arterial. Sin embargo, el método más utilizado en la medicina clínica para estimar la presión arterial, el método oscilométrico, solo toma dos valores característicos de esta curva, el máximo y el mínimo, denominados \textbf{presion sistólica} y \textbf{presión diastólica}. 
+
+
+
+
 
 
 \section{Motivación y Aplicaciones del equipo}
 
-Para comprender de una forma más clara la necesidad y aplicaciones del equipo aquí presentado es imprescindible realizar una breve introducción teórica. El rol de la medición ambulatoria de presión arterial (MAPA) 24 hs braquial para predecir riesgo cardiovascular y mortalidad es ampliamente aceptado. Se sabe que la variabilidad de la presión arterial y su pulsatilidad son el resultado de una compleja interacción entre el corazón y la red vascular. En particular, y para la evaluación de las características biomecánicas de la red arterial, se utiliza la velocidad de onda de pulso (VOP) como indicador indirecto de rigidez arterial. Así como la MAPA braquial ha impulsado el desarrollo de dispositivos de registro y análisis cada vez más sofisticados, la posibilidad de realizar un registro ambulatorio de VOP genera nuevos campos de investigación, así como la necesidad de que existan nuevos dispositivos. 
 
-Existen otros metodos de estimacion de la MAPA, pero se generan numerosas controversias debido a la complejidad matemática de las estimaciones y al uso de modelos matemáticos  arteriales unificados que suponen ser válidos para todos los pacientes. 
-La presión arterial humana es responde a una curva que tiene un pico y un valle, y una forma de onda característica. De esta curva pueden calcularse toda una serie de parámetros que modelizan el arbol arterial. Sin embargo, el método más utilizado en la medicina clínica para estimar la presión arterial, el método oscilométrico, solo toma dos valores característicos de esta curva, el máximo y el mínimo, denominados \textbf{presion sistólica} y \textbf{presión diastólica}. Sin intentar profundizar en la técnica, el método oscilométrico consiste en inflar una almohadilla sobre el brazo del paciente a una presión que se supone mayor a lo normal en la población, de manera de obstruir por completo la circulación de la arteria a medir, colocando el sensor del estetoscopio bajo entre el brazo y la almohadilla. Luego se desinfla el manguito a una velocidad constante, y se mide en el manómetro la diferencia entre la presión arterial y de la almohadilla. Mientras se desinfla por encima del máximo de la curva de presión, la aguja del manómetro baja a ritmo constante. El operador de la medición, idealmente el personal de salud, visualiza en el manómetro el valor de presión para el cual la aguja hace un rebote. Este valor es la \textbf{presion sistólica}. La almohadilla sigue desinflándose, hasta un valor que ya no puede medirse diferencia contra la presión atmosférica. El último rebote de la aguja que se visualiza antes que se pierda la medición corresponde al mínimo, es decir \textbf{presión diastólica}. Esto puede visualizarse en la figura \ref{fig:presion}. Este método es de gran utilidad para la medicina clínica hace cientos de años, sin embargo, tiene la contrapartida de que se pierde el detalle de la forma de onda de la curva de presión, lo cual es solo posible apreciar utilizando un sistema de adquisición contínuo con una tasa de muestreo adecuada.
+
+Sin intentar profundizar en la técnica, el método oscilométrico consiste en inflar una almohadilla sobre el brazo del paciente a una presión que se supone mayor a lo normal en la población, de manera de obstruir por completo la circulación de la arteria a medir, colocando el sensor del estetoscopio bajo entre el brazo y la almohadilla. Luego se desinfla el manguito a una velocidad constante, y se mide en el manómetro la diferencia entre la presión arterial y de la almohadilla. Mientras se desinfla por encima del máximo de la curva de presión, la aguja del manómetro baja a ritmo constante. El operador de la medición, idealmente el personal de salud, visualiza en el manómetro el valor de presión para el cual la aguja hace un rebote. Este valor es la \textbf{presion sistólica}. La almohadilla sigue desinflándose, hasta un valor que ya no puede medirse diferencia contra la presión atmosférica. El último rebote de la aguja que se visualiza antes que se pierda la medición corresponde al mínimo, es decir \textbf{presión diastólica}. Esto puede visualizarse en la figura \ref{fig:presion}. Este método es de gran utilidad para la medicina clínica hace cientos de años, sin embargo, tiene la contrapartida de que se pierde el detalle de la forma de onda de la curva de presión, lo cual es solo posible apreciar utilizando un sistema de adquisición contínuo con una tasa de muestreo adecuada.
 
 
 \begin{figure}[!htbp]
@@ -59,9 +76,7 @@ La presión arterial humana es responde a una curva que tiene un pico y un valle
 	\label{fig:presion}
 \end{figure}
 
-
 En este contexto, el estudio ambulatorio de la VOP en animales grandes podría brindar nuevas oportunidades para validar diferentes algoritmos de cálculo. La adquisición invasiva de señales de presión en dos sitios alejados del sistema arterial y a una distancia conocida, permite mejorar el conocimiento actual sobre la VOP en distintas condiciones del animal.
-
 
 Las experiencias realizadas con este equipo permitirán profundizar la investigación sobre la medición indirecta de presión ambulatoria a partir de la medición de VOP y las técnicas para su cálculo. La aplicación de esta técnica para medición de presión ambulatoria permitirá desarrollar a futuro equipos ambulatorios que puedan medir de manera continua la presión de un paciente, con más información, mejor resolución y más comodidad al no tener un manguito inflable.
 
@@ -74,7 +89,7 @@ Las experiencias de medición de VOP se realizan sobre animales grandes concient
 	\caption{Oveja instrumentada con un equipamiento antiguo con interfaz cableada.}
 	\label{fig:oveja}
 \end{figure}
-
+cualquier
 El equipamiento de medición debe ir sobre el animal para evitar que existan cables que limiten el movimiento y dificulten la vida diaria del mismo. Además, luego de un período de adaptación, el equipo debe ser imperceptible para el animal. Esto se logra con un tamaño reducido, un sistema de carga cómoda, como una pequeña mochila, bajo peso, ausencia de ruido, etc. Durante toda la experiencia de medición, el equipo debe estar sobre el animal, y, dentro de lo posible, solo debe acercarse personal de veterinaria para tareas de higiene y alimentación, que son personas el animal ya conoce. El operador del equipo debería solamente acercarse al animal para la instalación del equipo, y para retirarlo al finalizar la experiencia. El resto del tiempo, el operador debe tener una interacción mínima con el animal.
 
 
