@@ -17,6 +17,32 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global}
+  \entry{figueroa2014}{article}{}
+    \name{author}{2}{}{%
+      {{hash=C}{%
+         family={C.A.Figueroa},
+         familyi={C\bibinitperiod},
+      }}%
+      {{hash=HJ}{%
+         family={Humphrey},
+         familyi={H\bibinitperiod},
+         given={J.D.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CHJ1}
+    \strng{fullhash}{CHJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{C}
+    \field{sortinithash}{C}
+    \field{title}{Pressure wave propagation in full-body arterial models: A
+  gateway to exploring aging and hypertension}
+    \field{journaltitle}{23rd International Congress of Theoretical and Applied
+  Mechanics}
+    \field{year}{2014}
+  \endentry
+
   \entry{hansen2006}{article}{}
     \name{author}{5}{}{%
       {{hash=HT}{%
@@ -143,6 +169,42 @@
     \field{year}{2006}
   \endentry
 
+  \entry{saito2011}{article}{}
+    \name{author}{5}{}{%
+      {{hash=M}{%
+         family={M.Saito},
+         familyi={M\bibinitperiod},
+      }}%
+      {{hash=Y}{%
+         family={Y.Ikenaga},
+         familyi={Y\bibinitperiod},
+      }}%
+      {{hash=M}{%
+         family={M.Watanabe},
+         familyi={M\bibinitperiod},
+      }}%
+      {{hash=T}{%
+         family={T.Asada},
+         familyi={T\bibinitperiod},
+      }}%
+      {{hash=P}{%
+         family={P.Lagrée},
+         familyi={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{M+1}
+    \strng{fullhash}{MYMTP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{M}
+    \field{sortinithash}{M}
+    \field{title}{One-Dimensional Model for Propagation of a Pressure Wave in a
+  Model of the Human Arterial Network: Comparison of Theoretical and
+  Experimental Results}
+    \field{journaltitle}{Journal of Biomechanical Engineering}
+    \field{year}{2011}
+  \endentry
+
   \entry{nichols2008}{article}{}
     \name{author}{5}{}{%
       {{hash=NW}{%
@@ -189,6 +251,35 @@
     \endverb
     \field{journaltitle}{J of Clinical Hypertension.}
     \field{year}{2008}
+  \endentry
+
+  \entry{ogedegbe2010}{article}{}
+    \name{author}{2}{}{%
+      {{hash=OG}{%
+         family={Ogedegbe},
+         familyi={O\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=PT}{%
+         family={Pickering},
+         familyi={P\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OGPT1}
+    \strng{fullhash}{OGPT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{O}
+    \field{sortinithash}{O}
+    \field{title}{Principles and techniques of blood pressure measurement}
+    \verb{url}
+    \verb https://doi.org/10.1016/j.ccl.2010.07.006
+    \endverb
+    \field{journaltitle}{National Institutes of Health}
+    \field{year}{2010}
   \endentry
 
   \entry{omboni2016}{article}{}
@@ -259,6 +350,44 @@
     \verb https://www.who.int/features/qa/82/en/
     \endverb
     \field{year}{2015}
+  \endentry
+
+  \entry{ruso2001}{article}{}
+    \name{author}{4}{}{%
+      {{hash=R}{%
+         family={R.Ruso},
+         familyi={R\bibinitperiod},
+      }}%
+      {{hash=RJ}{%
+         family={Ramos},
+         familyi={R\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=O}{%
+         family={O.Batista},
+         familyi={O\bibinitperiod},
+      }}%
+      {{hash=dRR}{%
+         prefix={del},
+         prefixi={d\bibinitperiod},
+         family={Rey},
+         familyi={R\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{R+1}
+    \strng{fullhash}{RRJORRd1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{R}
+    \field{sortinithash}{R}
+    \field{title}{Una implementación efectiva del método oscilométrico para
+  la medición de la presión arterial.}
+    \field{journaltitle}{Memorias II Congreso Latinoamericano de Ingeniería
+  Biomédica}
+    \field{year}{2001}
   \endentry
 
   \entry{staensen1999}{article}{}
