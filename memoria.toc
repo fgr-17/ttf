@@ -1,23 +1,25 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {spanish}{}
+\defcounter {refsection}{0}\relax 
+\select@language {spanish}
 \contentsline {chapter}{Resumen}{\es@scroman {iii}}{section*.1}
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n General}{1}{chapter.6}
-\contentsline {section}{\numberline {1.1}Descripcion General del Trabajo}{1}{section.7}
-\contentsline {subsection}{\numberline {1.1.1}Bases f\IeC {\'\i }sicas de la medici\IeC {\'o}n}{2}{subsection.9}
-\contentsline {subsection}{\numberline {1.1.2}Estado del arte}{2}{subsection.11}
-\contentsline {subsection}{\numberline {1.1.3}Medicion ambulatoria de presi\IeC {\'o}n arterial}{3}{subsection.13}
-\contentsline {section}{\numberline {1.2}Motivaci\IeC {\'o}n y Aplicaciones del equipo}{4}{section.14}
-\contentsline {section}{\numberline {1.3}Objetivos y alcance}{6}{section.16}
-\contentsline {chapter}{\numberline {2}Introducci\IeC {\'o}n Espec\IeC {\'\i }fica}{7}{chapter.17}
-\contentsline {section}{\numberline {2.1}Detalle de las necesidades}{7}{section.18}
-\contentsline {section}{\numberline {2.2}Requerimientos}{9}{section.21}
-\contentsline {section}{\numberline {2.3}Planificaci\IeC {\'o}n}{10}{section.37}
-\contentsline {chapter}{\numberline {3}Dise\IeC {\~n}o e Implementaci\IeC {\'o}n}{13}{chapter.45}
-\contentsline {section}{\numberline {3.1}Implementaci\IeC {\'o}n del sistema}{13}{section.46}
-\contentsline {section}{\numberline {3.2}An\IeC {\'a}lisis del software}{13}{section.48}
-\contentsline {chapter}{\numberline {4}Ensayos y Resultados}{15}{chapter.78}
-\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{15}{section.79}
-\contentsline {chapter}{\numberline {5}Conclusiones}{17}{chapter.80}
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{17}{section.81}
-\contentsline {section}{\numberline {5.2}Pr\IeC {\'o}ximos pasos}{17}{section.82}
-\contentsline {chapter}{Bibliograf\'{\i }a}{19}{appendix*.83}
+\contentsline {section}{\numberline {1.1}Introducci\IeC {\'o}n}{1}{section.7}
+\contentsline {section}{\numberline {1.2}Descripcion General del Trabajo}{1}{section.8}
+\contentsline {subsection}{\numberline {1.2.1}Bases f\IeC {\'\i }sicas de la medici\IeC {\'o}n}{1}{subsection.10}
+\contentsline {subsection}{\numberline {1.2.2}Estado del arte}{3}{subsection.12}
+\contentsline {subsection}{\numberline {1.2.3}Medicion ambulatoria de presi\IeC {\'o}n arterial}{3}{subsection.14}
+\contentsline {section}{\numberline {1.3}Motivaci\IeC {\'o}n y Aplicaciones del equipo}{5}{section.15}
+\contentsline {section}{\numberline {1.4}Objetivos y alcance}{5}{section.17}
+\contentsline {chapter}{\numberline {2}Introducci\IeC {\'o}n Espec\IeC {\'\i }fica}{9}{chapter.18}
+\contentsline {section}{\numberline {2.1}Detalle de las necesidades}{9}{section.19}
+\contentsline {section}{\numberline {2.2}Requerimientos}{11}{section.22}
+\contentsline {section}{\numberline {2.3}Planificaci\IeC {\'o}n}{12}{section.38}
+\contentsline {chapter}{\numberline {3}Dise\IeC {\~n}o e Implementaci\IeC {\'o}n}{15}{chapter.46}
+\contentsline {section}{\numberline {3.1}Implementaci\IeC {\'o}n del sistema}{15}{section.47}
+\contentsline {section}{\numberline {3.2}An\IeC {\'a}lisis del software}{15}{section.49}
+\contentsline {chapter}{\numberline {4}Ensayos y Resultados}{17}{chapter.79}
+\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{17}{section.80}
+\contentsline {chapter}{\numberline {5}Conclusiones}{19}{chapter.81}
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{19}{section.82}
+\contentsline {section}{\numberline {5.2}Pr\IeC {\'o}ximos pasos}{19}{section.83}
+\contentsline {chapter}{Bibliograf\'{\i }a}{21}{appendix*.84}

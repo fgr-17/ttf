@@ -17,12 +17,15 @@
 
 %----------------------------------------------------------------------------------------
 
-%\section{Introducción}
+\section{Introducción}
+
+En el presente capítulo se describen los lineamientos generales del trabajo, sus motivaciones en el campo de la Ingeniería Biomédica, el estado del arte actual y los objetivos específicos alcanzados.
+
 
 %----------------------------------------------------------------------------------------
 \section{Descripcion General del Trabajo}
 
-El proyecto aquí presentado consiste en un sistema de adquisición portátil para medición de parámetros biomédicos en animales grandes. En este proyecto se tiene particular interés en la medición del parámetro biológico denominado \enquote{velocidad de onda de pulso (VOP)}, cuyo método de cálculo más aceptado consiste en el registro simultáneo de señales de presión intraarterial en dos puntos del árbol arterial. Conociendo la distancia y el desfasaje temporal entre estas mediciones de presión, se puede estimar la VOP como su cociente. Esto puede verse graficado en la figura \ref{fig:vop}.
+El trabajo aquí presentado consiste en un sistema de adquisición portátil para medición de parámetros biomédicos en animales grandes. Se tiene particular interés en la medición del parámetro biológico denominado \enquote{velocidad de onda de pulso (VOP)}, cuyo método de cálculo más aceptado consiste en el registro simultáneo de señales de presión intraarterial en dos puntos del árbol arterial. Conociendo la distancia y el desfasaje temporal entre estas mediciones de presión, se puede estimar la VOP como su cociente. Esto puede verse graficado en la figura \ref{fig:vop}.
 
 \begin{figure}[!htbp]
 	\centering
@@ -31,7 +34,7 @@ El proyecto aquí presentado consiste en un sistema de adquisición portátil pa
 	\label{fig:vop}
 \end{figure}
 
-Este dispositivo está orientado a ser utilizado por investigadores médicos, ingenieros biomédicos, biólogos y veterinarios en grupos de trabajo en general aplicado a cardiología. En particular este trabajo se realiza para la Universidad Favaloro, y es importante porque permitirá avanzar a futuro en el conocimiento de formas de medición de presión ambulatoria indirecta, más precisas y menos invasivas.
+El dispositivo desarrollado en este trabajo está orientado a ser utilizado por investigadores médicos, ingenieros biomédicos, biólogos y veterinarios en grupos de trabajo en general aplicado a cardiología. En particular este trabajo se realiza para la Universidad Favaloro, y es importante porque permitirá avanzar a futuro en el conocimiento de formas de medición de presión ambulatoria indirecta, más precisas y menos invasivas.
 
 \subsection{Bases físicas de la medición}
 
@@ -47,7 +50,7 @@ De acuerdo a la Organización Mundial de la Salud, la presión sanguínea humana
 
 \subsection{Estado del arte}
 
-El rol de la medición ambulatoria de presión arterial (MAPA) \citep{hansen2006} \citep{staensen1999} \citep{verdecchia1993} 24 hs braquial para predecir riesgo cardiovascular y mortalidad es ampliamente aceptado. Se sabe que la variabilidad de la presión arterial y su pulsatilidad son el resultado de una compleja interacción entre el corazón y la red vascular. En particular, y para la evaluación de las características biomecánicas de la red arterial, se utiliza la velocidad de onda de pulso (VOP) como indicador indirecto de rigidez arterial \citep{nichols2008}.
+La medición ambulatoria de presión arterial (MAPA) braquial durante 24 horas es un método ampliamente aceptado para predecir riesgo cardiovascular y mortalidad\citep{hansen2006} \citep{staensen1999} \citep{verdecchia1993}. Se sabe que la variabilidad de la presión arterial y su pulsatilidad son el resultado de una compleja interacción entre el corazón y la red vascular. En particular, y para la evaluación de las características biomecánicas de la red arterial, se utiliza la velocidad de onda de pulso (VOP) como indicador indirecto de rigidez arterial \citep{nichols2008}.
 
 Actualmente, existen diferentes técnicas para la medición de presión \citep{ogedegbe2010}. Pueden agruparse entre los métodos que brindan mediciones puntuales (presión sistólica, diastólica y media) y los que brindan mediciones contínuas. Entre los que brindan mediciones puntuales están el método auscultatorio, el método oscilométrico, método palpatorio, técnicas de ultrasonido, etc. Por otro lado, los que brindan mediciones contínuas suelen ser métodos invasivos como el catéter o no invasivos como la medición indirecta a partir de la medición de VOP \citep{ruso2001}.
 
@@ -72,7 +75,7 @@ Una de las técnicas para medición contínua de presión es la medición indire
 
 
 Existen otros metodos de estimacion de la MAPA, pero se generan numerosas controversias debido a la complejidad matemática de las estimaciones y al uso de modelos matemáticos  arteriales unificados que suponen ser válidos para todos los pacientes. 
-La presión arterial humana responde a una curva que tiene un pico y un valle, y una forma de onda característica. De esta curva pueden calcularse toda una serie de parámetros que modelizan el arbol arterial. Sin embargo, el método más utilizado en la medicina clínica para estimar la presión arterial, el método oscilométrico, solo toma dos valores característicos de esta curva, el máximo y el mínimo, denominados \textbf{presion sistólica} y \textbf{presión diastólica}. 
+La presión arterial humana responde a una curva que tiene un pico y un valle, y una forma de onda característica. De esta curva pueden calcularse toda una serie de parámetros que modelizan el arbol arterial. Sin embargo, el método más utilizado en la medicina clínica para estimar la presión arterial, el método oscilométrico, solo toma dos valores característicos de esta curva, el máximo y el mínimo, denominados presion sistólica y presión diastólica.
 
 \section{Motivación y Aplicaciones del equipo}
 
@@ -80,13 +83,13 @@ En este contexto, el estudio ambulatorio de la VOP en animales grandes podría b
 
 Las experiencias realizadas con este equipo permitirán profundizar la investigación sobre la medición indirecta de presión ambulatoria a partir de la medición de VOP y las técnicas para su cálculo. La aplicación de esta técnica para la MAPA permitirá desarrollar a futuro equipos portátiles que puedan medir de manera continua la presión de un paciente, con más información, mejor resolución y más comodidad.
 
-Las experiencias de medición de VOP se realizan sobre animales grandes concientes, como ovejas o cerdos. Estos animales se encuentran previamente instrumentados con sensores de presión intraarteriales en forma crónica y tienen un prolongado período de adaptación a la vida en un corral de un laboratorio de investigación y al trato con los veterinarios. En la figura \ref{fig:oveja} puede verse una fotografía de una oveja durante una experiencia real con un equipamiento antiguo. La correcta adaptación del animal a la vida en el corral del laboratorio es muy importante porque la medición de la presión arterial se ve severamente afectada por la comodidad y bienestar del animal. Por ejemplo, algunas de las líneas de investigación estudian justamente la diferencia de los valores medios de presión entre el período de vigilia y de sueño. Este tipo de experiencias sobre un animal en estado de alerta se hace totalmente imposible.
+Las experiencias de medición de VOP se realizan sobre animales grandes concientes, como ovejas o cerdos. Estos animales se encuentran previamente instrumentados con sensores de presión intraarteriales en forma crónica y tienen un prolongado período de adaptación a la vida en un corral de un laboratorio de investigación y al trato con los veterinarios. En la figura \ref{fig:oveja} puede verse una fotografía de una oveja durante una experiencia real con un equipamiento antiguo. La correcta adaptación del animal a la vida en el corral del laboratorio es muy importante porque la presión arterial se ve severamente afectada por la comodidad y bienestar del animal. Por ejemplo, algunas de las líneas de investigación estudian justamente la diferencia de los valores medios de presión entre el período de vigilia y de sueño. Este tipo de experiencias sobre un animal en estado de alerta se hace totalmente imposible.
 
 
 \begin{figure}[!htbp]
 	\centering
 	\includegraphics[width=\textwidth]{./Figures/oveja.png}
-	\caption{Oveja instrumentada con un equipamiento antiguo con interfaz cableada.}
+	\caption{Oveja instrumentada con un equipamiento antiguo con interfaz cableada. En la derecha de la imagen se puede observar el equipo de registro de datos antiguo, el cual depende de una PC y obliga a tener el animal conectado al equipo mediante un cable durante toda la experiencia.}
 	\label{fig:oveja}
 \end{figure}
 
@@ -101,6 +104,6 @@ Las señales además se pueden visualizar en tiempo real para realizar algún ev
 
 El equipo se diseñó para ser portátil, alimentado por batería, con una autonomía aproximada de 24 horas. A la vez, se hizo énfasis en lograr un bajo peso que no moleste al animal durante la experiencia. La interfaz de carga es a través de la misma conexión USB.
 
-El desarrollo del proyecto no incluye la fabricación del gabinete final ni del soporte para ser llevado por el animal. Tampoco se incluye el software de la terminal de configuración, solamente una versión beta para pruebas.
+El desarrollo del proyecto no incluye la fabricación del gabinete final ni del soporte para ser llevado por el animal. Tampoco se incluye el software de la terminal de configuración, solamente una versión preliminar para pruebas.
 
 %----------------------------------------------------------------------------------------
