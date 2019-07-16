@@ -43,6 +43,30 @@
     \field{year}{2014}
   \endentry
 
+  \entry{conectores2007}{report}{}
+    \name{author}{1}{}{%
+      {{hash=ET}{%
+         family={Electronics},
+         familyi={E\bibinitperiod},
+         given={Tyco},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ET1}
+    \strng{fullhash}{ET1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \field{title}{AMP Circular Connectors for Commercial Signal \& Power
+  Applications}
+    \list{institution}{1}{%
+      {Tyco Electronics}%
+    }
+    \field{type}{techreport}
+    \field{year}{2007}
+  \endentry
+
   \entry{hansen2006}{article}{}
     \name{author}{5}{}{%
       {{hash=HT}{%

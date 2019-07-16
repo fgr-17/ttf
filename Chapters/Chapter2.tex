@@ -6,7 +6,7 @@
 %	SECTION 1
 %----------------------------------------------------------------------------------------
 
-En este capítulo se hará énfasis en las características de la experiencia en la que se utilizará el equipo y sus necesidades, a partir  de los cuales se generan cada uno de los requerimientos de diseño.
+En este capítulo se hará énfasis en las características de la experiencia en la que se utilizará el equipo y las condiciones en que surgen cada uno de los requerimientos de diseño.
 
 \section{Detalle de las necesidades}
 
@@ -18,12 +18,17 @@ Las experiencias de medición consisten básicamente en colocar el equipo en una
 
 La presión arterial es un parámetro que es fuertemente dependiente del bienestar del animal, por lo que es importante que la batería tenga autonomía suficiente para toda la experiencia y que no sea necesario un recambio o recarga. Es necesario que sea portátil para que el animal no esté conectado a ningún equipo a través de cables. Como se trata de una experiencia larga, también es importante que el equipo no sea pesado, voluminoso, ruidoso, ni se caliente. 
 
-Los sensores utilizados son del tipo strain-gauge. Pueden visualizarse en la imagen \ref{fig:konigsberg}. Se trata de una resistencia que varía su valor de acuerdo a la presión aplicada. El sensor además cuenta con propiedades aptas para ser implantado en un animal. Este sensor tiene un conector propio de la marca Königsberg al que se le conecta un compensador por temperatura calibrado específicamente para cada sensor, y de allí se utiliza un conector AMP - CPC Series I roscado de 4 terminales dorados para ingresar al equipo \citep{conectores}. Esta última conexión es muy importante para evitar que se agregue ruido a la señal medida.
+Los sensores utilizados son del tipo strain-gauge. Pueden visualizarse en la imagen \ref{fig:konigsberg}. Se trata de una resistencia que varía su valor de acuerdo a la presión aplicada. El sensor además cuenta con propiedades aptas para ser implantado en un animal. Este sensor tiene un conector propio de la marca Königsberg al que se le conecta un compensador por temperatura calibrado específicamente para cada sensor, y de allí se utiliza un conector AMP - CPC Series I roscado de 4 terminales dorados para ingresar al equipo \citep{conectores2007}. Esta última conexión es muy importante para evitar que se agregue ruido a la señal medida.
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=\textwidth]{./Figures/konigsberg.jpeg}
-	\caption{Imagen de conector, cable y sensor Königsberg}
+	
+	\begin{minipage}{0.65\textwidth}
+		\includegraphics[width=\textwidth]{./Figures/konigsberg.jpeg}
+		{\footnotesize \textit{Sensores empleados para la medición intra arterial. El conector roscado de la figura se conecta a un módulo de compensación por temperatura para luego ingresar al equipo.}\par}		
+	\end{minipage}		
+		
+	\caption{Conector, cable y sensores Königsberg de presión}
 	\label{fig:konigsberg}
 \end{figure}
 
@@ -33,7 +38,12 @@ Desde el punto de vista del análisis frecuencial, la señal de presión tiene u
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=\textwidth]{./Figures/senpresion.png}
+	
+	\begin{minipage}{0.65\textwidth}
+		\includegraphics[width=\textwidth]{./Figures/senpresion.png}
+		{\footnotesize \textit{La onda de presión arterial de un mamífero corresponde a una señal mayormente períodica con un valor medio variable que puede corresponder a los ciclos diarios y actividad física.}\par}		
+	\end{minipage}		
+	
 	\caption{Señal típica de presión arterial de un mamífero.}
 	\label{fig:senpresion}
 \end{figure}
