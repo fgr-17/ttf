@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.7.4)  16 JUL 2019 19:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.7.4)  16 JUL 2019 16:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1828,38 +1828,32 @@ File: spanish.lbx 2017/12/19 v3.10 biblatex localization (PK/JW/AB)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 
-(./memoria.aux
-LaTeX Info: Redefining \sptext on input line 30.
-LaTeX Info: Redefining \. on input line 30.
-LaTeX Info: Redefining \% on input line 30.
- (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux)
-(./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Chapters/Chapter5.aux))
+(./memoria.aux)
 \openout1 = `memoria.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 141.
-LaTeX Font Info:    ... okay on input line 141.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 141.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 143.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
-LaTeX Info: Redefining \sptext on input line 141.
-LaTeX Info: Redefining \. on input line 141.
-LaTeX Info: Redefining \% on input line 141.
+LaTeX Info: Redefining \sptext on input line 143.
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
 Now handling font encoding TS1 ...
 ... processing UTF-8 mapping file for font encoding TS1
 
@@ -2018,7 +2012,7 @@ Package caption Info: End \AtBeginDocument code.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package scrlayer Info: Setting magic \footheight to \baselineskip while
-(scrlayer)             \begin{document} on input line 141.
+(scrlayer)             \begin{document} on input line 143.
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -2028,12 +2022,464 @@ Package biblatex Info: Data encoding 'utf8' specified.
 \openout4 = `memoria-blx.bib'.
 
 Package biblatex Info: Trying to load bibliographic data...
+
+Package biblatex Warning: File 'memoria.bbl' is wrong format version - expected
+ 2.9.
+
 Package biblatex Info: ... file 'memoria.bbl' found.
-(./memoria.bbl)
-Package biblatex Info: Reference section=0 on input line 141.
-Package biblatex Info: Reference segment=0 on input line 141.
+(./memoria.bbl
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.19 \entry{figueroa2014}{article}{}
+                                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.40 \endentry
+              
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.40 \endentry
+              
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.42 \entry{conectores2007}{report}{}
+                                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.60 \endentry
+              
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.60 \endentry
+              
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.62 \entry{hansen2006}{article}{}
+                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.100 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.100 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.102 \entry{fowler2015}{article}{}
+                                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.116 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.116 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.118 \entry{laurent2006}{article}{}
+                                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.181 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.181 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.183 \entry{saito2011}{article}{}
+                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.219 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.219 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.221 \entry{nichols2008}{article}{}
+                                    
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.259 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.259 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.261 \entry{ogedegbe2010}{article}{}
+                                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.283 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.283 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.285 \entry{omboni2016}{article}{}
+                                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.323 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.323 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.325 \entry{who2015}{online}{}
+                               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.341 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.341 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.343 \entry{ruso2001}{article}{}
+                                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.374 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.374 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.376 \entry{staensen1999}{article}{}
+                                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.449 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.449 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+\entry ...ata@\the \c@refsection @\blx@dlist@name 
+                                                  @\abx@field@entrykey }\csu...
+l.451 \entry{verdecchia1993}{article}{}
+                                       
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{entry} {\listcsxadd {blx...
+l.524 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...equal \expandafter {\blx@dlist@type 
+                                                  }{list} {\blx@bbl@labelfie...
+l.524 \endentry
+               
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.526 \lossort
+              
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.527 \endlossort
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+)
+Package biblatex Info: Reference section=0 on input line 143.
+Package biblatex Info: Reference segment=0 on input line 143.
 \AtBeginShipoutBox=\box70
-Package hyperref Info: Link coloring ON on input line 141.
+Package hyperref Info: Link coloring ON on input line 143.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -2042,9 +2488,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count451
 )
-LaTeX Info: Redefining \ref on input line 141.
-LaTeX Info: Redefining \pageref on input line 141.
-LaTeX Info: Redefining \nameref on input line 141.
+LaTeX Info: Redefining \ref on input line 143.
+LaTeX Info: Redefining \pageref on input line 143.
+LaTeX Info: Redefining \nameref on input line 143.
 
 (./memoria.out) (./memoria.out)
 \@outlinefile=\write6
@@ -2052,80 +2498,80 @@ LaTeX Info: Redefining \nameref on input line 141.
 
  ABD: EveryShipout initializing macros
 \c@lstlisting=\count452
-Package scrhack Info: undefining \float@addtolists on input line 141.
-LaTeX Info: Redefining \sptext on input line 141.
-LaTeX Info: Redefining \lsc on input line 141.
-LaTeX Info: Redefining \. on input line 141.
-LaTeX Info: Redefining \% on input line 141.
-LaTeX Info: Redefining \dotlessi on input line 141.
-Package scrbase Info: activating spanish \acknowledgementname on input line 141
+Package scrhack Info: undefining \float@addtolists on input line 143.
+LaTeX Info: Redefining \sptext on input line 143.
+LaTeX Info: Redefining \lsc on input line 143.
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
+LaTeX Info: Redefining \dotlessi on input line 143.
+Package scrbase Info: activating spanish \acknowledgementname on input line 143
 .
-LaTeX Info: Redefining \sptext on input line 141.
-LaTeX Info: Redefining \lsc on input line 141.
-LaTeX Info: Redefining \. on input line 141.
-LaTeX Info: Redefining \% on input line 141.
-LaTeX Info: Redefining \dotlessi on input line 141.
-Package scrbase Info: activating spanish \authorshipname on input line 141.
-LaTeX Info: Redefining \sptext on input line 141.
-LaTeX Info: Redefining \lsc on input line 141.
-LaTeX Info: Redefining \. on input line 141.
-LaTeX Info: Redefining \% on input line 141.
-LaTeX Info: Redefining \dotlessi on input line 141.
-Package scrbase Info: activating spanish \abbrevname on input line 141.
-LaTeX Info: Redefining \sptext on input line 141.
-LaTeX Info: Redefining \lsc on input line 141.
-LaTeX Info: Redefining \. on input line 141.
-LaTeX Info: Redefining \% on input line 141.
-LaTeX Info: Redefining \dotlessi on input line 141.
-Package scrbase Info: activating spanish \byname on input line 141.
+LaTeX Info: Redefining \sptext on input line 143.
+LaTeX Info: Redefining \lsc on input line 143.
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
+LaTeX Info: Redefining \dotlessi on input line 143.
+Package scrbase Info: activating spanish \authorshipname on input line 143.
+LaTeX Info: Redefining \sptext on input line 143.
+LaTeX Info: Redefining \lsc on input line 143.
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
+LaTeX Info: Redefining \dotlessi on input line 143.
+Package scrbase Info: activating spanish \abbrevname on input line 143.
+LaTeX Info: Redefining \sptext on input line 143.
+LaTeX Info: Redefining \lsc on input line 143.
+LaTeX Info: Redefining \. on input line 143.
+LaTeX Info: Redefining \% on input line 143.
+LaTeX Info: Redefining \dotlessi on input line 143.
+Package scrbase Info: activating spanish \byname on input line 143.
 \c__siunitx_mathsf_int=\count453
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 141.
+(Font)              <10.95> on input line 143.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 141.
+(Font)              <8> on input line 143.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 141.
+(Font)              <6> on input line 143.
 \c__siunitx_mathtt_int=\count454
 
 1: section
-<./Figures/logoFIUBA.png, id=107, 220.825pt x 220.825pt>
+<./Figures/logoFIUBA.png, id=7, 220.825pt x 220.825pt>
 File: ./Figures/logoFIUBA.png Graphic file (type png)
 <use ./Figures/logoFIUBA.png>
-Package pdftex.def Info: ./Figures/logoFIUBA.png  used on input line 158.
+Package pdftex.def Info: ./Figures/logoFIUBA.png  used on input line 160.
 (pdftex.def)             Requested size: 116.94199pt x 116.94234pt.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 163.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 165.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 167.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 169.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 185.
+(babel)             in language  on input line 187.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 185.
+(babel)             in language  on input line 187.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 185.
+(babel)             in language  on input line 187.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 185.
+(babel)             in language  on input line 187.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 185.
+(babel)             in language  on input line 187.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 185.
+(babel)             in language  on input line 187.
 [1
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./Figures/logoFIUBA.png>]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 192.
+(babel)             in language  on input line 194.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 192.
+(babel)             in language  on input line 194.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 192.
+(babel)             in language  on input line 194.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 192.
+(babel)             in language  on input line 194.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 192.
+(babel)             in language  on input line 194.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 192.
+(babel)             in language  on input line 194.
  [2
 
 ]
@@ -2133,43 +2579,43 @@ Package babel Info: Redefining spanish shorthand "?
  Resumen
 --------------------
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 193.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 193.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 193.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 193.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 193.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 193.
+(babel)             in language  on input line 195.
 1: section
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
 [3]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 208.
+(babel)             in language  on input line 210.
  [4
 
 ]
@@ -2178,148 +2624,138 @@ Package babel Info: Redefining spanish shorthand "?
 --------------------
 1: section
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
 [5]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 223.
+(babel)             in language  on input line 225.
  [6
 
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 223.
- (./memoria.toc
-LaTeX Info: Redefining \sptext on input line 2.
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 3.
-LaTeX Font Info:    Font shape `T1/ppl/bx/sc' in size <10.95> not available
-(Font)              Font shape `T1/ppl/b/sc' tried instead on input line 3.
-)
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 225.
+
+
+Package hyperref Warning: old toc file detected, not used; run LaTeX again.
+
 \tf@toc=\write7
 \openout7 = `memoria.toc'.
 
-
 1: section
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
 [7]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 225.
+(babel)             in language  on input line 227.
  [8
 
-] (./memoria.lof
-LaTeX Info: Redefining \sptext on input line 2.
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
-)
+]
+
+Package hyperref Warning: old lof file detected, not used; run LaTeX again.
+
 \tf@lof=\write8
 \openout8 = `memoria.lof'.
 
-
 1: section
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
 [9]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 227.
+(babel)             in language  on input line 229.
  [10
 
-] (./memoria.lot
-LaTeX Info: Redefining \sptext on input line 2.
-LaTeX Info: Redefining \. on input line 2.
-LaTeX Info: Redefining \% on input line 2.
-)
+]
+
+Package hyperref Warning: old lot file detected, not used; run LaTeX again.
+
 \tf@lot=\write9
 \openout9 = `memoria.lot'.
 
-
 1: section
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
 [11]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 242.
  [12
 
 ]
@@ -2354,7 +2790,12 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 24.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 24.
-<./Figures/VOP.jpg, id=217, 749.80125pt x 583.17876pt>
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 26.
+
+LaTeX Warning: Reference `fig:vop' on page 1 undefined on input line 26.
+
+<./Figures/VOP.jpg, id=67, 749.80125pt x 583.17876pt>
 File: ./Figures/VOP.jpg Graphic file (type jpg)
 <use ./Figures/VOP.jpg>
 Package pdftex.def Info: ./Figures/VOP.jpg  used on input line 31.
@@ -2390,7 +2831,15 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 40.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 40.
-<./Figures/periodopresion.png, id=225, 525.965pt x 373.395pt>
+
+
+LaTeX Warning: Citation 'who2015' on page 2 undefined on input line 42.
+
+
+LaTeX Warning: Reference `fig:periodopresion' on page 2 undefined on input line
+ 42.
+
+<./Figures/periodopresion.png, id=76, 525.965pt x 373.395pt>
 File: ./Figures/periodopresion.png Graphic file (type png)
 <use ./Figures/periodopresion.png>
 Package pdftex.def Info: ./Figures/periodopresion.png  used on input line 47.
@@ -2407,6 +2856,30 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 56.
+
+LaTeX Warning: Citation 'hansen2006' on page 2 undefined on input line 58.
+
+
+LaTeX Warning: Citation 'staensen1999' on page 2 undefined on input line 58.
+
+
+LaTeX Warning: Citation 'verdecchia1993' on page 2 undefined on input line 58.
+
+
+LaTeX Warning: Citation 'nichols2008' on page 2 undefined on input line 58.
+
+
+LaTeX Warning: Citation 'ogedegbe2010' on page 2 undefined on input line 60.
+
+
+LaTeX Warning: Citation 'ruso2001' on page 2 undefined on input line 60.
+
+
+Overfull \hbox (17.85077pt too wide) in paragraph at lines 60--61
+[]\T1/ppl/m/n/10.95 Actualmente, exis-ten di-fe-ren-tes téc-ni-cas pa-ra la me-
+di-ción de pre-sión [[]].
+ []
+
 LaTeX Info: Redefining \sptext on input line 61.
 LaTeX Info: Redefining \. on input line 61.
 LaTeX Info: Redefining \% on input line 61.
@@ -2422,12 +2895,22 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 61.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 61.
- [2 <./Figures/periodopresion.png>]
-<./Figures/moscilometrico.png, id=246, 443.40656pt x 278.54062pt>
+[2 <./Figures/periodopresion.png>]
+
+LaTeX Warning: Reference `fig:moscilometrico' on page 3 undefined on input line
+ 64.
+
+<./Figures/moscilometrico.png, id=87, 443.40656pt x 278.54062pt>
 File: ./Figures/moscilometrico.png Graphic file (type png)
 <use ./Figures/moscilometrico.png>
 Package pdftex.def Info: ./Figures/moscilometrico.png  used on input line 70.
 (pdftex.def)             Requested size: 253.36935pt x 159.16505pt.
+
+LaTeX Warning: Citation 'saito2011' on page 3 undefined on input line 78.
+
+
+LaTeX Warning: Citation 'figueroa2014' on page 3 undefined on input line 78.
+
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 81.
 Package babel Info: Redefining spanish shorthand >>
@@ -2440,6 +2923,12 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 81.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 81.
+
+LaTeX Warning: Citation 'laurent2006' on page 3 undefined on input line 83.
+
+
+LaTeX Warning: Citation 'omboni2016' on page 3 undefined on input line 83.
+
 LaTeX Info: Redefining \sptext on input line 84.
 LaTeX Info: Redefining \. on input line 84.
 LaTeX Info: Redefining \% on input line 84.
@@ -2455,7 +2944,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 84.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 84.
- [3 <./Figures/moscilometrico.png (PNG copy)>]
+[3 <./Figures/moscilometrico.png (PNG copy)>]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 89.
 Package babel Info: Redefining spanish shorthand >>
@@ -2468,6 +2957,10 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 89.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 89.
+
+
+LaTeX Warning: Reference `fig:oveja' on page 4 undefined on input line 95.
+
 LaTeX Info: Redefining \sptext on input line 96.
 LaTeX Info: Redefining \. on input line 96.
 LaTeX Info: Redefining \% on input line 96.
@@ -2483,8 +2976,8 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 96.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 96.
- [4]
-<./Figures/oveja.png, id=265, 266.9975pt x 200.75pt>
+[4]
+<./Figures/oveja.png, id=99, 266.9975pt x 200.75pt>
 File: ./Figures/oveja.png Graphic file (type png)
 <use ./Figures/oveja.png>
 Package pdftex.def Info: ./Figures/oveja.png  used on input line 102.
@@ -2517,26 +3010,25 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 122.
  [5 <./Figures/oveja.png>])
-LaTeX Info: Redefining \sptext on input line 249.
-LaTeX Info: Redefining \. on input line 249.
-LaTeX Info: Redefining \% on input line 249.
+LaTeX Info: Redefining \sptext on input line 251.
+LaTeX Info: Redefining \. on input line 251.
+LaTeX Info: Redefining \% on input line 251.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 251.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 251.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 251.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 251.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 251.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 249.
+(babel)             in language  on input line 251.
  [6]
 \openout2 = `Chapters/Chapter2.aux'.
 
-
-(./Chapters/Chapter2.tex
+ (./Chapters/Chapter2.tex
 Cap\'{\i }tulo 2.
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 1.
@@ -2562,6 +3054,13 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 11.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 11.
+
+LaTeX Warning: Reference `fig:konigsberg' on page 7 undefined on input line 21.
+
+
+
+LaTeX Warning: Citation 'conectores2007' on page 7 undefined on input line 21.
+
 1: section
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 22.
@@ -2580,12 +3079,17 @@ Package babel Info: Redefining spanish shorthand "?
 
 
 ]
-<./Figures/konigsberg.jpeg, id=282, 222.8325pt x 227.85126pt>
+<./Figures/konigsberg.jpeg, id=118, 222.8325pt x 227.85126pt>
 File: ./Figures/konigsberg.jpeg Graphic file (type jpg)
 <use ./Figures/konigsberg.jpeg>
 Package pdftex.def Info: ./Figures/konigsberg.jpeg  used on input line 27.
 (pdftex.def)             Requested size: 253.36935pt x 259.07863pt.
-<./Figures/senpresion.png, id=284, 837.1275pt x 342.27875pt>
+
+
+LaTeX Warning: Reference `fig:senpresion' on page 8 undefined on input line 35.
+
+
+<./Figures/senpresion.png, id=119, 837.1275pt x 342.27875pt>
 File: ./Figures/senpresion.png Graphic file (type png)
 <use ./Figures/senpresion.png>
 Package pdftex.def Info: ./Figures/senpresion.png  used on input line 43.
@@ -2605,7 +3109,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 52.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 52.
- [8 <./Figures/konigsberg.jpeg>]
+[8 <./Figures/konigsberg.jpeg>]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand >>
@@ -2646,45 +3150,48 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 95.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 95.
-<./Figures/gantt.png, id=307, 1351.0475pt x 752.8125pt>
+
+
+LaTeX Warning: Reference `fig:gantt' on page 10 undefined on input line 97.
+
+<./Figures/gantt.png, id=142, 1351.0475pt x 752.8125pt>
 File: ./Figures/gantt.png Graphic file (type png)
 <use ./Figures/gantt.png>
 Package pdftex.def Info: ./Figures/gantt.png  used on input line 101.
 (pdftex.def)             Requested size: 693.49821pt x 386.43346pt.
 )
-LaTeX Info: Redefining \sptext on input line 250.
-LaTeX Info: Redefining \. on input line 250.
-LaTeX Info: Redefining \% on input line 250.
+LaTeX Info: Redefining \sptext on input line 252.
+LaTeX Info: Redefining \. on input line 252.
+LaTeX Info: Redefining \% on input line 252.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 252.
  [10]
-LaTeX Info: Redefining \sptext on input line 250.
-LaTeX Info: Redefining \. on input line 250.
-LaTeX Info: Redefining \% on input line 250.
+LaTeX Info: Redefining \sptext on input line 252.
+LaTeX Info: Redefining \. on input line 252.
+LaTeX Info: Redefining \% on input line 252.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 250.
+(babel)             in language  on input line 252.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 250.
-
-[11 <./Figures/gantt.png>]
+(babel)             in language  on input line 252.
+ [11 <./Figures/gantt.png>]
 \openout2 = `Chapters/Chapter3.aux'.
 
  (./Chapters/Chapter3.tex
@@ -2748,7 +3255,12 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 45.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 45.
-<./Figures/diag_bloques.png, id=332, 674.52pt x 434.62375pt>
+
+
+LaTeX Warning: Reference `fig:diag_bloques' on page 13 undefined on input line 
+51.
+
+<./Figures/diag_bloques.png, id=169, 674.52pt x 434.62375pt>
 File: ./Figures/diag_bloques.png Graphic file (type png)
 <use ./Figures/diag_bloques.png>
 Package pdftex.def Info: ./Figures/diag_bloques.png  used on input line 56.
@@ -2766,6 +3278,8 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 61.
 
+LaTeX Warning: Citation 'fowler2015' on page 13 undefined on input line 64.
+
 1: section
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 66.
@@ -2780,7 +3294,7 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 66.
 [13]
-<./Figures/modeloV.png, id=339, 1417.05882pt x 680.18823pt>
+<./Figures/modeloV.png, id=178, 1417.05882pt x 680.18823pt>
 File: ./Figures/modeloV.png Graphic file (type png)
 <use ./Figures/modeloV.png>
 Package pdftex.def Info: ./Figures/modeloV.png  used on input line 69.
@@ -2894,312 +3408,102 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 261.
  [19]
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <9> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 268.
+! Misplaced \noalign.
+\toprule ->\noalign 
+                    {\ifnum 0=`}\fi \@aboverulesep =\abovetopsep \global \@b...
+l.272 \toprule
+              
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
 
-Overfull \hbox (24.21194pt too wide) in alignment at lines 266--269
- [] [] [] [] [] [] [] 
- []
+! Missing } inserted.
+<inserted text> 
+                }
+l.274 \textbf
+             {REQ/CU} & \textbf{CU0001} & \textbf{CU0002} & \textbf{CU0003} ...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 271.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 271.
+! Missing } inserted.
+<inserted text> 
+                }
+l.274 \textbf
+             {REQ/CU} & \textbf{CU0001} & \textbf{CU0002} & \textbf{CU0003} ...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-Overfull \hbox (24.21194pt too wide) in alignment at lines 269--290
- [] [] [] [] [] [] [] 
- []
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.274 \textbf
+             {REQ/CU} & \textbf{CU0001} & \textbf{CU0002} & \textbf{CU0003} ...
+I'm guessing that you meant to end an alignment here.
 
+! Undefined control sequence.
+\@BTrule ...\doublerulesep \fi \fi \fi \@BTswitch 
+                                                  
+l.274 \textbf
+             {REQ/CU} & \textbf{CU0001} & \textbf{CU0002} & \textbf{CU0003} ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-Overfull \hbox (24.21194pt too wide) in alignment at lines 290--309
- [] [] [] [] [] [] [] 
- []
+! Misplaced alignment tab character &.
+l.274 \textbf{REQ/CU} &
+                        \textbf{CU0001} & \textbf{CU0002} & \textbf{CU0003} ...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 314.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 314.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 314.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 314.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 314.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 314.
+! Misplaced alignment tab character &.
+l.274 \textbf{REQ/CU} & \textbf{CU0001} &
+                                          \textbf{CU0002} & \textbf{CU0003} ...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-Overfull \hbox (396.80339pt too wide) in alignment at lines 323--326
- [] [] [] [] 
- []
+! Misplaced alignment tab character &.
+l.274 ...CU} & \textbf{CU0001} & \textbf{CU0002} &
+                                                   \textbf{CU0003} & \textbf...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
+! Misplaced alignment tab character &.
+l.274 ...01} & \textbf{CU0002} & \textbf{CU0003} &
+                                                   \textbf{CU0004} & \textbf...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-Overfull \hbox (396.80339pt too wide) in alignment at lines 326--338
- [] [] [] [] 
- []
+! Misplaced alignment tab character &.
+l.274 ...02} & \textbf{CU0003} & \textbf{CU0004} &
+                                                   \textbf{CU0005} & \textbf...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-LaTeX Info: Redefining \sptext on input line 338.
-LaTeX Info: Redefining \. on input line 338.
-LaTeX Info: Redefining \% on input line 338.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 338.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 338.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 338.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 338.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 338.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 338.
-[20]
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 345.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 345.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 345.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 345.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 345.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 345.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 351.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 362.
-LaTeX Info: Redefining \sptext on input line 384.
-LaTeX Info: Redefining \. on input line 384.
-LaTeX Info: Redefining \% on input line 384.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 384.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 384.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 384.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 384.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 384.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 384.
- [21])
-LaTeX Info: Redefining \sptext on input line 251.
-LaTeX Info: Redefining \. on input line 251.
-LaTeX Info: Redefining \% on input line 251.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 251.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 251.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 251.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 251.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 251.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 251.
- [22]
-\openout2 = `Chapters/Chapter4.aux'.
-
-
-(./Chapters/Chapter4.tex
-Cap\'{\i }tulo 4.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 11.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 11.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 11.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 11.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 11.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 11.
-)
-1: section
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 252.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 252.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 252.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 252.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 252.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 252.
-[23
-
-
-
-]
-\openout2 = `Chapters/Chapter5.aux'.
-
- (./Chapters/Chapter5.tex
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 3.
- [24
-
-
-
-]
-Cap\'{\i }tulo 5.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 3.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 14.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 14.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 14.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 14.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 14.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 14.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 21.
-)
-1: section
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 253.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 253.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 253.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 253.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 253.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 253.
-[25]
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 274.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 274.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 274.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 274.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 274.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 274.
- [26
-
-
-]
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 274.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 274.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 274.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 274.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 274.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 274.
-
-1: section
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 278.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 278.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 278.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 278.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 278.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 278.
-[27]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 278.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 278.
- (./memoria.aux
-LaTeX Info: Redefining \sptext on input line 30.
-LaTeX Info: Redefining \. on input line 30.
-LaTeX Info: Redefining \% on input line 30.
- (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux)
-(./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Chapters/Chapter5.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 278.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 278.
-Package rerunfilecheck Info: File `memoria.out' has not changed.
-(rerunfilecheck)             Checksum: 847106AC3DD785AEB2FC97B9D283B51F;4301.
-Package logreq Info: Writing requests to 'memoria.run.xml'.
-\openout1 = `memoria.run.xml'.
-
- ) 
-Here is how much of TeX's memory you used:
- 46466 strings out of 494788
- 938767 string characters out of 6177223
- 1168148 words of memory out of 5000000
- 48978 multiletter control sequences out of 15000+600000
- 579827 words of font info for 97 fonts, out of 8000000 for 9000
- 85 hyphenation exceptions out of 8191
- 64i,20n,82p,10380b,3509s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino
-/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb
->
-Output written on memoria.pdf (39 pages, 488689 bytes).
-PDF statistics:
- 589 PDF objects out of 1000 (max. 8388607)
- 522 compressed objects within 6 object streams
- 221 named destinations out of 1000 (max. 500000)
- 263 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+! Misplaced alignment tab character &.

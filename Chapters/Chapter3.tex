@@ -260,60 +260,83 @@ A partir de los requerimientos y casos de usos armamos la matriz de trazabilidad
 
 \textbf{Matriz de Trazabilidad}
 
-%Please add the following required packages to your document preamble:
-% \usepackage{booktabs}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-% \usepackage{longtable}
-% Note: It may be necessary to compile the document several times to get a multi-page table to line up properly
-\begin{longtable}[c]{@{}lllllll@{}}
 
-\caption{Matriz de Trazabilidad}
-\toprule
-% \rowcolor[HTML]{DAE8FC} 
-\textbf{REQ/CU} & \textbf{CU0001} & \textbf{CU0002} & \textbf{CU0003} & \textbf{CU0004} & \textbf{CU0005} & \textbf{Ensayo} \\* \midrule
+\footnotesize
+
+\begin{longtable}[c]{|l|l|l|l|l|l|l|}
+\hline
+\textbf{REQ/CU} & \textbf{CU0001} & \textbf{CU0002} & \textbf{CU0003} & \textbf{CU0004} & \textbf{CU0005} & \textbf{Ensayo} \\ \hline
 \endhead
 %
-\multicolumn{1}{|l|}{R1.1} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Comprobación post-experiencia\\ 			Medición de corriente consumida\end{tabular}} \\* \midrule
-\multicolumn{1}{|l|}{R1.2} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Conexión desde terminal} \\* \midrule
-\multicolumn{1}{|l|}{R2.1} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Pesaje del equipo} \\* \midrule
-\multicolumn{1}{|l|}{R2.2} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Medición del equipo} \\* \midrule
-\multicolumn{1}{|l|}{R2.3} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Medición temperatura \textless 40º} \\* \midrule
-\multicolumn{1}{|l|}{R3.1} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R3.2} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R3.3} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R3.4} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{Test conexión PC} \\* \midrule
-\multicolumn{1}{|l|}{R4.1} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test Calibración} \\* \midrule
-\multicolumn{1}{|l|}{R4.2} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{\begin{tabular}[c]{@{}l@{}}Test conexión PC\\ 			Comprobación post-experiencia\end{tabular}} \\* \midrule
-\multicolumn{1}{|l|}{R4.3} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R5.1} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R5.2} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R5.3} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Medición de corriente consumida} \\* \midrule
-\multicolumn{1}{|l|}{R6.1} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R6.2} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R6.3} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R6.4} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R6.5} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R6.6} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R6.7} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R6.8} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R6.9} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R6.10} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R6.11} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Test MDE} \\* \midrule
-\multicolumn{1}{|l|}{R6.12} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R6.13} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R6.14} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R6.15} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Comprobación visual} \\* \midrule
-\multicolumn{1}{|l|}{R7.1} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R7.2} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R7.3} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R7.4} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R7.5} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \midrule
-\multicolumn{1}{|l|}{R7.6} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{X} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Comprobación post-experiencia} \\* \bottomrule
+R1.1 & X &  &  &  &  & \begin{tabular}[c]{@{}l@{}}Comprobación post-experiencia\\ 			Medición de corriente consumida\end{tabular} \\ \hline
+R1.2 &  &  &  &  &  & Conexión desde terminal \\ \hline
+R2.1 &  &  &  &  &  & Pesaje del equipo \\ \hline
+R2.2 &  &  &  &  &  & Medición del equipo \\ \hline
+R2.3 &  &  &  &  &  & Medición temperatura \textless 40º \\ \hline
+R3.1 &  &  & X &  &  & Test MDE \\ \hline
+R3.2 &  &  & X &  &  & Test MDE \\ \hline
+R3.3 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
+R3.4 &  &  &  &  & X & Test conexión PC \\ \hline
+R4.1 &  &  & X &  &  & Test Calibración \\ \hline
+R4.2 &  &  & X &  & X & \begin{tabular}[c]{@{}l@{}}Test conexión PC\\ 			Comprobación post-experiencia\end{tabular} \\ \hline
+R4.3 &  &  &  &  & X & Comprobación post-experiencia \\ \hline
+R5.1 &  &  & X &  &  & Comprobación post-experiencia \\ \hline
+R5.2 &  &  & X &  &  & Comprobación post-experiencia \\ \hline
+R5.3 &  &  &  &  &  & Medición de corriente consumida \\ \hline
+R6.1 &  &  & X &  &  & Test MDE \\ \hline
+R6.2 &  &  & X &  &  & Test MDE \\ \hline
+R6.3 &  &  & X &  &  & Test MDE \\ \hline
+R6.4 &  &  & X &  &  & Test MDE \\ \hline
+R6.5 &  &  & X &  &  & Test MDE \\ \hline
+R6.6 &  &  & X &  &  & Test MDE \\ \hline
+R6.7 &  &  & X &  &  & Test MDE \\ \hline
+R6.8 &  &  & X &  &  & Test MDE \\ \hline
+R6.9 &  &  & X &  &  & Test MDE \\ \hline
+R6.10 &  &  &  & X &  & Test MDE \\ \hline
+R6.11 &  &  &  & X &  & Test MDE \\ \hline
+R6.12 &  &  & X &  & X & Comprobación post-experiencia \\ \hline
+R6.13 &  &  & X &  & X & Comprobación post-experiencia \\ \hline
+R6.14 &  &  &  &  & X & Comprobación post-experiencia \\ \hline
+R6.15 &  &  & X &  &  & Comprobación visual \\ \hline
+R7.1 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
+R7.2 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
+R7.3 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
+R7.4 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
+R7.5 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
+R7.6 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
+\caption{Matriz de Trazabilidad}
+\label{tab:matrizTrazabilidad}\\
 \end{longtable}
 
+\normalsize
 
 
+\subsection{Diseño de alto nivel}
+
+Los subsistemas que entran en juego son los siguientes:
+
+\footnotesize
+
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+
+\begin{longtable}[c]{|l|l|l|l|}
+\hline
+\textbf{SUSBSISTEMA} & \textbf{RESPONSABILIDAD} & \textbf{ENTRADA} & \textbf{SALIDA} \\ \hline
+\endhead
+%
+Sensores & \begin{tabular}[c]{@{}l@{}}Sensar\\ 			señal de presión\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			física de presión\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			analógica\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}Acondicionamiento\\ 			analógico\end{tabular} & \begin{tabular}[c]{@{}l@{}}Filtrar\\ 			y ajustar ganancia de señal analógica\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			analógica de presión\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			analógica de presión acondicionada\end{tabular} \\ \hline
+ADS1292 & \begin{tabular}[c]{@{}l@{}}Adquirir\\ 			señal analógica\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			analógica de presión acondicionada\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			digital via SPI\\ 			Pin\\ 			Data Ready\end{tabular} \\ \hline
+SD & \begin{tabular}[c]{@{}l@{}}Almacenar\\ 			señal adquirida\end{tabular} & \begin{tabular}[c]{@{}l@{}}Paquete\\ 			de muestras de señales adquiridas\end{tabular} & \begin{tabular}[c]{@{}l@{}}Archivos\\ 			csv con muestras y archivo con registro de actividad\end{tabular} \\ \hline
+Led & \begin{tabular}[c]{@{}l@{}}Indicadores\\ 			de estado\end{tabular} & \begin{tabular}[c]{@{}l@{}}Niveles\\ 			lógicos\end{tabular} & \begin{tabular}[c]{@{}l@{}}Encendido\\ 			o apagado como indicador\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}Sistema\\ 			de alimentación y carga de batería\end{tabular} & \begin{tabular}[c]{@{}l@{}}-\\ 			Cargar la batería al conectar por USB\\ 			-\\ 			Alimentar el sistema al no tener conectado el USB a partir de la\\ 			batería\end{tabular} & \begin{tabular}[c]{@{}l@{}}Tensión\\ 			USB o de batería\end{tabular} & \begin{tabular}[c]{@{}l@{}}-Corriente\\ 			de alimentación de USB - Tensión regulada\end{tabular} \\ \hline
+USB & \begin{tabular}[c]{@{}l@{}}-\\ 			proveer tensión para carga de batería\\ 			-\\ 			conectividad a PC via medio de almacenamiento masivo\end{tabular} & \begin{tabular}[c]{@{}l@{}}Conector\\ 			USB a PC\end{tabular} & \begin{tabular}[c]{@{}l@{}}Visualización\\ 			de sistemas de archivos interna\end{tabular} \\ \hline
+Bluetooth & \begin{tabular}[c]{@{}l@{}}Conectividad\\ 			con terminal\end{tabular} & \begin{tabular}[c]{@{}l@{}}Comandos\\ 			vía BT\end{tabular} & \begin{tabular}[c]{@{}l@{}}Comandos\\ 			y datos vía BT\end{tabular} \\ \hline
+\caption{Subsistemas del equipo y su funcionalidad.}
+\label{tab:subsistemas}\\
+\end{longtable}
+\normalsize
 
 
 %----------------------------------------------------------------------------------------
