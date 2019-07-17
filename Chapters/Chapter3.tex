@@ -36,7 +36,7 @@
 
 % -------------------------------------
 
-En este capítulo se muestra todo el proceso de desarrollo del dispositivo, tanto el firmware como hardware, a partir del modelo de desarrollo aplicado..
+En este capítulo se centra en el proceso de desarrollo del dispositivo, tanto el firmware como hardware, a partir del modelo de desarrollo aplicado.
 % --------------------------------------
 
 
@@ -44,11 +44,11 @@ En este capítulo se muestra todo el proceso de desarrollo del dispositivo, tant
 
 \subsection{Resumen del sistema}
 
-El equipo digitaliza señales analogicas provenientes de dos sensores de presión intrarterial del tipo strain-gauge y almacena las señales por períodos prolongados de alrededor de 24 hs. Estas señales adquiridas se guardan en una memoria de tipo flash (memoria SD), y pueden descargarse a una PC a través de una interfaz USB. Desde la PC se accede a los archivos guardados como un medio de almacenamiento masivo, y se pueden visualizar en cualquier software que permita procesar un archivo de tipo ".csv".
+El equipo digitaliza señales analógicas provenientes de dos sensores de presión intrarterial del tipo strain-gauge y almacena las señales por períodos de alrededor de 24 hs. Estas señales adquiridas se guardan en una memoria de tipo flash (memoria micro SD), y pueden descargarse a una PC a través de una interfaz USB. Desde la PC se accede a los archivos guardados como un medio de almacenamiento masivo, y se pueden visualizar en cualquier software que permita procesar un archivo de tipo ".csv".
 
 Previo a cada experiencia, el operador configura el equipo desde una terminal Bluetooth, como una tablet o una PC, a través de un protocolo de comunicación muy sencillo que se desarrolló para este dispositivo. A través de esta interfaz se configuran parámetros como la frecuencia de muestreo, la cantidad de canales a usar, ganancia del amplificador programable, seteo de hora y fecha, y finalmente se da inicio a la medición. 
 
-El equipo consiste en un sistema embebido portátil basado en un microcontrolador ARM de 32 bits, Cortex M3: LPC1769, un conversor analógico digital de alta resolución (ADS1292), módulos de comunicación (serie, BLE, USB), almacenamiento masivo (SD) y módulo de regulación de energía y carga de batería. Puede verse un diagrama en bloques en la Figura \ref{fig:diag_bloques} . Para este proyecto se utilizaron en forma intensiva la gran mayoría de los contenidos y herramientas vistas durante el Carrera de Especialización en Sistemas Embebidos (CESE). Se utilizaron técnicas de Gestión de Proyectos, documentación manual y automática del trabajo, sistema de versionado de software y hardware. En cuanto a lo técnico se emplearon conocimientos específicos sobre arquitectura del microcontrolador, modelos de programación, sistema operativo de tiempo real freeRTOS, protocolos de comunicación (BLE, SPI, USB, y de alto nivel), testing unitarios, etc.
+El equipo consiste en un sistema embebido portátil basado en un microcontrolador ARM de 32 bits, Cortex M3: LPC1769, un conversor analógico digital de alta resolución (ADS1292), módulos de comunicación (serie, BLE, USB), almacenamiento masivo (microSD) y módulo de regulación de energía y carga de batería. Puede verse un diagrama en bloques en la Figura \ref{fig:diag_bloques} . Para este proyecto se utilizaron en forma intensiva la gran mayoría de los contenidos y herramientas vistas durante el Carrera de Especialización en Sistemas Embebidos (CESE). Se utilizaron técnicas de Gestión de Proyectos, documentación manual y automática del trabajo, sistema de versionado de software y hardware. En cuanto a lo técnico se emplearon conocimientos específicos sobre arquitectura del microcontrolador, modelos de programación, sistema operativo de tiempo real freeRTOS, protocolos de comunicación (BLE, SPI, USB, y de alto nivel), testing unitarios, etc.
 
 
 \begin{figure}[!htbp]
@@ -62,7 +62,7 @@ El equipo consiste en un sistema embebido portátil basado en un microcontrolado
 
 
 El proceso elegido para el desarrollo del firmware es el modelo en V. Se trata de un modelo descripto en términos de un proceso de construcción descendente ("Software Development Life Cycle", SDLC) y un proceso de verificación y validación ascendente ("Software Test Life Cycle", STLC) \citep{fowler2015}. El punto que une estos dos procesos es la implementación del código. 
-Durante el proceso descendente se descomponen y clarifican las necesidades del cliente, dando lugar a los requisitos específicos, diseño de la arquitectura en términos generales y diseño detallado de cada uno de los bloques de código. Luego, cada uno de estos niveles de la fase de construcción se asocia con un nivel de la fase de pruebas, dando lugar a las pruebas unitarias, pruebas de integración y pruebas de sistema.
+Durante el proceso descendente se descomponen y clarifican las necesidades del cliente, dando lugar a los requisitos específicos, diseño de la arquitectura en términos generales y diseño detallado de cada uno de los bloques de código. Luego, cada uno de estos niveles de la fase de construcción se asocia con un nivel de la fase de pruebas, donde se realizan las pruebas unitarias, pruebas de integración y pruebas de sistema. Gráficamente puede visualizarse como una V, de acuerdo a la Figura \ref{fig:modeloV}.
 
 \begin{figure}[!htbp]
 	\centering
@@ -76,8 +76,10 @@ A continuación se pone en relieve cada una de estas instancias del proceso de d
 \subsection{Analisis de los requerimientos}
 
 A partir de un análisis de los requerimientos explicitados en el capítulo anterior se puede determinar que los Requerimientos 1 y 2 están estrictamente asociados al hardware. Se puede ligar alguno de estos requerimientos al firmware, como por ejemplo el R1.1 ya que el firmware es el responsable de la entrada a modos de bajo consumo o la administración de energía dentro del microcontrolador. Sin embargo, la mayor carga de responsabilidad de cumplimiento de estos requerimientos están volcados sobre el hardware. Los requerimientos 3 y 4 están muy ligados al desarrollo del firmware del equipo. Solamente el requerimiento 4.2 está relacionado al tamaño de la memoria utilizada que es una cuestión de hardware.
-Por otro lado, la lista de requerimientos del capítulo anterior no es exhaustiva y da por supuesto las funcionalidades básicas del equipo. Se elaboraron una serie de requerimientos más específicos sobre el funcionamiento detallado de la operación del usuario y los parámetros que es posible configurar. 
 
+Una vez iniciado el proceso de desarrollo se notó que la lista de requerimientos del capítulo anterior no es exhaustiva y da por supuesto las funcionalidades básicas del equipo. Se procedió entonces a elaborar una serie de requerimientos más específicos sobre el funcionamiento detallado de la operación del usuario y los parámetros que es posible configurar, que permita luego asociar requisitos puntuales a los casos de uso del equipo. 
+
+\textbf{Requerimientos adicionales :}
 
 \begin{enumerate}
 
@@ -124,10 +126,11 @@ Por otro lado, la lista de requerimientos del capítulo anterior no es exhaustiv
 
 \end{enumerate}
 
+\textbf{Casos de Uso:}
 
 De toda la lista completa de requerimientos surgen los casos de uso con operaciones básicas del usuario. A continuación se muestran los diferentes casos de uso que se desprenden de los requerimientos:
 
-	\textbf{Caso de uso CU0001:}
+	\underline{Caso de uso CU0001:}
 
 	\begin{enumerate} 
 		\item Nombre: CU0001
@@ -147,7 +150,7 @@ De toda la lista completa de requerimientos surgen los casos de uso con operacio
 		\item Post-Condiciones: Finalizar correctamente la experiencia.				
 	\end{enumerate}
 
-	\textbf{Caso de uso CU0002:}
+	\underline{Caso de uso CU0002:}
 
 	\begin{enumerate} 
 		\item Nombre: CU0002
@@ -175,7 +178,7 @@ De toda la lista completa de requerimientos surgen los casos de uso con operacio
 
 
 
-	\textbf{Caso de uso CU0003:}
+	\underline{Caso de uso CU0003:}
 
 	\begin{enumerate} 
 		\item Nombre: CU0003
@@ -204,7 +207,7 @@ De toda la lista completa de requerimientos surgen los casos de uso con operacio
 	\end{enumerate}
 
 
-	\textbf{Caso de uso CU0004:}
+	\underline{Caso de uso CU0004:}
 
 	\begin{enumerate} 
 		\item Nombre: CU0004
@@ -232,7 +235,7 @@ De toda la lista completa de requerimientos surgen los casos de uso con operacio
 		\item Post-Condiciones: salir correctamente de la experiencia.
 	\end{enumerate}
 
-\textbf{Caso de uso CU0005:}
+	\underline{Caso de uso CU0005:}
 
 	\begin{enumerate} 
 		\item Nombre: CU0005
@@ -258,12 +261,8 @@ De toda la lista completa de requerimientos surgen los casos de uso con operacio
 	
 A partir de los requerimientos y casos de usos armamos la matriz de trazabilidad, que consiste en una tabla de doble entrada que asocia cada requerimiento con uno o más casos de uso.
 
-\textbf{Matriz de Trazabilidad}
-
-
 \footnotesize
-
-\begin{longtable}[c]{|l|l|l|l|l|l|l|}
+\begin{longtable}[c]{lllllll}
 \hline
 \textbf{REQ/CU} & \textbf{CU0001} & \textbf{CU0002} & \textbf{CU0003} & \textbf{CU0004} & \textbf{CU0005} & \textbf{Ensayo} \\ \hline
 \endhead
@@ -313,31 +312,146 @@ R7.6 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
 
 \subsection{Diseño de alto nivel}
 
-Los subsistemas que entran en juego son los siguientes:
+Una vez especificados y analizados todos los requerimientos, se da a lugar al diseño del sistema en alto nivel, es decir, analizar los subsitemas que lo conforman y su relación entre sí. Los subsistemas que entran en juego son los siguientes:
 
 \footnotesize
-
-\setlength\LTleft{0pt}
-\setlength\LTright{0pt}
-
-\begin{longtable}[c]{|l|l|l|l|}
+\begin{tabularx}{\textwidth}{XXXX}
 \hline
-\textbf{SUSBSISTEMA} & \textbf{RESPONSABILIDAD} & \textbf{ENTRADA} & \textbf{SALIDA} \\ \hline
-\endhead
-%
-Sensores & \begin{tabular}[c]{@{}l@{}}Sensar\\ 			señal de presión\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			física de presión\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			analógica\end{tabular} \\ \hline
-\begin{tabular}[c]{@{}l@{}}Acondicionamiento\\ 			analógico\end{tabular} & \begin{tabular}[c]{@{}l@{}}Filtrar\\ 			y ajustar ganancia de señal analógica\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			analógica de presión\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			analógica de presión acondicionada\end{tabular} \\ \hline
-ADS1292 & \begin{tabular}[c]{@{}l@{}}Adquirir\\ 			señal analógica\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			analógica de presión acondicionada\end{tabular} & \begin{tabular}[c]{@{}l@{}}Señal\\ 			digital via SPI\\ 			Pin\\ 			Data Ready\end{tabular} \\ \hline
-SD & \begin{tabular}[c]{@{}l@{}}Almacenar\\ 			señal adquirida\end{tabular} & \begin{tabular}[c]{@{}l@{}}Paquete\\ 			de muestras de señales adquiridas\end{tabular} & \begin{tabular}[c]{@{}l@{}}Archivos\\ 			csv con muestras y archivo con registro de actividad\end{tabular} \\ \hline
-Led & \begin{tabular}[c]{@{}l@{}}Indicadores\\ 			de estado\end{tabular} & \begin{tabular}[c]{@{}l@{}}Niveles\\ 			lógicos\end{tabular} & \begin{tabular}[c]{@{}l@{}}Encendido\\ 			o apagado como indicador\end{tabular} \\ \hline
-\begin{tabular}[c]{@{}l@{}}Sistema\\ 			de alimentación y carga de batería\end{tabular} & \begin{tabular}[c]{@{}l@{}}-\\ 			Cargar la batería al conectar por USB\\ 			-\\ 			Alimentar el sistema al no tener conectado el USB a partir de la\\ 			batería\end{tabular} & \begin{tabular}[c]{@{}l@{}}Tensión\\ 			USB o de batería\end{tabular} & \begin{tabular}[c]{@{}l@{}}-Corriente\\ 			de alimentación de USB - Tensión regulada\end{tabular} \\ \hline
-USB & \begin{tabular}[c]{@{}l@{}}-\\ 			proveer tensión para carga de batería\\ 			-\\ 			conectividad a PC via medio de almacenamiento masivo\end{tabular} & \begin{tabular}[c]{@{}l@{}}Conector\\ 			USB a PC\end{tabular} & \begin{tabular}[c]{@{}l@{}}Visualización\\ 			de sistemas de archivos interna\end{tabular} \\ \hline
-Bluetooth & \begin{tabular}[c]{@{}l@{}}Conectividad\\ 			con terminal\end{tabular} & \begin{tabular}[c]{@{}l@{}}Comandos\\ 			vía BT\end{tabular} & \begin{tabular}[c]{@{}l@{}}Comandos\\ 			y datos vía BT\end{tabular} \\ \hline
-\caption{Subsistemas del equipo y su funcionalidad.}
+\textbf{Subsistema} & \textbf{Responsabilidad} & \textbf{Entrada} & \textbf{Salida} \\ \hline
+Sensores & Sensar señal de presión & Señal física de presión & Señal analógica \\ \hline
+Acondicionamiento analógico & Filtrar y ajustar ganancia de señal analógica & Señal analógica de presión & Señal analógica de presión acondicionada \\ \hline
+ADS1292 & Adquirir señal analógica & Señal analógica de presión acondicionada & Señal digital via SPIPin Data Ready \\ \hline
+SD & Almacenar señal adquirida & Paquete de muestras de señales adquiridas & Archivos csv con muestras y archivo con registro de actividad \\ \hline
+Led & Indicadores de estado & Niveles lógicos & Encendido o apagado como indicador \\ \hline
+Sistema de alimentación y carga de batería & - Cargar la batería al conectar por USB- Alimentar el sistema al no tener conectado el USB a partir de la batería & Tensión USB o de batería & -Corriente de alimentación de USB - Tensión regulada \\ \hline
+USB & - proveer tensión para carga de batería- conectividad a PC via medio de almacenamiento masivo & Conector USB a PC & Visualización de sistemas de archivos interna \\ \hline
+Bluetooth & Conectividad con terminal & Comandos vía BT & Comandos y datos vía BT \\ \hline
+\caption{Subsistemas del equipo}
 \label{tab:subsistemas}\\
-\end{longtable}
+\end{tabularx}
 \normalsize
 
+Los subsistemas de la tabla anterior son los bloques básicos desde de los cuales se conforma el dispositivo. Es necesario recurrir a patrones de diseño para articular entre sí los diferentes módulos.
+
+\textbf{Patrones de Diseño:}
+
+En primer lugar, la cadena de adquisición, envío de datos y almacenamiento se asocia a un patrón productor/consumidor, donde el conversor analógico digital ADS1292 y ADC interno son los productores de datos, y las salidas por Bluetooth y almacenamiento en la SD son los consumidores. a información producida se guarda en un ping-pong buffer \citep{zhou2017} del cual leen las demás tareas. Esto puede visualizarse en la figura \ref{fig:patronProdCons}.
+
+En este patrón también participa el esquema de "\textit{proxy pattern}" \citep{douglass2011}, que se refiere a un esquema de funcionamiento en el que un elemento de software es el responsable del acceso a un recurso de hardware, y todas las tareas que quieran acceder al recurso lo hacen a través de este elemento. Se utiliza una estructura o clase que encapsule todos los accesos al hardware, sin importar su interfaz física. Este proxy publica los servicios que permiten leer y escribir en el dispositivo, así como inicializar, configurar y apagar el dispositivo. En el diagrama de la figura \ref{fig:patronProdCons} pueden verse en verde todos los elementos de hardware, y con flechas la interfaz física través del cual se comunica. 
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=\textwidth]{./Figures/patronProdCons.png}
+	\caption{Diagrama de relaciones entre subsistemas. Patrón productor/consumidor}
+	\label{fig:patronProdCons}
+\end{figure}
+
+Los módulos de hardware que se muestran en la figura \ref{fig:patronProdCons} son los siguientes:
+
+\begin{itemize}
+	\item ADS1292: se trata de un conversor analógico digital de alta resolución (24 bits), con dos canales de entrada diferencial simultáneos, de tecnología Sigma-Delta. Incluye internamente un amplificador de ganancia programable (PGA). Puede trabajar a una frecuencia de muestreo máxima de 8kSPS. La interfaz de comunicación es a través de un bus SPI \citep{texas2012} . El conversor tiene dos modos de operación: puede indicar con el pin DRDY que cuenta con datos a ser leídos y esperar el comando RDATA, o puede estar en el modo “Read Data Continous” (RDATAC) y enviar comandos constantemente. En el diagrama anterior se muestra la conexión a través del pin DRDY para mostrar el caso general y ser compatible con cualquiera de los dos modos de envío de datos.
+	\item Bluetooth: la conexión bluetooth se realiza a través de un módulo HC-06. Se conecta al microcontrolador a través de un puerto serie y permite la comunicación entre el software de la terminal y la aplicación guardada en el firmware. Cuenta con un pin de habilitación y una salida de STATE para indicar cuando hay vigente una conexión bluetooth.
+	\item Serie: solamente se utiliza para desarrollo y pruebas de comunicación. Físicamente se trata de un conversor USB-TTL y se maneja a través de un driver de la UART.
+	\item SD: el medio de almacenamiento masivo del dispositivo es una tarjeta microSD. La placa cuenta con un slot de microSD que permite la conexión entre la tarjeta y el microcontrolador a través de un bus SPI, además de un pin que permite detectar cuando hay una tarjeta conectada. La interfaz entre la aplicación y el hardware se hace en dos capas: la aplicación se comunica con el nivel de manejo de archivos (librería FatFs), y esta librería se comunica con las funciones del driver SPI \citep{chan2014}, como se visualiza en la figura \ref{fig:capasFatFs}.
+	
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=\textwidth]{./Figures/capasFatFs.png}
+	\caption{Capas de software de la librería FatFs}
+	\label{fig:capasFatFs}
+\end{figure}	
+	
+	\item ADC: se trata de un conversor analógico digital interno al microcontrolador, de 12 bits de resolución, 8 canales multiplexados, de tecnología SAR (aproximaciones sucesivas). Se habilita la conversión a través de la habilitación de un timer que temporiza la frecuencia de muestreo. Los resultados de la conversión del ADC se transfieren a memoria a través del DMA.
+	\item DMA: uno de los canales está configurado en modo “PERIPHERAL TO MEMORY”, realizando las transferencias entre el periférico ADC y un puntero que apunta a un buffer. En cada transferencia el puntero se incrementa hasta llegar al final y generar una interrupción. 
+\end{itemize}
+
+\subsection{Diseño Detallado}
+
+En base al diseño de alto nivel realizado anteriormente, se da a lugar al diseño detallado de los elementos del programa como tareas y máquinas de estado.
+
+\textbf{Diseño de tareas}
+
+El firmware está basado en un sistema operativo de tiempo real, específicamente en el freeRTOS \citep{aws2017}.  En el diagrama de la figura \ref{fig:tareasCompleto} se puede observar un esquema detallado de las tareas involucradas y sus relaciones entre ellas. Cada una de las filas del gráfico corresponde a un nivel de prioridad, siendo “cero” el nivel de menor prioridad y “cuatro” el de máxima prioridad utilizado. El nivel “IRQ” corresponde a las rutinas de atención de interrupción, que en el sistema freeRTOS tienen una prioridad siempre mayor a cualquiera de las tareas. En verde se pueden ver los mecanismos de comunicación entre tareas, como semáforos o colas de datos. Las flechas que no tienen ninguna indicación corresponden a flags, estados o asignación directa de variables de menor complejidad. 
+
+\begin{adjustbox}{center,caption={Diagrama de tareas completo},label={fig:tareasCompleto},nofloat=figure,vspace=\bigskipamount}
+\includegraphics[scale = 0.24]{./Figures/tareasCompleto.png}
+\end{adjustbox}
+	
+Este diagrama explica en gran detalle el funcionamiento del firmware. En el nivel de prioridad 1 se encuentran las tareas de interfaz con el usuario, que son de menor prioridad porque no tienen una exigencia crítica de tiempo. Se explica a continuación el funcionamiento en diferentes casos:
+
+\begin{itemize}
+
+	\item Al iniciar el equipo, solo está activa la tarea “InterfazTerminal()”, que es la encargada de comunicarse con el usuario remoto respetando el diagrama de estados de la figura \ref{fig:tareasInactivo}. En este caso solamente intervienen esta tarea, la tarea UART\_CanalSalida(), que es una tarea cercana al hardware que hace la interfaz entre la cola de datos de salida y el registro de la UART, y finalmente la propia rutina de interrupción de la UART que escribe en la cola de datos de entrada cada vez que recibe un mensaje, y envía los datos de salida permitiendo escribirse en bloques hasta del tamaño de la FIFO interna del periférico (16 bytes). En nivel de prioridad cero siempre se ejecuta una tarea que señaliza con parpadeo de leds según el modo de funcionamiento activo. En este caso, es un parpadeo cada 500ms.
+
+\begin{adjustbox}{center,caption={Diagrama de tareas en modo inactivo},label={fig:tareasInactivo},nofloat=figure,vspace=\bigskipamount}
+\includegraphics[scale = 0.17]{./Figures/tareasInactivo.png}
+\end{adjustbox}
+
+	\item Cuando el equipo pasa al modo “adquirir+enviar”, se inicializa el hardware de adquisición (ADS1292), que se comunica a través del bus SPI0 y de una entrada de propósito general (GPIO) conectada al pin DRDY. Como se explicó anteriormente, uno de los modos de funcionamiento del ADS1292 es señalizar a través del pin DRDY la disponibilidad de datos nuevos para ser leídos. La rutina de interrupción de GPIO “EINT3\_handler()” se activa en cada nivel bajo del pin DRDY, y libera el semáforo “semBinADS1292DRDY”. Por otro lado, esto libera la tarea “DatosListos()” que se encontraba en estado bloqueado en espera de este semáforo, para luego enviar el comando RDATA a través del bus SPI, y recibir finalmente el dato leído para almacenarlo en un buffer. 
+
+		Al ingresar a este modo, se instala una tarea llamada “EnviarSgn()”, que se encuentra bloqueada a través de la cola de datos “colaDatosEnv”. La tarea “DatosListos()” envía un puntero a buffer a través de esta cola de datos cada vez que se completa un buffer de adquisición, de manera que la tarea “EnviarSgn()” también escriba en la cola de datos de salida de la UART, “colaUART”.
+		
+\begin{adjustbox}{center,caption={Diagrama de tareas en modo adquirir y enviar},label={fig:VOP24_tareas_v1_adquirirEnviar},nofloat=figure,vspace=\bigskipamount}
+\includegraphics[scale = 0.23]{./Figures/VOP24_tareas_v1_adquirirEnviar.png}
+\end{adjustbox}		
+		
+	\item Al ingresar al modo “adquirir+enviar+almacenar”, se agrega la tarea “Almacenar()”, que también se encuentra bloqueada a través de una cola de datos llamada “colaDatosAlm”, a través de la cual se envía un puntero a buffer a ser guardado en la memoria SD. 
+	
+\begin{adjustbox}{center,caption={Diagrama de tareas en modo adquirir, enviar y almacenar},label={fig:VOP24_tareas_v1_adquirirEnviarAlmacenar},nofloat=figure,vspace=\bigskipamount}
+\includegraphics[angle= 90, scale = 0.20]{./Figures/VOP24_tareas_v1_adquirirEnviarAlmacenar.png}
+\end{adjustbox}
+	
+	La tarea Almacenar() se comunica a través de un bus SPI directamente con la tarjeta SD. El tamaño del buffer de almacenamiento se definió haciendo pruebas entre el tiempo de llenado del buffer (cantidad de muestras multiplicado por período de muestreo) versus el tiempo de almacenamiento que demora escribir el buffer como archivo en la memoria SD. Este último tiempo no es lineal a la cantidad de muestras, por lo que se hicieron varias pruebas hasta determinar un tamaño óptimo para el peor caso que es la máxima frecuencia de muestreo posible. El tamaño determinado es de 1024 muestras y se comprobó a 500 muestras por segundo con dos canales habilitados. 
+	
+Al almacenar en la SD también se guardan las muestras de medición de batería. Para ello se hace un promedio de una ráfaga de muestras que se guardan en un buffer “bufBateria” a través del DMA.
+
+	\item Durante el modo “adquirir+almacenar” se suspende la tarea “EnviarSgn()” y el resto de las tareas continúa igual. El led pasa a realizar dos parpadeos en un segundo y luego permanece apagado el siguiente segundo. Esta es la indicación visual de que el equipo se encuentra correctamente funcionando mientras el usuario no tenga acceso mediante bluetooth.
+
+
+\begin{adjustbox}{center,caption={Diagrama de tareas en modo adquirir y almacenar},label={fig:VOP24_tareas_v1_adquirirAlmacenar},nofloat=figure,vspace=\bigskipamount}
+\includegraphics[angle= 90, scale = 0.18]{./Figures/VOP24_tareas_v1_adquirirAlmacenar.png}
+\end{adjustbox}
+
+
+	\item Cuando se conecta el USB a una PC, se activa el handler de la interrupción USB\_Handler y se instala una tarea “InterfazPC()” que espera a que el equipo esté en modo inactivo para luego permitir ver el contenido de la tarjeta de memoria desde la PC como un medio de almacenamiento extraíble. Todas las demás tareas se bloquean mientras el equipo se comunique con la PC: no se puede conectar mediante Bluetooth ni usar ninguna de las funcionalidades anteriores hasta que se desconecte el USB.
+	
+En este modo el led permanece oscilando para indicar carga y se habilita la carga de la batería. Una vez finalizada la carga, el led queda prendido permanentemente hasta desconectar el USB.
+
+\begin{adjustbox}{center,caption={Diagrama de tareas en modo conexión USB},label={fig:VOP24_tareas_v1_USB},nofloat=figure,vspace=\bigskipamount}
+\includegraphics[angle= 0, scale = 0.20]{./Figures/VOP24_tareas_v1_USB.png}
+\end{adjustbox}
+
+	\item Durante el modo “configuracion” interviene solamente la comunicación a través de la UART para el caso de modificar hora y fecha. Al momento de calibrar, es necesario activar la medición con el ADS1292, pero en este caso, el buffer adquirido se promedia para obtener solo una muestra como salida. La comunicación con la tarea “DatosListos()” que toma las muestras en el buffer se hace a través de la cola de datos “colaDatosEnv”.
+
+La medición de batería solamente se calibra al momento de grabar el código en la flash, no se ofrece calibración por menú.
+
+\begin{adjustbox}{center,caption={Diagrama de tareas en modo configuración},label={fig:VOP24_tareas_v1_configuracion},nofloat=figure,vspace=\bigskipamount}
+\includegraphics[angle= 90, scale = 0.18]{./Figures/VOP24_tareas_v1_configuracion.png}
+\end{adjustbox}
+
+\end{itemize}
+
+\textbf{Diseño de máquinas de estado}
+
+La tarea InterfazTerminal mencionada anteriormente es la encargada de establecer comunicación con el usuario. Se modela como máquina de estados. En la figura \ref{fig:VOP_mde_v1} solamente el flujo posible del programa, no se muestran en el gráfico los comandos específicos que se envían, .
+
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=\textwidth]{./Figures/VOP_mde_v1.png}
+	\caption{Máquina de estados de tarea de interfaz de usuario}
+	\label{fig:VOP_mde_v1}
+\end{figure}
+
+
+El estado de configuración se trata de un estado compuesto en el cual se puede modificar todos los parámetros de adquisición como frecuencia de muestreo, canales habilitados y ganancia PGA. También se  puede cambiar la configuración de fecha y hora y realizar la calibración de un canal. Se modela igualmente como máquina de estados, de acuerdo al diagrama de la figura \ref{fig:VOP24_configuracion_v1}.
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=\textwidth]{./Figures/VOP24_configuracion_v1.jpeg}
+	\caption{Máquina de estados de configuración de usuario}
+	\label{fig:VOP24_configuracion_v1}
+\end{figure}
 
 %----------------------------------------------------------------------------------------
 %	SECTION 1

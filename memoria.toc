@@ -1,5 +1,6 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {spanish}{}
+\defcounter {refsection}{0}\relax 
+\select@language {spanish}
 \contentsline {chapter}{Resumen}{\es@scroman {iii}}{section*.1}
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n General}{1}{chapter.6}
 \contentsline {section}{\numberline {1.1}Descripcion General del Trabajo}{1}{section.7}
@@ -18,10 +19,11 @@
 \contentsline {subsection}{\numberline {3.1.2}Modelo de desarrollo del firmware}{14}{subsection.49}
 \contentsline {subsection}{\numberline {3.1.3}Analisis de los requerimientos}{15}{subsection.51}
 \contentsline {subsection}{\numberline {3.1.4}Dise\IeC {\~n}o de alto nivel}{20}{subsection.131}
-\contentsline {section}{\numberline {3.2}An\IeC {\'a}lisis del software}{21}{section.133}
-\contentsline {chapter}{\numberline {4}Ensayos y Resultados}{23}{chapter.163}
-\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{23}{section.164}
-\contentsline {chapter}{\numberline {5}Conclusiones}{25}{chapter.165}
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{25}{section.166}
-\contentsline {section}{\numberline {5.2}Pr\IeC {\'o}ximos pasos}{25}{section.167}
-\contentsline {chapter}{Bibliograf\'{\i }a}{27}{appendix*.168}
+\contentsline {subsection}{\numberline {3.1.5}Dise\IeC {\~n}o Detallado}{24}{subsection.135}
+\contentsline {section}{\numberline {3.2}An\IeC {\'a}lisis del software}{32}{section.145}
+\contentsline {chapter}{\numberline {4}Ensayos y Resultados}{35}{chapter.175}
+\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{35}{section.176}
+\contentsline {chapter}{\numberline {5}Conclusiones}{37}{chapter.177}
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{37}{section.178}
+\contentsline {section}{\numberline {5.2}Pr\IeC {\'o}ximos pasos}{37}{section.179}
+\contentsline {chapter}{Bibliograf\'{\i }a}{39}{appendix*.180}

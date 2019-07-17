@@ -1,5 +1,6 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {spanish}{}
+\defcounter {refsection}{0}\relax 
+\select@language {spanish}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Esquema de medici\IeC {\'o}n de VOP\relax }}{1}{figure.caption.8}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Forma de onda caracter\IeC {\'\i }stica de la presi\IeC {\'o}n humana\relax }}{2}{figure.caption.10}
@@ -12,5 +13,16 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Diagrama en bloques del equipo.\relax }}{14}{figure.caption.48}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Modelo de desarrollo y validaci\IeC {\'o}n en V\relax }}{14}{figure.caption.50}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de relaciones entre subsistemas. Patr\IeC {\'o}n productor/consumidor\relax }}{22}{figure.caption.133}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Capas de software de la librer\IeC {\'\i }a FatFs\relax }}{23}{figure.caption.134}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagrama de tareas completo\relax }}{25}{figure.136}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagrama de tareas en modo inactivo\relax }}{26}{figure.137}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagrama de tareas en modo adquirir y enviar\relax }}{27}{figure.138}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagrama de tareas en modo adquirir, enviar y almacenar\relax }}{28}{figure.139}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Diagrama de tareas en modo adquirir y almacenar\relax }}{30}{figure.140}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Diagrama de tareas en modo conexi\IeC {\'o}n USB\relax }}{31}{figure.141}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Diagrama de tareas en modo configuraci\IeC {\'o}n\relax }}{32}{figure.142}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces M\IeC {\'a}quina de estados de tarea de interfaz de usuario\relax }}{33}{figure.caption.143}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces M\IeC {\'a}quina de estados de configuraci\IeC {\'o}n de usuario\relax }}{33}{figure.caption.144}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
