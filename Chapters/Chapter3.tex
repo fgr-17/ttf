@@ -79,7 +79,7 @@ En las subsecciones \ref{analisisReq}, \ref{disAltoNivel} y \ref{disDetallado} s
 
 A partir de un análisis de los requerimientos explicitados en la sección \ref{requerimientos} se puede determinar que los Requerimientos 1 y 2 están estrictamente asociados al hardware. Alguno de estos requerimientos se ligan al firmware, como por ejemplo el R1.1, ya que el firmware es el responsable de la entrada a modos de bajo consumo o la administración de energía dentro del microcontrolador. Sin embargo, la mayor carga de responsabilidad de cumplimiento de estos requerimientos están volcados sobre el hardware. Los requerimientos 3 y 4 son muy cercanos al desarrollo del firmware del equipo. Solamente el requerimiento 4.2 está relacionado al tamaño de la memoria utilizada, que es puramente una cuestión de hardware.
 
-Una vez iniciado el proceso de desarrollo se notó que la lista de requerimientos del capítulo \ref{Chapter2} anterior no es exhaustiva y da por supuesto las funcionalidades básicas del equipo. Se procedió entonces a elaborar una serie de requerimientos más específicos sobre el funcionamiento detallado de la operación del usuario y los parámetros que es posible configurar, tal que permita luego asociar requisitos puntuales a los casos de uso del equipo. 
+Una vez iniciado el proceso de desarrollo se notó que la lista de requerimientos del capítulo \ref{Chapter2} no es exhaustiva y da por supuesto las funcionalidades básicas del equipo. Se procedió entonces a elaborar una serie de requerimientos más específicos sobre el funcionamiento detallado de la operación del usuario y los parámetros que es posible configurar, tal que permita luego asociar requisitos puntuales a los casos de uso del equipo. 
 
 A continuación se plantean requerimientos adicionales a los presentados en la sección \ref{requerimientos}:
 
@@ -316,8 +316,9 @@ R7.6 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
 
 \subsection{Diseño de alto nivel} \label{disAltoNivel}
 
-Una vez especificados y analizados todos los requerimientos, se da a lugar al diseño del sistema en alto nivel, es decir, analizar los subsitemas que lo conforman y su relación entre sí. Los subsistemas que entran en juego se presentan en la Tabla \ref{tab:subsistemas}.
+Una vez especificados y analizados todos los requerimientos, se da a lugar al diseño del sistema en alto nivel, es decir, analizar los subsitemas que lo conforman y su relación entre sí. Los subsistemas que entran en juego se presentan en la Tabla \ref{tab:subsistemas}, son los bloques básicos desde de los cuales se conforma el dispositivo. Es necesario recurrir a patrones de diseño \citep{douglass2011} para articular entre sí los diferentes módulos.
 
+\clearpage
 \footnotesize
 \begin{tabularx}{\textwidth}{XXXX}
 \caption{Subsistemas del equipo} \\
@@ -335,7 +336,7 @@ Bluetooth & Conectividad con terminal & Comandos vía BT & Comandos y datos vía
 \end{tabularx}
 \normalsize
 
-Los subsistemas de la Tabla \ref{tab:subsistemas} son los bloques básicos desde de los cuales se conforma el dispositivo. Es necesario recurrir a patrones de diseño \citep{douglass2011} para articular entre sí los diferentes módulos.
+
 
 \textbf{Patrones de Diseño:}
 
@@ -360,7 +361,7 @@ Los módulos de hardware que se muestran en la figura \ref{fig:patronProdCons} s
 	
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=\textwidth]{./Figures/capasFatFs.png}
+	\includegraphics[scale =0.2]{./Figures/capasFatFs.png}
 	\caption{Capas de software de la librería FatFs}
 	\label{fig:capasFatFs}
 \end{figure}	
@@ -375,14 +376,14 @@ En base al diseño de alto nivel realizado, se da a lugar al diseño detallado d
 
 \textbf{Diseño de tareas}
 
-El firmware está basado en un sistema operativo de tiempo real, específicamente en freeRTOS \citep{aws2017}.  En el diagrama de la figura \ref{fig:tareasCompleto} se puede observar un esquema detallado de las tareas involucradas y las relaciones entre ellas. 
+El firmware está basado en el sistema operativo de tiempo real freeRTOS \citep{aws2017}.  En el diagrama de la figura \ref{fig:tareasCompleto} se puede observar un esquema detallado de las tareas involucradas y las relaciones entre ellas. 
 
 \begin{adjustbox}{center,caption={Diagrama de tareas completo},label={fig:tareasCompleto},nofloat=figure,vspace=\bigskipamount}
-\includegraphics[scale = 0.24]{./Figures/tareasCompleto.png}
+\includegraphics[scale = 0.35, angle=90]{./Figures/VOP24_tareas_v1.png}
 \label{tareasCompleto}
 \end{adjustbox}
 
-Cada una de las filas del gráfico corresponde a un nivel de prioridad, siendo “cero” el nivel de menor prioridad y “cuatro” el de máxima prioridad utilizado. El nivel “IRQ” corresponde a las rutinas de atención de interrupción, que en el sistema freeRTOS tienen una prioridad siempre mayor a cualquiera de las tareas. En verde se pueden ver los mecanismos de comunicación entre tareas, como semáforos o colas de datos. Las flechas que no tienen ninguna indicación corresponden a flags, estados o asignación directa de variables de menor complejidad. 
+Cada una de las filas del gráfico \ref{tareasCompleto} corresponde a un nivel de prioridad, siendo “cero” el nivel de menor prioridad y “cuatro” el de máxima prioridad utilizado. El nivel “IRQ” corresponde a las rutinas de atención de interrupción, que en el sistema freeRTOS tienen una prioridad siempre mayor a cualquiera de las tareas. En verde se pueden ver los mecanismos de comunicación entre tareas, como semáforos o colas de datos. Las flechas que no tienen ninguna indicación corresponden a flags, estados o asignación directa de variables de menor complejidad. 
 	
 El diagrama de la figura \ref{fig:tareasCompleto} ilustra en detalle el funcionamiento del firmware. En el nivel de prioridad 1 se encuentran las tareas de interfaz con el usuario, que son de menor prioridad porque no tienen una exigencia crítica de tiempo. Se explica a continuación el funcionamiento en diferentes casos:
 
@@ -391,7 +392,7 @@ El diagrama de la figura \ref{fig:tareasCompleto} ilustra en detalle el funciona
 	\item Al iniciar el equipo, solo está activa la tarea “InterfazTerminal()”, que es la encargada de comunicarse con el usuario remoto respetando el diagrama de estados de la figura \ref{fig:tareasInactivo}. En este caso solamente intervienen esta tarea, la tarea UART\_CanalSalida(), que es una tarea cercana al hardware que hace la interfaz entre la cola de datos de salida y el registro de la UART, y finalmente la propia rutina de interrupción de la UART que escribe en la cola de datos de entrada cada vez que recibe un mensaje, y envía los datos de salida permitiendo escribirse en bloques hasta del tamaño de la FIFO interna del periférico (16 bytes). En nivel de prioridad cero siempre se ejecuta una tarea que señaliza con parpadeo de leds según el modo de funcionamiento activo. En este caso, es un parpadeo cada 500ms.
 
 \begin{adjustbox}{center,caption={Diagrama de tareas en modo inactivo},label={fig:tareasInactivo},nofloat=figure,vspace=\bigskipamount}
-\includegraphics[scale = 0.17]{./Figures/tareasInactivo.png}
+\includegraphics[scale = 0.33]{./Figures/VOP24_tareas_v1_modoInactivoConf.png}
 \end{adjustbox}
 
 	\item Cuando el equipo pasa al modo “adquirir+enviar”, se inicializa el hardware de adquisición (ADS1292), que se comunica a través del bus SPI0 y de una entrada de propósito general (GPIO) conectada al pin DRDY. Como se explicó anteriormente, uno de los modos de funcionamiento del ADS1292 es señalizar a través del pin DRDY la disponibilidad de datos nuevos para ser leídos. La rutina de interrupción de GPIO “EINT3\_handler()” se activa en cada nivel bajo del pin DRDY, y libera el semáforo “semBinADS1292DRDY”. Por otro lado, esto libera la tarea “DatosListos()” que se encontraba en estado bloqueado en espera de este semáforo, para luego enviar el comando RDATA a través del bus SPI, y recibir finalmente el dato leído para almacenarlo en un buffer. 
@@ -399,13 +400,13 @@ El diagrama de la figura \ref{fig:tareasCompleto} ilustra en detalle el funciona
 		Al ingresar al modo “adquirir+enviar” se instala una tarea llamada “EnviarSgn()”, que se encuentra bloqueada a través de la cola de datos “colaDatosEnv”. La tarea “DatosListos()” envía un puntero a buffer a través de esta cola de datos cada vez que se completa un buffer de adquisición, de manera que la tarea “EnviarSgn()” también escriba en la cola de datos de salida de la UART, “colaUART”.
 		
 \begin{adjustbox}{center,caption={Diagrama de tareas en modo adquirir y enviar},label={fig:VOP24_tareas_v1_adquirirEnviar},nofloat=figure,vspace=\bigskipamount}
-\includegraphics[scale = 0.23]{./Figures/VOP24_tareas_v1_adquirirEnviar.png}
+\includegraphics[scale = 0.32]{./Figures/VOP24_tareas_v1_adquirirEnviar.png}
 \end{adjustbox}		
 		
 	\item Al ingresar al modo “adquirir+enviar+almacenar”, se agrega la tarea “Almacenar()”, que también se encuentra bloqueada a través de una cola de datos llamada “colaDatosAlm”, a través de la cual se envía un puntero a buffer a ser guardado en la memoria SD. 
 	
 \begin{adjustbox}{center,caption={Diagrama de tareas en modo adquirir, enviar y almacenar},label={fig:VOP24_tareas_v1_adquirirEnviarAlmacenar},nofloat=figure,vspace=\bigskipamount}
-\includegraphics[angle= 90, scale = 0.20]{./Figures/VOP24_tareas_v1_adquirirEnviarAlmacenar.png}
+\includegraphics[angle= 90, scale = 0.33]{./Figures/VOP24_tareas_v1_adquirirEnviarAlmacenar.png}
 \end{adjustbox}
 	
 	La tarea Almacenar() se comunica a través de un bus SPI directamente con la tarjeta SD. El tamaño del buffer de almacenamiento se definió haciendo pruebas entre el tiempo de llenado del buffer (cantidad de muestras multiplicado por período de muestreo) versus el tiempo de almacenamiento que demora escribir el buffer como archivo en la memoria SD. Este último tiempo no es lineal a la cantidad de muestras, por lo que se hicieron varias pruebas hasta determinar un tamaño óptimo para el peor caso que es la máxima frecuencia de muestreo posible. El tamaño determinado es de 1024 muestras y se comprobó a 500 muestras por segundo con dos canales habilitados. Al almacenar en la SD también se guardan las muestras de medición de batería. Para ello se hace un promedio de una ráfaga de muestras que se guardan en un buffer “bufBateria” a través del DMA.
@@ -413,7 +414,7 @@ El diagrama de la figura \ref{fig:tareasCompleto} ilustra en detalle el funciona
 	\item Durante el modo “adquirir+almacenar” se suspende la tarea “EnviarSgn()” y el resto de las tareas continúa igual. 
 
 \begin{adjustbox}{center,caption={Diagrama de tareas en modo adquirir y almacenar},label={fig:VOP24_tareas_v1_adquirirAlmacenar},nofloat=figure,vspace=\bigskipamount}
-\includegraphics[angle= 90, scale = 0.165]{./Figures/VOP24_tareas_v1_adquirirAlmacenar.png}
+\includegraphics[angle= 90, scale = 0.23]{./Figures/VOP24_tareas_v1_adquirirAlmacenar.png}
 \end{adjustbox}
 
 El led pasa a realizar dos parpadeos en un segundo y luego permanece apagado el siguiente segundo. Esta es la indicación visual de que el equipo se encuentra correctamente funcionando mientras el usuario no tenga acceso mediante Bluetooth.
@@ -423,7 +424,7 @@ El led pasa a realizar dos parpadeos en un segundo y luego permanece apagado el 
 Mientras se mantiene el USB conectado a una PC, el led permanece oscilando para indicar carga y se habilita la carga de la batería. Una vez finalizada la carga, el led queda prendido permanentemente hasta desconectar el USB.
 
 \begin{adjustbox}{center,caption={Diagrama de tareas en modo conexión USB},label={fig:VOP24_tareas_v1_USB},nofloat=figure,vspace=\bigskipamount}
-\includegraphics[angle= 0, scale = 0.20]{./Figures/VOP24_tareas_v1_USB.png}
+\includegraphics[angle= 0, scale = 0.23]{./Figures/VOP24_tareas_v1_USB.png}
 \end{adjustbox}
 
 	\item Durante el modo “configuracion” interviene solamente la comunicación a través de la UART para el caso de modificar hora y fecha. Al momento de calibrar, es necesario activar la medición con el ADS1292, pero en este caso, el buffer adquirido se promedia para obtener solo una muestra como salida. La comunicación con la tarea “DatosListos()” que toma las muestras en el buffer se hace a través de la cola de datos “colaDatosEnv”.
@@ -431,7 +432,7 @@ Mientras se mantiene el USB conectado a una PC, el led permanece oscilando para 
 La medición de batería solamente se calibra al momento de grabar el código en la flash, no se ofrece calibración por menú.
 
 \begin{adjustbox}{center,caption={Diagrama de tareas en modo configuración},label={fig:VOP24_tareas_v1_configuracion},nofloat=figure,vspace=\bigskipamount}
-\includegraphics[angle= 90, scale = 0.18]{./Figures/VOP24_tareas_v1_configuracion.png}
+\includegraphics[scale = 0.2]{./Figures/VOP24_tareas_v1_configuracion.png}
 \end{adjustbox}
 
 \end{itemize}
@@ -443,7 +444,7 @@ La tarea InterfazTerminal es la encargada de establecer comunicación con el usu
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=\textwidth]{./Figures/VOP_mde_v1.png}
+	\includegraphics[scale=0.18]{./Figures/VOP_mde_v1.png}
 	\caption{Máquina de estados de tarea de interfaz de usuario}
 	\label{fig:VOP_mde_v1}
 \end{figure}
@@ -453,7 +454,7 @@ El estado de configuración se trata de un estado compuesto en el cual se puede 
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=\textwidth]{./Figures/VOP24_configuracion_v1.png}
+	\includegraphics[scale=0.28]{./Figures/VOP24_configuracion_v1.png}
 	\caption{Máquina de estados de configuración de usuario}
 	\label{fig:VOP24_configuracion_v1}
 \end{figure}
@@ -462,7 +463,7 @@ El estado de configuración se trata de un estado compuesto en el cual se puede 
 
 La implementación de código se realizó en etapas, comenzando por los drivers y capas de abstracción de hardware. La librería utilizada para la configuración de los periféricos es la de LPCOpen, que es libre y cuenta con drivers, middleware y gran cantidad de ejemplos \citep{lpcopen2014}.
 
-\textbf{Código de bajo nivel:}
+\textbf{Código de bajo nivel}
 
 En primer lugar, de acuerdo al diagrama de gantt de la figura \ref{fig:gantt}, se trabajó sobre cada uno de los drivers de bajo nivel para lograr la funcionalidad individual de los periféricos e integrados asociados. A continuación se mencionan cada una de las particularidades de los diferentes módulos de hardware configurados: 
 
@@ -491,7 +492,8 @@ typedef struct {
 Las colas de datos manejan punteros a char, que apuntan a buffers de bytes del largo del frame que utiliza el protocolo, en este caso, 4 bytes.
 Se agrega además un manejo simple de las FIFO de transmisión y recepción de 16 bytes con las que cuenta el microcontrolador. Por un lado, al escribir sobre el registro de salida, se tiene en cuenta que se pueden escribir hasta 16 bytes y luego hay que esperar a que se libere la FIFO de transmisión. Para ello se creó un semáforo binario llamado semThre que se suelta cada vez que el handler de interrupción detecta una entrada por vaciamiento del registro de transmisión (THRE: transmit holding register empty). 
 
-	\item \textbf{Puerto SPI:} El manejo del bus SPI dedicado a la comunicación con el ADS1292 se realizó utilizando directamente las funciones de bajo nivel de LPCOpen Chip\_SPI\_, ya que la comunicación con el mismo no es muy compleja ni demanda una atención más sofisticada. Una vez inicializado el puerto SPI, se intercambian una serie de comandos con el ADS1292 y no es necesario comunicarse nuevamente con él hasta comenzar la adquisición. Durante la misma, se genera una interrupción a través del pin DRDY y en ese momento se realiza una breve comunicación con el ADS1292 para recibir la muestra adquirida. Sería necesario armar un esquema similar al del puerto serie en el caso de que el ADS1292 se configurara para enviar las muestras de manera constante.
+	\item \textbf{Puerto SPI:} El manejo del bus SPI dedicado a la comunicación con el ADS1292 se realizó utilizando directamente las funciones de bajo nivel de LPCOpen Chip\_SPI\_, ya que la comunicación con el mismo no es muy compleja ni demanda una atención más sofisticada. Una vez inicializado el puerto SPI, se intercambian una serie de comandos con el ADS1292 y no es necesario comunicarse nuevamente con él hasta comenzar la adquisición. Durante la misma, se genera una interrupción a través del pin DRDY y en ese momento se realiza una breve comunicación con el ADS1292 para recibir la muestra adquirida. 
+	
 	Por otro lado, el puerto SPI dedicado a la comunicación con la memoria SD también se comunica a través de las funciones básicas de la librería LPCOpen, pero se agrega una rutina de atención de interrupción para manejar comandos que requieren envío y respuesta inmediata.
 
 
