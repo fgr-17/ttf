@@ -1,0 +1,12 @@
+- en la primer página del cap 3, no está bien usar sinonimos para referise al aparato? equipo, dispositivo?
+- en el doc de google drive aparece un comentario que dice de no tirar info tipo wikipedia, pero no entendi si va dirigido a mi trabajo o aparece en mi fila por error.
+
+- el requerimiento adicional 5.3 lo saqué, ya que me parece que más que un requerimiento es una decisión de diseño, no es algo que el cliente pueda exigir. Decía así: 
+
+		\item El equipo debe inicializar solamente los periféricos que se utilicen en el momento necesario y luego apagarlos, para mejorar el ahorro energía. 
+
+- se pueden poner referncias repetidas? por ejemplo cuando hablo sobre patrones de diseño, y cuando después menciono un patrón de diseño en particular.
+
+- no se como acomodar las imagenes de los diagramas de tareas, son todas bastante grandes y se complica distribuir el texto de forma automática.
+
+- las referencias me parece que las está ordenando por orden alfabético, esto está bien asi? o quedaría más intuitivo por orden de aparición?
