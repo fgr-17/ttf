@@ -42,7 +42,7 @@ Este capítulo se centra en el proceso de desarrollo del dispositivo, tanto el f
 % --------------------------------------
 
 
-\section{Implementación del sistema}
+\section{Implementación del firmware}
 
 \subsection{Resumen del sistema}
 
@@ -504,8 +504,7 @@ Se agrega además un manejo simple de las FIFO de transmisión y recepción de 1
 	
  	\item \textbf{GPIO:} Las entradas utilizadas como propósito general son el pin DRDY para señalizar que el conversor ADS1292 tiene datos listos, un pin de estado del conversor Serie-BT, y un pin de detección de tarjeta conectada del slot microSD. En la rutina de interrupción simplemente se liberan semáforos o se escriben flags. También se utilizan salidas digitales manejadas directamente con las funciones de LPCOpen, para la activación del integrado de carga de batería. Este último esta normalmente apagado porque aumenta el nivel de ruido de todo el circuito.
 
-	\item \textbf{USB:} 
-
+	\item \textbf{USB:} Se trabajó a partir del ejemplo de LPCOpen usbd\_lib\_hid\_generic, que muestra como utilizar la librería USB para enumerar al dispositivo como "HID Device". También se recurrió a los recursos de software de la placa Embedded Artist\citep{ea2013}, que contiene una implementación de la clase Mass Storage (MSC), con todas las funciones de acceso a memoria y los wrappers para los comandos SCSI que utiliza la MSC \citep{arm2019} \citep{peacock2002} \citep{axelson2006}. La aplicación configura el endpoint 1 para transferencias BULK y permite que el USB tome el control del accesso a la memoria SD, hasta que la PC finalice la comunicación o se detecte mediante el pin USB\_CONNECT que se perdió el vínculo.
 
 \end{itemize}
 
@@ -551,18 +550,172 @@ typedef struct
  	
  	\item \textbf{Bluetooth:} La comunicación por Bluetooth es transparente y se utiliza directamente como un puerto serie. La configuración del módulo HC-05 se realiza mediante una PC y el módulo se emplea ya inicializado.
 
-	\item \textbf{Memoria SD:} El manejo de la memoria SD se realiza a través de las librerías FatFs. Se cuenta con funciones de inicialización de la capa más baja de hardware(disk\_initialize) y de inicialización del filesystem (f\_mount). Una vez que la memoria ya se encuentra montada, se pueden utilizar funciones de acceso a archivos como f\_open(), f\_write(), f\_sync(), f\_close().
+	\item \textbf{Memoria SD:} El manejo de la memoria SD se realiza a través de las librerías FatFs. Se cuenta con funciones de inicialización de la capa más baja de hardware(disk\_initialize) y de inicialización del filesystem (f\_mount). Una vez que la memoria ya se encuentra montada, se pueden utilizar funciones de acceso a archivos como f\_open(), f\_write(), f\_sync(), f\_close(). Todas estas funciones recurren al driver SPI.
+
+\end{itemize}
+
+\subsection{Pruebas Unitarias} \label{pruebasUnitarias}
+
+
+Para cada uno de los periféricos y drivers mencionados anteriormente se realizaron scripts individuales para comprobar el funcionamiento de cada uno de los periféricos en forma aislada.
+
+\textbf{Pruebas sobre periféricos:}
+
+\begin{itemize}
+
+\item \textbf{Puerto Serie:} se hizo la prueba de comunicación utilizando inicialmente la placa LPCXpresso1769 y un conversor USB-TTL conectado directamente a los pines del microcontrolador. Se utilizó el programa microcom \citep{ubuntu2016} para realizar las pruebas de comunicación serie entre la PC y el microcontrolador.
+
+\item \textbf{Puerto SPI:} Las pruebas de comunicación SPI se realizaron en primer lugar con un osciloscopio digital Tektronix TDS2012C para verificar la frecuencia de la señal SCK. Luego se realizaron las pruebas directamente sobre los dispositivos a los que se conectan, como la SD y el ADS1292, y ello permitió corregir errores de configuración del puerto.
+
+\item \textbf{Timer:} Se comprobó el funcionamiento del timer instalando un handler de interrupción básico que haga cambiar el estado de un pin. Luego se modificó la frecuencia de la interrupción y se comprobó para cada caso la frecuencia de parpadeo del pin en un osciloscopio digital Tektronix TDS2012C.
+
+\item \textbf{ADC:} Se realizaron pruebas de adquisición utilizando un generador de señales UTG4082A con señales senoidales para el análisis de frecuencia y señales tipo rampa para la comprobación del rango dinámico. Se utilizaron diferentes frecuencias de muestreo y para cada caso se realizó un descargo de memoria RAM del microcontrolador a un archivo, para su posterior visualización y análisis utilizando un script de python.
+
+\item \textbf{DMA:} Se comprobó la configuración del DMA utilizando el ADC y realizando adquisiciones, y se comprobó el correcto funcionamiento realizando la descarga de los buffers de memoria transferidos por este periférico. La descarga de memoria se realizó igual que en el caso de la comprobación de funcionamiento del ADC, utilizando la herramienta de "Memory Dump" de la IDE LPCXpresso, que permite exportar un sector de la memoria del microcontrolador a un archivo en la PC, para luego analizarlo en un script de python.
+
+\item \textbf{GPIO:} Se realizaron pruebas de la configuración de los pines de salida utilzando la placa LPCXpresso1769 y leds conectados a través de un protoboard. Se realizaron pruebas para los pines de entrada utilizando la placa LPCXpresso1769 y un botón conectado a través de un protoboar, y comprobando el acceso a la rutina de interrupción.
+
+\item \textbf{USB:} Las pruebas de USB se realizaron en conjunto con las pruebas de hardware ya que es necesario para la comunicación con la PC. Para los test iniciales se utilizó un programa que registra al microcontrolador como un puerto serie a través del USB, y con ello se realizaron algunas correcciones de hardware. Luego se realizaron las pruebas individuales de la memoria SD y se comprobó su funcionamiento utilizando un lector de memorias USB. Finalmente se utilizó el programa de ejemplo usbd\_lib\_hid\_generic para realizar la prueba en conjunto del USB y la memoria SD.
 
 \end{itemize}
 
 
+\textbf{Pruebas sobre drivers:}
 
-\subsection{Pruebas Unitarias} \label{pruebasUnitarias}
+
+\begin{itemize}
+
+\item \textbf{ADS1292:} Se realizaron pruebas de adquisición armando un programa básico que solamente cuente con una rutina de interrupción para el pin de aviso de datos disponibles (DRDY) y una tarea que permita realizar la copia de las muestras de los canales habilitados hacia un buffer. Se colocó un breakpoint que detenga el programa al finalizar la escritura del buffer y se realizó una descarga de la memoria a un archivo para verificar la adquisición, al igual que con la prueba del periférico ADC interno. Se conectó la entrada analógica del ADC a un generador de señales arbitrario UNI-T UTG4082A y se realizaron adquisiciones sobre señales senoidales y del tipo rampa, para verificar la característica de respuesta en frecuencia y de rango dinámico. 
+
+\item \textbf{Bluetooth:} Se utilizó un módulo HC-05 conectado al puerto serie, y se emparejó luego a una tablet Android, con la aplicación Blueterm\citep{pymasde2013} instalada. Se realizaron pruebas de envío de comandos individuales, y luego de señales guardadas en la memoria del microcontrolador en bloques de 128 bytes, decimando las muestras a 100Hz y bajando la resolución de 24 a 16 bits. En la aplicación se realizó un descargo de memoria para comprobar que los bloques de memoria hayan sido transferidos correctamente.
+
+\item \textbf{Memoria SD:} Las pruebas de este driver se realizaron en conjunto con las pruebas de hardware. En primer lugar se realizó la prueba de conexión con la memoria SD, escritura de un archivo y luego apertura de un archivo. Finalmente se realizaron pruebas más exigentes en tiempo haciendo escrituras de buffers completos y midiendo el tiempo de escritura en la SD con un pin digital de salida: antes de ingresar a la función de escritura de la SD se estableció el estado del pin en 3.3V, y al salir de la función de escritura del bloque se volvió a establecer el estado del pin en 0V. Esto es necesario ya que se debe demorar menos tiempo en escribir el bloque adquirido en la SD que en adquirir dicho bloque. Luego de estas pruebas se configuró el tamaño del buffer de muestras en 1024 muestras.
+
+\end{itemize}
+
 \subsection{Pruebas De Integración} \label{pruebasIntegracion}
+
+Las pruebas de integración se realizaron a partir de la aplicación principal esquematizada en la figura \ref{fig:VOP_mde_v1}. Esta aplicación abarca todas las funcionalidades del equipo excepto el acceso por USB. Al ser la máquina de estados totalmente conocida, y poder acceder mediante el debugger a la posición real del firmware del controlador (estados observables), se puede realizar una prueba exhaustiva de la función de interfaz de usuario. 
+Utilizando la aplicación Blueterm en una tablet Android se realizó el recorrido por todos los estados posibles de la máquina (All-Path Coverage \citep{lin2013}), así como también se enviaron comandos erróneos o fuera de contexto. Estas pruebas permitieron corregir errores en las prioridades y tamaño de stack asignado a cada tarea.
+Luego se realizaron las mismas pruebas, pero en lugar de verificar el funcionamiento mediante el debugger, se realizó mediante un puerto serie auxiliar, y agregando mensajes de testing en el firmware, que luego se removieron en la versión final. Esto permitió independizar la prueba de las demoras del debugger.
+
+
 \subsection{Pruebas de Sistema} \label{pruebasSistema}
 
+Las pruebas de sistema se discutirán en el capítulo 4 como ''Ensayos y Resultados''.
+
+\section{Implementación del Hardware} \label{implementacionHw}
+
+El desarrollo del hardware se realizó en tres etapas: dos etapas como prototipo experimental y una tercera con todas las correcciones como modelo final. Todos los modelos fueron diseñados íntegramente en Kicad,
+
+\subsection{Prototipo para adquisición del ADS1292}
+
+En primer lugar se realizó una placa como prototipo para prueba del ADS1292 y su conexión con el microcontrolador. En este caso se colocaron dos tiras de pines para conectar la placa LPCXpresso1769, y el ADS1292 a través del puerto SPI0, asi como también un filtro analógico de entrada, basado en un circuito recomendado por el fabricante de los sensores. Se utilizó un regulador de tensión LDO 7333 para independizar la alimentación utilizando baterías o un adaptador de 4V a 9V, y de esta manera reducir el ruido que introduce la alimentación por USB de la placa LPCXpresso1769. 
+Se realizó el ruteo independiente de la alimentación digital (DVCC-DGND) y analógica (AVCC-AGND). En la figura \ref{fig:ads1292esq} puede verse un esquemático con las conexiones de entrada del ADS1292.
+
+\begin{figure}[!htbp]
+	\centering
+	
+	\begin{minipage}{\textwidth}
+		\includegraphics[width=\textwidth]{./Figures/ads1292_esq.png}		
+	\end{minipage}		
+	
+	\caption{Esquemático de conexiones del conversor analógico digital de alta resolución ADS1292}
+	\label{fig:ads1292esq}
+\end{figure}
 
 
 
+Este PCB se realizó en un router CNC redt MAGIC300 (Figura \ref{fig:magic300})sobre una placa de cobre virgen doble faz de 10x5 cm. Se realizaron varias correcciones sobre la misma. Se agregó también un slot de memoria micro SD conectado al puerto SPI0 para realizar las primeras pruebas de adquisición. Pueden verse fotografías de este prototipo luego de haber realizado varias correcciones en las Figuras \ref{fig:prototiposup} y \ref{fig:prototipo1inf}
+
+\begin{figure}[!htbp]
+	\centering
+	
+	\begin{minipage}{0.65\textwidth}
+		\includegraphics[width=\textwidth]{./Figures/magic300.jpeg}		
+	\end{minipage}		
+	
+	\caption{Router CNC empleado para los dos primeros prototipos.}
+	\label{fig:magic300}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	
+	\begin{minipage}{0.5\textwidth}
+		\includegraphics[width=\textwidth]{./Figures/prototipo11.jpeg}		
+	\end{minipage}		
+	
+	\caption{Vista superior del primer prototipo realizado.}
+	\label{fig:prototipo1sup}
+\end{figure}
 
 
+\begin{figure}[!htbp]
+	\centering
+	
+	\begin{minipage}{0.5\textwidth}
+		\includegraphics[width=\textwidth]{./Figures/prototipo12.jpeg}		
+	\end{minipage}		
+	
+	\caption{Vista inferior del primer prototipo realizado.}
+	\label{fig:prototipo1inf}
+\end{figure}
+
+
+\subsection{Prototipo para carga de batería y USB}
+
+En segundo lugar se trabajó en un prototipo para realizar la carga de la batería y el accesso a datos a través del puerto USB. 
+
+Para la carga de la batería se utilizó el integrado LT1512, que permite cargar a corriente constante y tensión controlada por una resistencia. También reduce al mínimo la corriente de perdida de la batería y cuenta con un pin de habilitación. Este integrado toma la tensión de línea de USB, que es la que se utiliza para realizar la carga.El bus USB se encuentra protegido por el integrado TPD4S014, tanto la tensión como las líneas de datos.
+
+
+\begin{figure}[!htbp]
+	\centering
+	
+	\begin{minipage}{0.6\textwidth}
+		\includegraphics[width=\textwidth]{./Figures/usbesq.png}		
+	\end{minipage}		
+	
+	\caption{Esquemático de conexión de la entrada USB}
+	\label{fig:usbesq}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering
+	
+	\begin{minipage}{0.6\textwidth}
+		\includegraphics[width=\textwidth]{./Figures/cargaesq.png}		
+	\end{minipage}		
+	
+	\caption{Esquemático de conexión de la entrada USB}
+	\label{fig:cargaesq}
+\end{figure}
+
+
+Para el intercambio de tensión entre la batería y la bus USB se utilizó un integrado LTC4411 que cumple la función de un ''diodo ideal'', es decir, permite intercambiar entre una tensión y otra en un tiempo mínimo de establecimiento. A su vez cuenta con un pin de salida que le indica al microcontrolador cuál es la tensión que está conectada.
+
+
+\begin{figure}[!htbp]
+	\centering
+	
+	\begin{minipage}{0.6\textwidth}
+		\includegraphics[width=\textwidth]{./Figures/switchBateria.png}		
+	\end{minipage}		
+	
+	\caption{Esquemático de conexión del LTC4411 que actúa como un diodo ideal.}
+	\label{fig:switchBateria}
+\end{figure}
+
+Además se incluyeron dos tipos de reguladores para prueba: por un lado un regulador LDO de 3.3V MCP1700-3302, y por otro un regulador buck-boost TPS63001. Este último requiere algunos componentes más pero permite regular la salida a 3.3V desde 5.5V hasta 1.8V, lo que permite aprovechar mejor la autonomía de la batería. Se realizaron pruebas para medir el nivel de ruido de la salida de este regulador. En todos los casos se incluyeron jumpers que permitieron activar cada regulador por separado.
+
+\begin{figure}[!htbp]
+	\centering
+	
+	\begin{minipage}{0.6\textwidth}
+		\includegraphics[width=\textwidth]{./Figures/reguladores.png}		
+	\end{minipage}		
+	
+	\caption{Esquemático de conexión los reguladores.}
+	\label{fig:reguladores}
+\end{figure}

@@ -1,5 +1,6 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {spanish}{}
+\defcounter {refsection}{0}\relax 
+\select@language {spanish}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Esquema de medici\IeC {\'o}n de VOP\relax }}{1}{figure.caption.8}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Forma de onda caracter\IeC {\'\i }stica de la presi\IeC {\'o}n humana\relax }}{2}{figure.caption.10}
@@ -23,5 +24,13 @@
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Diagrama de tareas en modo configuraci\IeC {\'o}n\relax }}{30}{figure.141}
 \contentsline {figure}{\numberline {3.12}{\ignorespaces M\IeC {\'a}quina de estados de tarea de interfaz de usuario\relax }}{31}{figure.caption.142}
 \contentsline {figure}{\numberline {3.13}{\ignorespaces M\IeC {\'a}quina de estados de configuraci\IeC {\'o}n de usuario\relax }}{31}{figure.caption.143}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Esquem\IeC {\'a}tico de conexiones del conversor anal\IeC {\'o}gico digital de alta resoluci\IeC {\'o}n ADS1292\relax }}{37}{figure.caption.188}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Router CNC empleado para los dos primeros prototipos.\relax }}{38}{figure.caption.189}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Vista superior del primer prototipo realizado.\relax }}{38}{figure.caption.190}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Vista inferior del primer prototipo realizado.\relax }}{39}{figure.caption.191}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Esquem\IeC {\'a}tico de conexi\IeC {\'o}n de la entrada USB\relax }}{40}{figure.caption.193}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Esquem\IeC {\'a}tico de conexi\IeC {\'o}n de la entrada USB\relax }}{40}{figure.caption.194}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Esquem\IeC {\'a}tico de conexi\IeC {\'o}n del LTC4411 que act\IeC {\'u}a como un diodo ideal.\relax }}{41}{figure.caption.195}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Esquem\IeC {\'a}tico de conexi\IeC {\'o}n los reguladores.\relax }}{41}{figure.caption.196}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
