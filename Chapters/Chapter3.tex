@@ -463,7 +463,7 @@ El estado de configuración se trata de un estado compuesto en el cual se puede 
 
 La implementación de código se realizó en etapas, comenzando por los drivers y capas de abstracción de hardware. La librería utilizada para la configuración de los periféricos es la de LPCOpen, que es libre y cuenta con drivers, middleware y gran cantidad de ejemplos \citep{lpcopen2014}.
 
-\textbf{Código de bajo nivel}
+\textbf{Código de bajo nivel: periféricos}
 
 En primer lugar, de acuerdo al diagrama de gantt de la figura \ref{fig:gantt}, se trabajó sobre cada uno de los drivers de bajo nivel para lograr la funcionalidad individual de los periféricos e integrados asociados. A continuación se mencionan cada una de las particularidades de los diferentes módulos de hardware configurados: 
 
@@ -496,9 +496,66 @@ Se agrega además un manejo simple de las FIFO de transmisión y recepción de 1
 	
 	Por otro lado, el puerto SPI dedicado a la comunicación con la memoria SD también se comunica a través de las funciones básicas de la librería LPCOpen, pero se agrega una rutina de atención de interrupción para manejar comandos que requieren envío y respuesta inmediata.
 
+	\item \textbf{Timer:} Se utiliza un timer que realiza una cuenta repetitiva para generar la frecuencia de muestreo. No se utilizó el handler de interrupción, simplemente se inicializa y se activa o desactiva cuando es necesario muestrear con el ADC interno.
+
+	\item \textbf{ADC:} El ADC está configurado para ser disparado por el Timer 0 al setear los bits correspondientes del registro de control. Esta conexión entre el ADC y el Timer es interna por hardware, al configurarlo de esta manera, con cada interrupción del Timer se genera un disparo del ADC. Se muestrea un solo canal para la adquisición de la batería.
+	
+	\item \textbf{DMA:} El DMA esta configurado para generar una transferencia desde un lugar fijo de memoria de periféricos (el registro AD0CR) a un puntero que se incrementa con cada copia. Al finalizar el conteo del buffer se genera una interrupción del DMA y se pasa a calcular un promedio de los valores, a la vez que se intercambia el puntero a un segundo buffer.
+	
+ 	\item \textbf{GPIO:} Las entradas utilizadas como propósito general son el pin DRDY para señalizar que el conversor ADS1292 tiene datos listos, un pin de estado del conversor Serie-BT, y un pin de detección de tarjeta conectada del slot microSD. En la rutina de interrupción simplemente se liberan semáforos o se escriben flags. También se utilizan salidas digitales manejadas directamente con las funciones de LPCOpen, para la activación del integrado de carga de batería. Este último esta normalmente apagado porque aumenta el nivel de ruido de todo el circuito.
+
+	\item \textbf{USB:} 
 
 
 \end{itemize}
+
+\textbf{Configuración de drivers}
+
+\begin{itemize}
+
+ 	\item \textbf{ADS1292:} El ADS1292 requiere una serie de comandos para su inicialización\cite{texas2012} con delays intermedios. Se envía el comando RESET, luego se espera 1 segundo para después enviar el comando SDATAC. Si el envío es correcto, el ADS1292 responde con una cadena que contiene un ID asociado al modelo del chip (los demás chips de la familia responden ID diferente). 
+ 	Luego se pasa a escribir los registros de configuración CONFIG1 y CONFIG2, donde se especifican las referencias de tensión, la frecuencia de muestreo, los canales habilitados y la ganancia del PGA de cada canal. Al finalizar, se baja el pin de Chip Select del bus SPI. 
+ 	Luego de inicializarlo, el manejo del ADS1292 se realiza en la tarea DatosListos(), que está bloqueada por el semáforo del pin DRDY. Cada vez que este semáforo desbloquea la tarea, activo el canal SPI con el pin Chip Select y leo los bytes recibidos. Luego empaqueto los 3 bytes en una variable de 32 bits utilizando una union y los almaceno en un buffer. Cuando los buffers de los canales habilitados están completos, se intercambian los punteros de almacenamiento y adquisición, y finalmente se escribe en la cola de datos colaDatosAlm o colaDatosEnv según el modo actual.
+ 	Se utiliza una estructura de datos para cada uno de los canales con los siguientes campos:
+ 	
+\footnotesize 	
+\begin{lstlisting} [caption = Estructura de datos asociada al canal del ADS1292]
+
+typedef enum {INACTIVO, PENDIENTE, PROCESANDO, FINALIZADO} T_Estado_Buffer;
+
+typedef struct
+{
+	/* Defino un doble buffer para adquisicion.  */
+	int32_t buf1 [CANAL_BUFFER_L];
+	int32_t buf2 [CANAL_BUFFER_L];
+
+	/* Indice de adquisicion */
+	int32_t ind;
+	/* Indice de envio */
+	int32_t ind_envio;
+
+	/* Defino puntero a buffer de adquisicionn y a buffer de almacenamiento: */
+	int32_t* pAct;
+	int32_t* pAlm;
+
+
+	/* flag para saber si hay un buffer lleno esperando a almacenarse */
+	T_Estado_Buffer estado_buffer;
+	bool buffer_lleno_pendiente;
+}t_canal;
+
+
+\end{lstlisting}	
+\normalsize
+
+ 	
+ 	\item \textbf{Bluetooth:} La comunicación por Bluetooth es transparente y se utiliza directamente como un puerto serie. La configuración del módulo HC-05 se realiza mediante una PC y el módulo se emplea ya inicializado.
+
+	\item \textbf{Memoria SD:} El manejo de la memoria SD se realiza a través de las librerías FatFs. Se cuenta con funciones de inicialización de la capa más baja de hardware(disk\_initialize) y de inicialización del filesystem (f\_mount). Una vez que la memoria ya se encuentra montada, se pueden utilizar funciones de acceso a archivos como f\_open(), f\_write(), f\_sync(), f\_close().
+
+\end{itemize}
+
+
 
 \subsection{Pruebas Unitarias} \label{pruebasUnitarias}
 \subsection{Pruebas De Integración} \label{pruebasIntegracion}
