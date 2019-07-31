@@ -502,9 +502,9 @@ Se agrega además un manejo simple de las FIFO de transmisión y recepción de 1
 	
 	\item \textbf{DMA:} El DMA esta configurado para generar una transferencia desde un lugar fijo de memoria de periféricos (el registro AD0CR) a un puntero que se incrementa con cada copia. Al finalizar el conteo del buffer se genera una interrupción del DMA y se pasa a calcular un promedio de los valores, a la vez que se intercambia el puntero a un segundo buffer.
 	
- 	\item \textbf{GPIO:} Las entradas utilizadas como propósito general son el pin DRDY para señalizar que el conversor ADS1292 tiene datos listos, un pin de estado del conversor Serie-BT, y un pin de detección de tarjeta conectada del slot microSD. En la rutina de interrupción simplemente se liberan semáforos o se escriben flags. También se utilizan salidas digitales manejadas directamente con las funciones de LPCOpen, para la activación del integrado de carga de batería. Este último esta normalmente apagado porque aumenta el nivel de ruido de todo el circuito.
+ 	\item \textbf{GPIO:} Las entradas utilizadas como propósito general son el pin DRDY para señalizar que el conversor ADS1292 tiene datos listos, un pin de estado del conversor Serie-BT, un pin de detección de tarjeta conectada del slot microSD y la salida de detección de fuente de alimentación. En la rutina de interrupción simplemente se liberan semáforos o se escriben flags. También se utilizan salidas digitales manejadas directamente con las funciones de LPCOpen para la activación del integrado de carga de batería. Este último esta normalmente apagado porque aumenta el nivel de ruido de todo el circuito.
 
-	\item \textbf{USB:} Se trabajó a partir del ejemplo de LPCOpen usbd\_lib\_hid\_generic, que muestra como utilizar la librería USB para enumerar al dispositivo como "HID Device". También se recurrió a los recursos de software de la placa Embedded Artist\citep{ea2013}, que contiene una implementación de la clase Mass Storage (MSC), con todas las funciones de acceso a memoria y los wrappers para los comandos SCSI que utiliza la MSC \citep{arm2019} \citep{peacock2002} \citep{axelson2006}. La aplicación configura el endpoint 1 para transferencias BULK y permite que el USB tome el control del accesso a la memoria SD, hasta que la PC finalice la comunicación o se detecte mediante el pin USB\_CONNECT que se perdió el vínculo.
+	\item \textbf{USB:} Se trabajó a partir del ejemplo de LPCOpen usbd\_lib\_hid\_generic, que muestra como utilizar la librería USB para enumerar al dispositivo como Device. También se recurrió a los recursos de software de ejemplo de la placa Embedded Artist\citep{ea2013}, que contiene una implementación de la clase Mass Storage (MSC), con todas las funciones de acceso a memoria y los wrappers para los comandos SCSI que utiliza la MSC \citep{arm2019} \citep{peacock2002} \citep{axelson2006}. La aplicación configura el endpoint 1 para transferencias BULK y permite que el USB tome el control del accesso a la memoria SD, hasta que la PC finalice la comunicación o se detecte mediante el pin USB\_CONNECT que se perdió el vínculo.
 
 \end{itemize}
 
@@ -565,17 +565,17 @@ Para cada uno de los periféricos y drivers mencionados anteriormente se realiza
 
 \item \textbf{Puerto Serie:} se hizo la prueba de comunicación utilizando inicialmente la placa LPCXpresso1769 y un conversor USB-TTL conectado directamente a los pines del microcontrolador. Se utilizó el programa microcom \citep{ubuntu2016} para realizar las pruebas de comunicación serie entre la PC y el microcontrolador.
 
-\item \textbf{Puerto SPI:} Las pruebas de comunicación SPI se realizaron en primer lugar con un osciloscopio digital Tektronix TDS2012C para verificar la frecuencia de la señal SCK. Luego se realizaron las pruebas directamente sobre los dispositivos a los que se conectan, como la SD y el ADS1292, y ello permitió corregir errores de configuración del puerto.
+\item \textbf{Puerto SPI:} Las pruebas de comunicación SPI se realizaron en primer lugar con un osciloscopio digital Tektronix TDS2012C para verificar la frecuencia de la señal SCK. Luego se realizaron las pruebas directamente sobre los dispositivos a los que se conectan, como la memoria SD y el ADS1292, y ello permitió corregir errores de configuración del puerto.
 
 \item \textbf{Timer:} Se comprobó el funcionamiento del timer instalando un handler de interrupción básico que haga cambiar el estado de un pin. Luego se modificó la frecuencia de la interrupción y se comprobó para cada caso la frecuencia de parpadeo del pin en un osciloscopio digital Tektronix TDS2012C.
 
 \item \textbf{ADC:} Se realizaron pruebas de adquisición utilizando un generador de señales UTG4082A con señales senoidales para el análisis de frecuencia y señales tipo rampa para la comprobación del rango dinámico. Se utilizaron diferentes frecuencias de muestreo y para cada caso se realizó un descargo de memoria RAM del microcontrolador a un archivo, para su posterior visualización y análisis utilizando un script de python.
 
-\item \textbf{DMA:} Se comprobó la configuración del DMA utilizando el ADC y realizando adquisiciones, y se comprobó el correcto funcionamiento realizando la descarga de los buffers de memoria transferidos por este periférico. La descarga de memoria se realizó igual que en el caso de la comprobación de funcionamiento del ADC, utilizando la herramienta de "Memory Dump" de la IDE LPCXpresso, que permite exportar un sector de la memoria del microcontrolador a un archivo en la PC, para luego analizarlo en un script de python.
+\item \textbf{DMA:} Se comprobó la configuración del DMA utilizando el ADC y realizando adquisiciones, y se comprobó el correcto funcionamiento descargando los buffers de memoria transferidos por este periférico. La descarga de memoria se realizó igual que en el caso de la comprobación de funcionamiento del ADC, utilizando la herramienta de "Memory Dump" de la IDE LPCXpresso, que permite exportar un sector de la memoria del microcontrolador a un archivo en la PC, para luego analizarlo en un script de python.
 
 \item \textbf{GPIO:} Se realizaron pruebas de la configuración de los pines de salida utilzando la placa LPCXpresso1769 y leds conectados a través de un protoboard. Se realizaron pruebas para los pines de entrada utilizando la placa LPCXpresso1769 y un botón conectado a través de un protoboar, y comprobando el acceso a la rutina de interrupción.
 
-\item \textbf{USB:} Las pruebas de USB se realizaron en conjunto con las pruebas de hardware ya que es necesario para la comunicación con la PC. Para los test iniciales se utilizó un programa que registra al microcontrolador como un puerto serie a través del USB, y con ello se realizaron algunas correcciones de hardware. Luego se realizaron las pruebas individuales de la memoria SD y se comprobó su funcionamiento utilizando un lector de memorias USB. Finalmente se utilizó el programa de ejemplo usbd\_lib\_hid\_generic para realizar la prueba en conjunto del USB y la memoria SD.
+\item \textbf{USB:} Las pruebas de USB se realizaron en conjunto con las pruebas de hardware ya que es necesario para la comunicación con la PC. Para los test iniciales se utilizó un programa que registra al microcontrolador como un puerto serie a través del USB, y con ello se realizaron algunas correcciones de hardware. Luego se realizaron las pruebas individuales de la memoria SD y se comprobó su funcionamiento utilizando un lector de memorias USB. Finalmente se integró todo en un mismo programa para realizar la prueba en conjunto del USB y la memoria SD.
 
 \end{itemize}
 
@@ -606,7 +606,7 @@ Las pruebas de sistema se discutirán en el capítulo 4 como ''Ensayos y Resulta
 
 \section{Implementación del Hardware} \label{implementacionHw}
 
-El desarrollo del hardware se realizó en tres etapas: dos etapas como prototipo experimental y una tercera con todas las correcciones como modelo final. Todos los modelos fueron diseñados íntegramente en Kicad,
+El desarrollo del hardware se realizó en tres etapas: dos etapas como prototipo experimental y una tercera con todas las correcciones como modelo final. Todos los modelos fueron diseñados íntegramente en Kicad.
 
 \subsection{Prototipo para adquisición del ADS1292}
 
@@ -626,14 +626,12 @@ Se realizó el ruteo independiente de la alimentación digital (DVCC-DGND) y ana
 
 
 
-Este PCB se realizó en un router CNC redt MAGIC300 (Figura \ref{fig:magic300})sobre una placa de cobre virgen doble faz de 10x5 cm. Se realizaron varias correcciones sobre la misma. Se agregó también un slot de memoria micro SD conectado al puerto SPI0 para realizar las primeras pruebas de adquisición. Pueden verse fotografías de este prototipo luego de haber realizado varias correcciones en las Figuras \ref{fig:prototiposup} y \ref{fig:prototipo1inf}
+Este PCB se realizó en un router CNC redt MAGIC300 (Figura \ref{fig:magic300}) sobre una placa de cobre virgen doble faz de 10x5 cm. Se realizaron varias correcciones sobre la misma. Se agregó también un slot de memoria micro SD conectado al puerto SPI0 para realizar las primeras pruebas de adquisición. Pueden verse fotografías de este prototipo luego de haber realizado varias correcciones en las Figuras \ref{fig:prototipo1sup} y \ref{fig:prototipo1inf}
 
 \begin{figure}[!htbp]
 	\centering
 	
-	\begin{minipage}{0.65\textwidth}
-		\includegraphics[width=\textwidth]{./Figures/magic300.jpeg}		
-	\end{minipage}		
+	\includegraphics[width=0.65\textwidth]{./Figures/magic300.jpeg}		
 	
 	\caption{Router CNC empleado para los dos primeros prototipos.}
 	\label{fig:magic300}
@@ -641,11 +639,7 @@ Este PCB se realizó en un router CNC redt MAGIC300 (Figura \ref{fig:magic300})s
 
 \begin{figure}[!htbp]
 	\centering
-	
-	\begin{minipage}{0.5\textwidth}
-		\includegraphics[width=\textwidth]{./Figures/prototipo11.jpeg}		
-	\end{minipage}		
-	
+	\includegraphics[angle = 90, width=0.65\textwidth]{./Figures/prototipo11.jpeg}		
 	\caption{Vista superior del primer prototipo realizado.}
 	\label{fig:prototipo1sup}
 \end{figure}
@@ -654,10 +648,7 @@ Este PCB se realizó en un router CNC redt MAGIC300 (Figura \ref{fig:magic300})s
 \begin{figure}[!htbp]
 	\centering
 	
-	\begin{minipage}{0.5\textwidth}
-		\includegraphics[width=\textwidth]{./Figures/prototipo12.jpeg}		
-	\end{minipage}		
-	
+	\includegraphics[angle = 90, width=0.65\textwidth]{./Figures/prototipo12.jpeg}		
 	\caption{Vista inferior del primer prototipo realizado.}
 	\label{fig:prototipo1inf}
 \end{figure}
@@ -667,15 +658,14 @@ Este PCB se realizó en un router CNC redt MAGIC300 (Figura \ref{fig:magic300})s
 
 En segundo lugar se trabajó en un prototipo para realizar la carga de la batería y el accesso a datos a través del puerto USB. 
 
-Para la carga de la batería se utilizó el integrado LT1512, que permite cargar a corriente constante y tensión controlada por una resistencia. También reduce al mínimo la corriente de perdida de la batería y cuenta con un pin de habilitación. Este integrado toma la tensión de línea de USB, que es la que se utiliza para realizar la carga.El bus USB se encuentra protegido por el integrado TPD4S014, tanto la tensión como las líneas de datos.
+Para la carga de la batería se utilizó el integrado LT1512, que permite realizar la carga a corriente constante y tensión controlada por una resistencia. También reduce al mínimo la corriente de perdida de la batería y cuenta con un pin de habilitación. Este integrado toma la tensión de línea de USB, que es la que se utiliza para realizar la carga. El bus USB se encuentra protegido por el integrado TPD4S014, tanto la línea de tensión como las líneas de datos.
 
 
 \begin{figure}[!htbp]
 	\centering
 	
-	\begin{minipage}{0.6\textwidth}
-		\includegraphics[width=\textwidth]{./Figures/usbesq.png}		
-	\end{minipage}		
+	\includegraphics[width=0.8\textwidth]{./Figures/usbesq.png}		
+
 	
 	\caption{Esquemático de conexión de la entrada USB}
 	\label{fig:usbesq}
@@ -684,26 +674,24 @@ Para la carga de la batería se utilizó el integrado LT1512, que permite cargar
 \begin{figure}[!htbp]
 	\centering
 	
-	\begin{minipage}{0.6\textwidth}
-		\includegraphics[width=\textwidth]{./Figures/cargaesq.png}		
-	\end{minipage}		
+
+	\includegraphics[width=0.8\textwidth]{./Figures/cargaesq.png}		
+
 	
 	\caption{Esquemático de conexión de la entrada USB}
 	\label{fig:cargaesq}
 \end{figure}
 
 
-Para el intercambio de tensión entre la batería y la bus USB se utilizó un integrado LTC4411 que cumple la función de un ''diodo ideal'', es decir, permite intercambiar entre una tensión y otra en un tiempo mínimo de establecimiento. A su vez cuenta con un pin de salida que le indica al microcontrolador cuál es la tensión que está conectada.
+Para el intercambio de tensión entre la batería y la tensión provista por el bus USB se utilizó el circuito integrado LTC4411 que cumple la función de un ''diodo ideal'', es decir, permite intercambiar entre una tensión y otra en un tiempo mínimo de establecimiento. A su vez cuenta con un pin de salida que le indica al microcontrolador cuál es la tensión que está conectada.
 
 
 \begin{figure}[!htbp]
 	\centering
 	
-	\begin{minipage}{0.6\textwidth}
-		\includegraphics[width=\textwidth]{./Figures/switchBateria.png}		
-	\end{minipage}		
+	\includegraphics[width=0.8\textwidth]{./Figures/switchBateria.png}		
 	
-	\caption{Esquemático de conexión del LTC4411 que actúa como un diodo ideal.}
+	\caption{Esquemático de conexión del LTC4411.}
 	\label{fig:switchBateria}
 \end{figure}
 
@@ -711,11 +699,70 @@ Además se incluyeron dos tipos de reguladores para prueba: por un lado un regul
 
 \begin{figure}[!htbp]
 	\centering
-	
-	\begin{minipage}{0.6\textwidth}
-		\includegraphics[width=\textwidth]{./Figures/reguladores.png}		
-	\end{minipage}		
-	
+	\includegraphics[width=0.8\textwidth]{./Figures/reguladores.png}			
 	\caption{Esquemático de conexión los reguladores.}
 	\label{fig:reguladores}
+\end{figure}
+
+Este prototipo se fabricó también en un router CNC redt Magic300 en una sola capa por su baja complejidad. Se realizaron pruebas de todas las funcionalidades y a partir de ello se tomó nota de todas las correcciones para la versión final. Pueden verse fotografías de la placa finalizada en las figuras \ref{fig:pcbBateriaInf} y \ref{fig:pcbBateriaSup} .
+
+\begin{figure}[!htbp]
+	\centering	
+	\includegraphics[angle = 90, width=0.6\textwidth]{./Figures/pcbBateriaInf.jpeg}			
+	\caption{Circuito impreso del prototipo para carga de bateria y USB}
+	\label{fig:pcbBateriaInf}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering	
+	\includegraphics[width=0.6\textwidth]{./Figures/pcbBateriaSup.jpeg}			
+	\caption{Vista superior del prototipo para carga de bateria y USB}
+	\label{fig:pcbBateriaSup}
+\end{figure}
+
+
+\subsection{Diseño final del circuito impreso}
+
+Utilizando los dos prototipos anteriores y los esquemáticos de la placa LPCXpresso1769 \citep{ea2011} se realizó un diseño integrando todos estos módulos, y con el microcontrolador LPC1769 soldado sobre la placa en lugar de utilizar la placa de desarrollo LPCXpresso1769. 
+
+En este diseño también se agregaron los siguientes módulos:
+
+\begin{itemize}
+
+\item Amplificador operacional en modo seguidor conectado a una entrada del ADC para medir el nivel de batería y una entrada analógica adicional de baja resolución para una futura expansión. El resto de los esquemáticos son los mismos que los utilizados para los prototipos anteriores con leves correcciones.
+
+\item Puerto serie UART0 conectado a una tira de pines con el orden del módulo Bluetooth HC-05
+
+\item Puerto serie UART3 conectado a una tira de pines para conectar un módulo USB-TTL para log y debug.
+
+\item Se optó por el regulador de tensión TPS63001 ya que la diferencia del nivel de ruido con los reguladores LDO es mínima.
+
+\item El módulo del microcontrolador LPC1769, que es relativamente sencillo: contiene los cristales de alta y baja frecuencia y una serie de capacitores de filtro de tensión. A diferencia del esquemático de la placa LPCXpresso1769, se separaron las conexiones de tensión digital y analógica, de acuerdo a lo indicado en el manual del microcontrolador. Puede verse parte de su esquemático en la figura \ref{fig:esqlpc1769}. También 
+se incluyó una tira de pines al puerto SWD para programar el microcontrolador utilizando la placa LPCLink de NXP \citep{nxp2013}.
+
+
+\begin{figure}[!htbp]
+	\centering	
+	\includegraphics[width=0.9\textwidth]{./Figures/esqlpc1769.png}			
+	\caption{Conexiones del microcontrolador LPC1769}
+	\label{fig:esqlpc1769}
+\end{figure}
+
+\end{itemize}
+
+De acuerdo a los Requerimientos 2.1 y 2.2 se procedió al diseño de un circuito impreso lo más pequeño posible. Se establecieron las medidas de 4x4cm, pero resultó ser insuficiente y se optó finalmente por un tamaño de 6x6 cm. Se realizó una placa doble faz y se terciarizó su fabricación en la empresa Seeed Studio (https://www.seeedstudio.io/). En las figuras 
+
+\begin{figure}[!htbp]
+	\centering	
+	\includegraphics[width=0.9\textwidth]{./Figures/pcbFinal.png}			
+	\caption{Vista frontal y trasera del diseño CAD del impreso final}
+	\label{fig:pcbFinal}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+	\centering	
+	\includegraphics[width=0.9\textwidth]{./Figures/pcbFinalSinComponentes.png}			
+	\caption{Vista frontal y trasera del Circuito impreso Fabricado sin Componentes}
+	\label{fig:pcbFinalSinComponentes}
 \end{figure}
