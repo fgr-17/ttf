@@ -1,5 +1,6 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {spanish}{}
+\defcounter {refsection}{0}\relax 
+\select@language {spanish}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Esquema de medici\IeC {\'o}n de VOP\relax }}{1}{figure.caption.8}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Forma de onda caracter\IeC {\'\i }stica de la presi\IeC {\'o}n humana\relax }}{2}{figure.caption.10}
@@ -34,6 +35,8 @@
 \contentsline {figure}{\numberline {3.22}{\ignorespaces Vista superior del prototipo para carga de bateria y USB\relax }}{41}{figure.caption.197}
 \contentsline {figure}{\numberline {3.23}{\ignorespaces Conexiones del microcontrolador LPC1769\relax }}{42}{figure.caption.199}
 \contentsline {figure}{\numberline {3.24}{\ignorespaces Vista frontal y trasera del dise\IeC {\~n}o CAD del impreso final\relax }}{43}{figure.caption.200}
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Vista frontal y trasera del Circuito impreso Fabricado sin Componentes\relax }}{43}{figure.caption.201}
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Vista frontal y trasera del circuito impreso fabricado sin componentes\relax }}{43}{figure.caption.201}
+\contentsline {figure}{\numberline {3.26}{\ignorespaces Vista frontal y trasera del circuito impreso fabricado con componentes\relax }}{43}{figure.caption.202}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Bater\IeC {\'\i }a TR18650 utilizada en el equipo\relax }}{46}{figure.caption.209}
 \addvspace {10\p@ }

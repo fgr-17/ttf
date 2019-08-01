@@ -1,5 +1,5 @@
-This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: memoria.aux
 The style file: biblatex.bst
 A level-1 auxiliary file: Chapters/Chapter1.aux
@@ -7,9 +7,8 @@ A level-1 auxiliary file: Chapters/Chapter2.aux
 A level-1 auxiliary file: Chapters/Chapter3.aux
 A level-1 auxiliary file: Chapters/Chapter4.aux
 A level-1 auxiliary file: Chapters/Chapter5.aux
-Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
-Reallocated global_strs (elt_size=20001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -19,51 +18,51 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: memoria-blx.bib
 Database file #2: references.bib
-Biblatex version: 3.8
-Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Warning--I didn't find a database entry for "eqn:consumoMedio"
+Biblatex version: 3.3
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 29 entries,
-            6268 wiz_defined-function locations,
-            1311 strings with 13033 characters,
-and the built_in function-call counts, 141370 in all, are:
-= -- 9565
-> -- 2644
-< -- 581
-+ -- 3794
-- -- 930
-* -- 9142
-:= -- 14641
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+You've used 30 entries,
+            6047 wiz_defined-function locations,
+            1266 strings with 12671 characters,
+and the built_in function-call counts, 84116 in all, are:
+= -- 3213
+> -- 2750
+< -- 614
++ -- 861
+- -- 955
+* -- 5670
+:= -- 5095
 add.period$ -- 0
-call.type$ -- 29
-change.case$ -- 322
-chr.to.int$ -- 30
-cite$ -- 56
-duplicate$ -- 16824
-empty$ -- 13263
-format.name$ -- 1831
-if$ -- 28614
+call.type$ -- 30
+change.case$ -- 347
+chr.to.int$ -- 34
+cite$ -- 58
+duplicate$ -- 9985
+empty$ -- 9267
+format.name$ -- 1975
+if$ -- 18977
 int.to.chr$ -- 0
-int.to.str$ -- 71
+int.to.str$ -- 76
 missing$ -- 0
-newline$ -- 878
-num.names$ -- 1224
-pop$ -- 9814
+newline$ -- 786
+num.names$ -- 1288
+pop$ -- 9513
 preamble$ -- 1
-purify$ -- 512
+purify$ -- 459
 quote$ -- 0
-skip$ -- 4486
+skip$ -- 5069
 stack$ -- 0
-substring$ -- 14273
-swap$ -- 3521
-text.length$ -- 559
+substring$ -- 1245
+swap$ -- 2905
+text.length$ -- 578
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 968
+type$ -- 1121
 warning$ -- 0
-while$ -- 1946
+while$ -- 488
 width$ -- 0
-write$ -- 850
+write$ -- 755
+(There was 1 warning)

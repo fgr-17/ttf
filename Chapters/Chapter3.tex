@@ -462,7 +462,7 @@ El estado de configuración se trata de un estado compuesto en el cual se puede 
 
 \subsection{Implementación del código} \label{implementacion}
 
-La implementación de código se realizó en etapas, comenzando por los drivers y capas de abstracción de hardware. La biblioteca de código utilizada para la configuración de los periféricos es la de LPCOpen, que es libre y cuenta con drivers, middleware y gran cantidad de ejemplos \citep{lpcopen2014}.
+La implementación de código se realizó en etapas, comenzando por los drivers y capas de abstracción de hardware. La biblioteca de código utilizada para la configuración de los periféricos es LPCOpen, que es libre y cuenta con drivers, middleware y gran cantidad de ejemplos \citep{lpcopen2014}.
 
 \textbf{Código de bajo nivel: periféricos}
 
@@ -515,7 +515,7 @@ Se agrega además un manejo simple de las FIFO de transmisión y recepción de 1
 
  	\item \textbf{ADS1292:} el ADS1292 requiere una serie de comandos para su inicialización\cite{texas2012} con delays intermedios. Se envía el comando RESET, luego se espera 1 segundo para después enviar el comando SDATAC. Si el envío es correcto, el ADS1292 responde con una cadena que contiene un ID asociado al modelo del chip (los demás chips de la familia responden ID diferente). 
  	Luego se pasa a escribir los registros de configuración CONFIG1 y CONFIG2, donde se especifican las referencias de tensión, la frecuencia de muestreo, los canales habilitados y la ganancia del PGA de cada canal. Al finalizar, se baja el pin de Chip Select del bus SPI. 
- 	Luego de inicializarlo, el manejo del ADS1292 se realiza en la tarea DatosListos(), que está bloqueada por el semáforo del pin DRDY. Cada vez que este semáforo desbloquea la tarea, activo el canal SPI con el pin Chip Select y leo los bytes recibidos. Luego se empaguetan los tres bytes en una variable de 32 bits utilizando una union y los almaceno en un buffer. Cuando los buffers de los canales habilitados están completos, se intercambian los punteros de almacenamiento y adquisición, y finalmente se escribe en la cola de datos colaDatosAlm o colaDatosEnv según el modo actual.
+ 	Después de inicializarlo, el manejo del ADS1292 se realiza en la tarea DatosListos(), que está bloqueada por el semáforo del pin DRDY. Cada vez que este semáforo desbloquea la tarea, activo el canal SPI con el pin Chip Select y leo los bytes recibidos. Luego se empaquetan los tres bytes en una variable de 32 bits utilizando una unión y se almacenan en un buffer. Cuando los buffers de los canales habilitados están completos, se intercambian los punteros de almacenamiento y adquisición, y finalmente se escribe en la cola de datos colaDatosAlm o colaDatosEnv según el modo actual.
  	Se utiliza una estructura de datos para cada uno de los canales con los siguientes campos:
  	
 \footnotesize 	
@@ -588,7 +588,7 @@ Para cada uno de los periféricos y drivers mencionados anteriormente se realiza
 
 \item \textbf{ADS1292:} se realizaron pruebas de adquisición armando un programa básico que solamente cuente con una rutina de interrupción para el pin de aviso de datos disponibles (DRDY) y una tarea que permita realizar la copia de las muestras de los canales habilitados hacia un buffer. Se colocó un breakpoint que detenga el programa al finalizar la escritura del buffer y se realizó una descarga de la memoria a un archivo para verificar la adquisición, al igual que con la prueba del periférico ADC interno. Se conectó la entrada analógica del ADC a un generador de señales arbitrario UNI-T UTG4082A y se realizaron adquisiciones sobre señales senoidales y del tipo rampa, para verificar la característica de respuesta en frecuencia y de rango dinámico. 
 
-\item \textbf{Bluetooth:} se utilizó un módulo HC-05 conectado al puerto serie, y se emparejó luego a una tablet Android, con la aplicación Blueterm\citep{pymasde2013} instalada. Se realizaron pruebas de envío de comandos individuales, y luego de señales guardadas en la memoria del microcontrolador en bloques de 128 bytes, decimando las muestras a 100Hz y bajando la resolución de 24 a 16 bits. En la aplicación se realizó una descarga de memoria para comprobar que los bloques de memoria hayan sido transferidos correctamente.
+\item \textbf{Bluetooth:} se utilizó un módulo HC-05 conectado al puerto serie, y se emparejó luego a una tablet con Android, con la aplicación Blueterm\citep{pymasde2013} instalada. Se realizaron pruebas de envío de comandos individuales, y luego de señales guardadas en la memoria del microcontrolador en bloques de 128 bytes, decimando las muestras a 100Hz y bajando la resolución de 24 a 16 bits. En la aplicación se realizó una descarga de memoria para comprobar que los bloques de memoria hayan sido transferidos correctamente.
 
 \item \textbf{Memoria SD:} las pruebas de este driver se realizaron en conjunto con las pruebas de hardware. En primer lugar se realizó la prueba de conexión con la memoria SD, escritura de un archivo y luego apertura de un archivo. Finalmente se realizaron pruebas más exigentes en tiempo haciendo escrituras de buffers completos y midiendo el tiempo de escritura en la SD con un pin digital de salida: antes de ingresar a la función de escritura de la SD se estableció el estado del pin en 3.3V, y al salir de la función de escritura del bloque se volvió a establecer el estado del pin en 0V. Esto es necesario ya que se debe demorar menos tiempo en escribir el bloque adquirido en la SD que en adquirir dicho bloque. Luego de estas pruebas se configuró el tamaño del buffer de muestras en 1024 muestras.
 
@@ -607,7 +607,7 @@ Las pruebas de sistema se discutirán en el capítulo 4 como ''Ensayos y Resulta
 
 \section{Implementación del Hardware} \label{implementacionHw}
 
-El desarrollo del hardware se realizó en tres etapas: dos etapas como prototipo experimental y una tercera con todas las correcciones como modelo final. Todos los modelos fueron diseñados íntegramente en Kicad.
+El desarrollo del hardware se realizó en tres etapas: dos etapas como prototipo experimental y una tercera con todas las correcciones como modelo final. Cabe destacar que los dos primeros circuitos son impresos preliminares y se realizaron sin restricciones de tamaño, de orden o estéticas, sólo se se le dió prioridad a la funcionalidad y correccion de errores. En la sub sección \ref{disFinal} se presenta la versión definitiva. Todos los modelos fueron diseñados íntegramente en Kicad.
 
 \subsection{Prototipo para adquisición del ADS1292}
 
@@ -713,7 +713,7 @@ Este prototipo se fabricó también en un router CNC redt Magic300 en una sola c
 \end{figure}
 
 
-\subsection{Diseño final del circuito impreso}
+\subsection{Diseño final del circuito impreso} \label{disFinal}
 
 Utilizando los dos prototipos anteriores y los esquemáticos de la placa LPCXpresso1769 \citep{ea2011} se realizó un diseño integrando todos estos módulos, y con el microcontrolador LPC1769 soldado sobre la placa en lugar de utilizar la placa de desarrollo LPCXpresso1769. 
 
@@ -742,19 +742,25 @@ se incluyó una tira de pines al puerto SWD para programar el microcontrolador u
 
 \end{itemize}
 
-De acuerdo a los Requerimientos 2.1 y 2.2 se procedió al diseño de un circuito impreso lo más pequeño posible. Se establecieron las medidas de 4x4cm, pero resultó ser insuficiente y se optó finalmente por un tamaño de 6x6 cm. Se realizó una placa doble faz y se terciarizó su fabricación en la empresa Seeed Studio (https://www.seeedstudio.io/). En las figura \ref{fig:pcbFinal} 
+De acuerdo a los Requerimientos 2.1 y 2.2 se procedió al diseño de un circuito impreso lo más pequeño posible. Se establecieron las medidas de 4x4cm, pero resultó ser insuficiente y se optó finalmente por un tamaño de 6x6 cm. Se realizó una placa doble faz y se terciarizó su fabricación en la empresa Seeed Studio (https://www.seeedstudio.io/). En las figura \ref{fig:cadFinal} se presentan ambas caras del diseño CAD enviado a fabricar.
 
 \begin{figure}[!htbp]
 	\centering	
 	\includegraphics[width=0.9\textwidth]{./Figures/pcbFinal.png}			
 	\caption{Vista frontal y trasera del diseño CAD del impreso final}
-	\label{fig:pcbFinal}
+	\label{fig:cadFinal}
 \end{figure}
-
 
 \begin{figure}[!htbp]
 	\centering	
 	\includegraphics[width=0.9\textwidth]{./Figures/pcbFinalSinComponentes.jpeg}			
-	\caption{Vista frontal y trasera del Circuito impreso Fabricado sin Componentes}
+	\caption{Vista frontal y trasera del circuito impreso fabricado sin componentes}
 	\label{fig:pcbFinalSinComponentes}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\centering	
+	\includegraphics[width=0.9\textwidth]{./Figures/pcbFinalSoldado.png}			
+	\caption{Vista frontal y trasera del circuito impreso fabricado con componentes}
+	\label{fig:pcbFinalSoldado}
 \end{figure}

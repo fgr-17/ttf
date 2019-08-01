@@ -1,5 +1,6 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {spanish}{}
+\defcounter {refsection}{0}\relax 
+\select@language {spanish}
 \contentsline {chapter}{Resumen}{\es@scroman {iii}}{section*.1}
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n General}{1}{chapter.6}
 \contentsline {section}{\numberline {1.1}Descripcion General del Trabajo}{1}{section.7}
@@ -23,13 +24,13 @@
 \contentsline {subsection}{\numberline {3.1.7}Pruebas Unitarias}{34}{subsection.183}
 \contentsline {subsection}{\numberline {3.1.8}Pruebas de Integraci\IeC {\'o}n}{36}{subsection.184}
 \contentsline {subsection}{\numberline {3.1.9}Pruebas de Sistema}{36}{subsection.185}
-\contentsline {section}{\numberline {3.2}Implementaci\IeC {\'o}n del Hardware}{37}{section.186}
+\contentsline {section}{\numberline {3.2}Implementaci\IeC {\'o}n del Hardware}{36}{section.186}
 \contentsline {subsection}{\numberline {3.2.1}Prototipo para adquisici\IeC {\'o}n del ADS1292}{37}{subsection.187}
-\contentsline {subsection}{\numberline {3.2.2}Prototipo para carga de bater\IeC {\'\i }a y USB}{39}{subsection.191}
+\contentsline {subsection}{\numberline {3.2.2}Prototipo para carga de bater\IeC {\'\i }a y USB}{37}{subsection.191}
 \contentsline {subsection}{\numberline {3.2.3}Dise\IeC {\~n}o final del circuito impreso}{40}{subsection.198}
-\contentsline {chapter}{\numberline {4}Ensayos y Resultados}{45}{chapter.202}
-\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{45}{section.203}
-\contentsline {chapter}{\numberline {5}Conclusiones}{47}{chapter.204}
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{47}{section.205}
-\contentsline {section}{\numberline {5.2}Pr\IeC {\'o}ximos pasos}{47}{section.206}
-\contentsline {chapter}{Bibliograf\'{\i }a}{49}{appendix*.207}
+\contentsline {chapter}{\numberline {4}Ensayos y Resultados}{45}{chapter.203}
+\contentsline {section}{\numberline {4.1}An\IeC {\'a}lisis de casos de uso y cumplimiento de los requerimientos}{45}{section.204}
+\contentsline {chapter}{\numberline {5}Conclusiones}{47}{chapter.211}
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{47}{section.212}
+\contentsline {section}{\numberline {5.2}Pr\IeC {\'o}ximos pasos}{47}{section.213}
+\contentsline {chapter}{Bibliograf\'{\i }a}{49}{appendix*.214}
