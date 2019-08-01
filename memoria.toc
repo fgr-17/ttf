@@ -21,15 +21,15 @@
 \contentsline {subsection}{\numberline {3.1.5}Dise\IeC {\~n}o Detallado}{23}{subsection.134}
 \contentsline {subsection}{\numberline {3.1.6}Implementaci\IeC {\'o}n del c\IeC {\'o}digo}{32}{subsection.144}
 \contentsline {subsection}{\numberline {3.1.7}Pruebas Unitarias}{34}{subsection.183}
-\contentsline {subsection}{\numberline {3.1.8}Pruebas De Integraci\IeC {\'o}n}{36}{subsection.184}
+\contentsline {subsection}{\numberline {3.1.8}Pruebas de Integraci\IeC {\'o}n}{36}{subsection.184}
 \contentsline {subsection}{\numberline {3.1.9}Pruebas de Sistema}{36}{subsection.185}
 \contentsline {section}{\numberline {3.2}Implementaci\IeC {\'o}n del Hardware}{37}{section.186}
 \contentsline {subsection}{\numberline {3.2.1}Prototipo para adquisici\IeC {\'o}n del ADS1292}{37}{subsection.187}
-\contentsline {subsection}{\numberline {3.2.2}Prototipo para carga de bater\IeC {\'\i }a y USB}{39}{subsection.192}
-\contentsline {subsection}{\numberline {3.2.3}Dise\IeC {\~n}o final del circuito impreso}{40}{subsection.199}
-\contentsline {chapter}{\numberline {4}Ensayos y Resultados}{45}{chapter.203}
-\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{45}{section.204}
-\contentsline {chapter}{\numberline {5}Conclusiones}{47}{chapter.205}
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{47}{section.206}
-\contentsline {section}{\numberline {5.2}Pr\IeC {\'o}ximos pasos}{47}{section.207}
-\contentsline {chapter}{Bibliograf\'{\i }a}{49}{appendix*.208}
+\contentsline {subsection}{\numberline {3.2.2}Prototipo para carga de bater\IeC {\'\i }a y USB}{39}{subsection.191}
+\contentsline {subsection}{\numberline {3.2.3}Dise\IeC {\~n}o final del circuito impreso}{40}{subsection.198}
+\contentsline {chapter}{\numberline {4}Ensayos y Resultados}{45}{chapter.202}
+\contentsline {section}{\numberline {4.1}Pruebas funcionales del hardware}{45}{section.203}
+\contentsline {chapter}{\numberline {5}Conclusiones}{47}{chapter.204}
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{47}{section.205}
+\contentsline {section}{\numberline {5.2}Pr\IeC {\'o}ximos pasos}{47}{section.206}
+\contentsline {chapter}{Bibliograf\'{\i }a}{49}{appendix*.207}

@@ -374,6 +374,7 @@ Los módulos de hardware que se muestran en la figura \ref{fig:patronProdCons} s
 
 En base al diseño de alto nivel realizado, se da a lugar al diseño detallado de los elementos del programa como tareas y máquinas de estado.
 
+\clearpage
 \textbf{Diseño de tareas}
 
 El firmware está basado en el sistema operativo de tiempo real freeRTOS \citep{aws2017}.  En el diagrama de la figura \ref{fig:tareasCompleto} se puede observar un esquema detallado de las tareas involucradas y las relaciones entre ellas. 
@@ -461,7 +462,7 @@ El estado de configuración se trata de un estado compuesto en el cual se puede 
 
 \subsection{Implementación del código} \label{implementacion}
 
-La implementación de código se realizó en etapas, comenzando por los drivers y capas de abstracción de hardware. La librería utilizada para la configuración de los periféricos es la de LPCOpen, que es libre y cuenta con drivers, middleware y gran cantidad de ejemplos \citep{lpcopen2014}.
+La implementación de código se realizó en etapas, comenzando por los drivers y capas de abstracción de hardware. La biblioteca de código utilizada para la configuración de los periféricos es la de LPCOpen, que es libre y cuenta con drivers, middleware y gran cantidad de ejemplos \citep{lpcopen2014}.
 
 \textbf{Código de bajo nivel: periféricos}
 
@@ -469,7 +470,7 @@ En primer lugar, de acuerdo al diagrama de gantt de la figura \ref{fig:gantt}, s
 
 \begin{itemize}
 
-	\item \textbf{Puerto Serie:} Se utilizaron las funciones de LPCOpen Chip\_UART para generar funciones una capa por encima de ellas. Se utilizó un esquema de productor-consumidor como se puede visualizar en la figura \ref{fig:patronProdCons}. El acceso a la UART se simplificó en dos colas de datos, tal cual puede verse en la figura \ref{fig:tareasInactivo}, además de la participación de la tarea UART\_CanalSalida() que es la encargada de dar curso a los bytes escritos en la cola de salida. Se realizaron funciones de inicialización de las estructuras lógicas y de instalación de la tarea involucrada. La estructura de datos utilizada es la siguiente:
+	\item \textbf{Puerto Serie:} se utilizaron las funciones de LPCOpen Chip\_UART para generar funciones una capa por encima de ellas. Se utilizó un esquema de productor-consumidor como se puede visualizar en la figura \ref{fig:patronProdCons}. El acceso a la UART se simplificó en dos colas de datos, tal cual puede verse en la figura \ref{fig:tareasInactivo}, además de la participación de la tarea UART\_CanalSalida() que es la encargada de dar curso a los bytes escritos en la cola de salida. Se realizaron funciones de inicialización de las estructuras lógicas y de instalación de la tarea involucrada. La estructura de datos utilizada es la siguiente:
 
 
 \footnotesize 	
@@ -492,19 +493,19 @@ typedef struct {
 Las colas de datos manejan punteros a char, que apuntan a buffers de bytes del largo del frame que utiliza el protocolo, en este caso, 4 bytes.
 Se agrega además un manejo simple de las FIFO de transmisión y recepción de 16 bytes con las que cuenta el microcontrolador. Por un lado, al escribir sobre el registro de salida, se tiene en cuenta que se pueden escribir hasta 16 bytes y luego hay que esperar a que se libere la FIFO de transmisión. Para ello se creó un semáforo binario llamado semThre que se suelta cada vez que el handler de interrupción detecta una entrada por vaciamiento del registro de transmisión (THRE: transmit holding register empty). 
 
-	\item \textbf{Puerto SPI:} El manejo del bus SPI dedicado a la comunicación con el ADS1292 se realizó utilizando directamente las funciones de bajo nivel de LPCOpen Chip\_SPI\_, ya que la comunicación con el mismo no es muy compleja ni demanda una atención más sofisticada. Una vez inicializado el puerto SPI, se intercambian una serie de comandos con el ADS1292 y no es necesario comunicarse nuevamente con él hasta comenzar la adquisición. Durante la misma, se genera una interrupción a través del pin DRDY y en ese momento se realiza una breve comunicación con el ADS1292 para recibir la muestra adquirida. 
+	\item \textbf{Puerto SPI:} el manejo del bus SPI dedicado a la comunicación con el ADS1292 se realizó utilizando directamente las funciones de bajo nivel de LPCOpen Chip\_SPI\_, ya que la comunicación con el mismo no es muy compleja ni demanda una atención más sofisticada. Una vez inicializado el puerto SPI, se intercambian una serie de comandos con el ADS1292 y no es necesario comunicarse nuevamente con él hasta comenzar la adquisición. Durante la misma, se genera una interrupción a través del pin DRDY y en ese momento se realiza una breve comunicación con el ADS1292 para recibir la muestra adquirida. 
 	
 	Por otro lado, el puerto SPI dedicado a la comunicación con la memoria SD también se comunica a través de las funciones básicas de la librería LPCOpen, pero se agrega una rutina de atención de interrupción para manejar comandos que requieren envío y respuesta inmediata.
 
-	\item \textbf{Timer:} Se utiliza un timer que realiza una cuenta repetitiva para generar la frecuencia de muestreo. No se utilizó el handler de interrupción, simplemente se inicializa y se activa o desactiva cuando es necesario muestrear con el ADC interno.
+	\item \textbf{Timer:} se utiliza un timer que realiza una cuenta repetitiva para generar la frecuencia de muestreo. No se utilizó el handler de interrupción, simplemente se inicializa y se activa o desactiva cuando es necesario muestrear con el ADC interno.
 
-	\item \textbf{ADC:} El ADC está configurado para ser disparado por el Timer 0 al setear los bits correspondientes del registro de control. Esta conexión entre el ADC y el Timer es interna por hardware, al configurarlo de esta manera, con cada interrupción del Timer se genera un disparo del ADC. Se muestrea un solo canal para la adquisición de la batería.
+	\item \textbf{ADC:} el ADC está configurado para ser disparado por el Timer 0 al setear los bits correspondientes del registro de control. Esta conexión entre el ADC y el Timer es interna por hardware, al configurarlo de esta manera, con cada interrupción del Timer se genera un disparo del ADC. Se muestrea un solo canal para la adquisición de la batería.
 	
-	\item \textbf{DMA:} El DMA esta configurado para generar una transferencia desde un lugar fijo de memoria de periféricos (el registro AD0CR) a un puntero que se incrementa con cada copia. Al finalizar el conteo del buffer se genera una interrupción del DMA y se pasa a calcular un promedio de los valores, a la vez que se intercambia el puntero a un segundo buffer.
+	\item \textbf{DMA:} el DMA esta configurado para generar una transferencia desde un lugar fijo de memoria de periféricos (el registro AD0CR) a un puntero que se incrementa con cada copia. Al finalizar el conteo del buffer se genera una interrupción del DMA y se pasa a calcular un promedio de los valores, a la vez que se intercambia el puntero a un segundo buffer.
 	
- 	\item \textbf{GPIO:} Las entradas utilizadas como propósito general son el pin DRDY para señalizar que el conversor ADS1292 tiene datos listos, un pin de estado del conversor Serie-BT, un pin de detección de tarjeta conectada del slot microSD y la salida de detección de fuente de alimentación. En la rutina de interrupción simplemente se liberan semáforos o se escriben flags. También se utilizan salidas digitales manejadas directamente con las funciones de LPCOpen para la activación del integrado de carga de batería. Este último esta normalmente apagado porque aumenta el nivel de ruido de todo el circuito.
+ 	\item \textbf{GPIO:} las entradas utilizadas como propósito general son el pin DRDY para señalizar que el conversor ADS1292 tiene datos listos, un pin de estado del conversor Serie-BT, un pin de detección de tarjeta conectada del slot microSD y la salida de detección de fuente de alimentación. En la rutina de interrupción se liberan semáforos o se escriben flags. También se utilizan salidas digitales manejadas directamente con las funciones de LPCOpen para la activación del integrado de carga de batería. Este último esta normalmente apagado porque aumenta el nivel de ruido de todo el circuito.
 
-	\item \textbf{USB:} Se trabajó a partir del ejemplo de LPCOpen usbd\_lib\_hid\_generic, que muestra como utilizar la librería USB para enumerar al dispositivo como Device. También se recurrió a los recursos de software de ejemplo de la placa Embedded Artist\citep{ea2013}, que contiene una implementación de la clase Mass Storage (MSC), con todas las funciones de acceso a memoria y los wrappers para los comandos SCSI que utiliza la MSC \citep{arm2019} \citep{peacock2002} \citep{axelson2006}. La aplicación configura el endpoint 1 para transferencias BULK y permite que el USB tome el control del accesso a la memoria SD, hasta que la PC finalice la comunicación o se detecte mediante el pin USB\_CONNECT que se perdió el vínculo.
+	\item \textbf{USB:} se trabajó a partir del ejemplo de LPCOpen usbd\_lib\_hid\_generic, que muestra como utilizar la librería USB para enumerar al dispositivo como Device. También se recurrió a los recursos de software de ejemplo de la placa Embedded Artist\citep{ea2013}, que contiene una implementación de la clase Mass Storage (MSC), con todas las funciones de acceso a memoria y los wrappers para los comandos SCSI que utiliza la MSC \citep{arm2019} \citep{peacock2002} \citep{axelson2006}. La aplicación configura el endpoint 1 para transferencias BULK y permite que el USB tome el control del accesso a la memoria SD, hasta que la PC finalice la comunicación o se detecte mediante el pin USB\_CONNECT que se perdió el vínculo.
 
 \end{itemize}
 
@@ -512,9 +513,9 @@ Se agrega además un manejo simple de las FIFO de transmisión y recepción de 1
 
 \begin{itemize}
 
- 	\item \textbf{ADS1292:} El ADS1292 requiere una serie de comandos para su inicialización\cite{texas2012} con delays intermedios. Se envía el comando RESET, luego se espera 1 segundo para después enviar el comando SDATAC. Si el envío es correcto, el ADS1292 responde con una cadena que contiene un ID asociado al modelo del chip (los demás chips de la familia responden ID diferente). 
+ 	\item \textbf{ADS1292:} el ADS1292 requiere una serie de comandos para su inicialización\cite{texas2012} con delays intermedios. Se envía el comando RESET, luego se espera 1 segundo para después enviar el comando SDATAC. Si el envío es correcto, el ADS1292 responde con una cadena que contiene un ID asociado al modelo del chip (los demás chips de la familia responden ID diferente). 
  	Luego se pasa a escribir los registros de configuración CONFIG1 y CONFIG2, donde se especifican las referencias de tensión, la frecuencia de muestreo, los canales habilitados y la ganancia del PGA de cada canal. Al finalizar, se baja el pin de Chip Select del bus SPI. 
- 	Luego de inicializarlo, el manejo del ADS1292 se realiza en la tarea DatosListos(), que está bloqueada por el semáforo del pin DRDY. Cada vez que este semáforo desbloquea la tarea, activo el canal SPI con el pin Chip Select y leo los bytes recibidos. Luego empaqueto los 3 bytes en una variable de 32 bits utilizando una union y los almaceno en un buffer. Cuando los buffers de los canales habilitados están completos, se intercambian los punteros de almacenamiento y adquisición, y finalmente se escribe en la cola de datos colaDatosAlm o colaDatosEnv según el modo actual.
+ 	Luego de inicializarlo, el manejo del ADS1292 se realiza en la tarea DatosListos(), que está bloqueada por el semáforo del pin DRDY. Cada vez que este semáforo desbloquea la tarea, activo el canal SPI con el pin Chip Select y leo los bytes recibidos. Luego se empaguetan los tres bytes en una variable de 32 bits utilizando una union y los almaceno en un buffer. Cuando los buffers de los canales habilitados están completos, se intercambian los punteros de almacenamiento y adquisición, y finalmente se escribe en la cola de datos colaDatosAlm o colaDatosEnv según el modo actual.
  	Se utiliza una estructura de datos para cada uno de los canales con los siguientes campos:
  	
 \footnotesize 	
@@ -548,16 +549,16 @@ typedef struct
 \normalsize
 
  	
- 	\item \textbf{Bluetooth:} La comunicación por Bluetooth es transparente y se utiliza directamente como un puerto serie. La configuración del módulo HC-05 se realiza mediante una PC y el módulo se emplea ya inicializado.
+ 	\item \textbf{Bluetooth:} la comunicación por Bluetooth es transparente y se utiliza directamente como un puerto serie. La configuración del módulo HC-05 se realiza mediante una PC y el módulo se emplea ya inicializado.
 
-	\item \textbf{Memoria SD:} El manejo de la memoria SD se realiza a través de las librerías FatFs. Se cuenta con funciones de inicialización de la capa más baja de hardware(disk\_initialize) y de inicialización del filesystem (f\_mount). Una vez que la memoria ya se encuentra montada, se pueden utilizar funciones de acceso a archivos como f\_open(), f\_write(), f\_sync(), f\_close(). Todas estas funciones recurren al driver SPI.
+	\item \textbf{Memoria SD:} el manejo de la memoria SD se realiza a través de las librerías FatFs. Se cuenta con funciones de inicialización de la capa más baja de hardware(disk\_initialize) y de inicialización del filesystem (f\_mount). Una vez que la memoria ya se encuentra montada, se pueden utilizar funciones de acceso a archivos como f\_open(), f\_write(), f\_sync(), f\_close(). Todas estas funciones recurren al driver SPI.
 
 \end{itemize}
 
 \subsection{Pruebas Unitarias} \label{pruebasUnitarias}
 
 
-Para cada uno de los periféricos y drivers mencionados anteriormente se realizaron scripts individuales para comprobar el funcionamiento de cada uno de los periféricos en forma aislada.
+Para cada uno de los periféricos y drivers mencionados anteriormente se realizaron scripts individuales para comprobar el funcionamiento en forma aislada.
 
 \textbf{Pruebas sobre periféricos:}
 
@@ -565,17 +566,17 @@ Para cada uno de los periféricos y drivers mencionados anteriormente se realiza
 
 \item \textbf{Puerto Serie:} se hizo la prueba de comunicación utilizando inicialmente la placa LPCXpresso1769 y un conversor USB-TTL conectado directamente a los pines del microcontrolador. Se utilizó el programa microcom \citep{ubuntu2016} para realizar las pruebas de comunicación serie entre la PC y el microcontrolador.
 
-\item \textbf{Puerto SPI:} Las pruebas de comunicación SPI se realizaron en primer lugar con un osciloscopio digital Tektronix TDS2012C para verificar la frecuencia de la señal SCK. Luego se realizaron las pruebas directamente sobre los dispositivos a los que se conectan, como la memoria SD y el ADS1292, y ello permitió corregir errores de configuración del puerto.
+\item \textbf{Puerto SPI:} las pruebas de comunicación SPI se realizaron en primer lugar con un osciloscopio digital Tektronix TDS2012C para verificar la frecuencia de la señal SCK. Luego se realizaron las pruebas directamente sobre los dispositivos a los que se conectan, como la memoria SD y el ADS1292, y ello permitió corregir errores de configuración del puerto.
 
-\item \textbf{Timer:} Se comprobó el funcionamiento del timer instalando un handler de interrupción básico que haga cambiar el estado de un pin. Luego se modificó la frecuencia de la interrupción y se comprobó para cada caso la frecuencia de parpadeo del pin en un osciloscopio digital Tektronix TDS2012C.
+\item \textbf{Timer:} se comprobó el funcionamiento del timer instalando un handler de interrupción básico que haga cambiar el estado de un pin. Luego se modificó la frecuencia de la interrupción y se comprobó para cada caso la frecuencia de parpadeo del pin en un osciloscopio digital Tektronix TDS2012C.
 
-\item \textbf{ADC:} Se realizaron pruebas de adquisición utilizando un generador de señales UTG4082A con señales senoidales para el análisis de frecuencia y señales tipo rampa para la comprobación del rango dinámico. Se utilizaron diferentes frecuencias de muestreo y para cada caso se realizó un descargo de memoria RAM del microcontrolador a un archivo, para su posterior visualización y análisis utilizando un script de python.
+\item \textbf{ADC:} se realizaron pruebas de adquisición utilizando un generador de señales UTG4082A con señales senoidales para el análisis de frecuencia y señales tipo rampa para la comprobación del rango dinámico. Se utilizaron diferentes frecuencias de muestreo y para cada caso se realizó un descargo de memoria RAM del microcontrolador a un archivo, para su posterior visualización y análisis utilizando un script de python.
 
-\item \textbf{DMA:} Se comprobó la configuración del DMA utilizando el ADC y realizando adquisiciones, y se comprobó el correcto funcionamiento descargando los buffers de memoria transferidos por este periférico. La descarga de memoria se realizó igual que en el caso de la comprobación de funcionamiento del ADC, utilizando la herramienta de "Memory Dump" de la IDE LPCXpresso, que permite exportar un sector de la memoria del microcontrolador a un archivo en la PC, para luego analizarlo en un script de python.
+\item \textbf{DMA:} se comprobó la configuración del DMA utilizando el ADC y realizando adquisiciones, y se comprobó el correcto funcionamiento descargando los buffers de memoria transferidos por este periférico. La descarga de memoria se realizó igual que en el caso de la comprobación de funcionamiento del ADC, utilizando la herramienta de "Memory Dump" de la IDE LPCXpresso, que permite exportar un sector de la memoria del microcontrolador a un archivo en la PC, para luego analizarlo en un script de python.
 
-\item \textbf{GPIO:} Se realizaron pruebas de la configuración de los pines de salida utilzando la placa LPCXpresso1769 y leds conectados a través de un protoboard. Se realizaron pruebas para los pines de entrada utilizando la placa LPCXpresso1769 y un botón conectado a través de un protoboar, y comprobando el acceso a la rutina de interrupción.
+\item \textbf{GPIO:} se realizaron pruebas de la configuración de los pines de salida utilzando la placa LPCXpresso1769 y leds conectados a través de un protoboard. Se realizaron pruebas para los pines de entrada utilizando la placa LPCXpresso1769 y un botón conectado a través de un protoboar, y comprobando el acceso a la rutina de interrupción.
 
-\item \textbf{USB:} Las pruebas de USB se realizaron en conjunto con las pruebas de hardware ya que es necesario para la comunicación con la PC. Para los test iniciales se utilizó un programa que registra al microcontrolador como un puerto serie a través del USB, y con ello se realizaron algunas correcciones de hardware. Luego se realizaron las pruebas individuales de la memoria SD y se comprobó su funcionamiento utilizando un lector de memorias USB. Finalmente se integró todo en un mismo programa para realizar la prueba en conjunto del USB y la memoria SD.
+\item \textbf{USB:} las pruebas de USB se realizaron en conjunto con las pruebas de hardware ya que es necesario para la comunicación con la PC. Para los test iniciales se utilizó un programa que registra al microcontrolador como un puerto serie a través del USB, y con ello se realizaron algunas correcciones de hardware. Luego se realizaron las pruebas individuales de la memoria SD y se comprobó su funcionamiento utilizando un lector de memorias USB. Finalmente se integró todo en un mismo programa para realizar la prueba en conjunto del USB y la memoria SD.
 
 \end{itemize}
 
@@ -585,18 +586,18 @@ Para cada uno de los periféricos y drivers mencionados anteriormente se realiza
 
 \begin{itemize}
 
-\item \textbf{ADS1292:} Se realizaron pruebas de adquisición armando un programa básico que solamente cuente con una rutina de interrupción para el pin de aviso de datos disponibles (DRDY) y una tarea que permita realizar la copia de las muestras de los canales habilitados hacia un buffer. Se colocó un breakpoint que detenga el programa al finalizar la escritura del buffer y se realizó una descarga de la memoria a un archivo para verificar la adquisición, al igual que con la prueba del periférico ADC interno. Se conectó la entrada analógica del ADC a un generador de señales arbitrario UNI-T UTG4082A y se realizaron adquisiciones sobre señales senoidales y del tipo rampa, para verificar la característica de respuesta en frecuencia y de rango dinámico. 
+\item \textbf{ADS1292:} se realizaron pruebas de adquisición armando un programa básico que solamente cuente con una rutina de interrupción para el pin de aviso de datos disponibles (DRDY) y una tarea que permita realizar la copia de las muestras de los canales habilitados hacia un buffer. Se colocó un breakpoint que detenga el programa al finalizar la escritura del buffer y se realizó una descarga de la memoria a un archivo para verificar la adquisición, al igual que con la prueba del periférico ADC interno. Se conectó la entrada analógica del ADC a un generador de señales arbitrario UNI-T UTG4082A y se realizaron adquisiciones sobre señales senoidales y del tipo rampa, para verificar la característica de respuesta en frecuencia y de rango dinámico. 
 
-\item \textbf{Bluetooth:} Se utilizó un módulo HC-05 conectado al puerto serie, y se emparejó luego a una tablet Android, con la aplicación Blueterm\citep{pymasde2013} instalada. Se realizaron pruebas de envío de comandos individuales, y luego de señales guardadas en la memoria del microcontrolador en bloques de 128 bytes, decimando las muestras a 100Hz y bajando la resolución de 24 a 16 bits. En la aplicación se realizó un descargo de memoria para comprobar que los bloques de memoria hayan sido transferidos correctamente.
+\item \textbf{Bluetooth:} se utilizó un módulo HC-05 conectado al puerto serie, y se emparejó luego a una tablet Android, con la aplicación Blueterm\citep{pymasde2013} instalada. Se realizaron pruebas de envío de comandos individuales, y luego de señales guardadas en la memoria del microcontrolador en bloques de 128 bytes, decimando las muestras a 100Hz y bajando la resolución de 24 a 16 bits. En la aplicación se realizó una descarga de memoria para comprobar que los bloques de memoria hayan sido transferidos correctamente.
 
-\item \textbf{Memoria SD:} Las pruebas de este driver se realizaron en conjunto con las pruebas de hardware. En primer lugar se realizó la prueba de conexión con la memoria SD, escritura de un archivo y luego apertura de un archivo. Finalmente se realizaron pruebas más exigentes en tiempo haciendo escrituras de buffers completos y midiendo el tiempo de escritura en la SD con un pin digital de salida: antes de ingresar a la función de escritura de la SD se estableció el estado del pin en 3.3V, y al salir de la función de escritura del bloque se volvió a establecer el estado del pin en 0V. Esto es necesario ya que se debe demorar menos tiempo en escribir el bloque adquirido en la SD que en adquirir dicho bloque. Luego de estas pruebas se configuró el tamaño del buffer de muestras en 1024 muestras.
+\item \textbf{Memoria SD:} las pruebas de este driver se realizaron en conjunto con las pruebas de hardware. En primer lugar se realizó la prueba de conexión con la memoria SD, escritura de un archivo y luego apertura de un archivo. Finalmente se realizaron pruebas más exigentes en tiempo haciendo escrituras de buffers completos y midiendo el tiempo de escritura en la SD con un pin digital de salida: antes de ingresar a la función de escritura de la SD se estableció el estado del pin en 3.3V, y al salir de la función de escritura del bloque se volvió a establecer el estado del pin en 0V. Esto es necesario ya que se debe demorar menos tiempo en escribir el bloque adquirido en la SD que en adquirir dicho bloque. Luego de estas pruebas se configuró el tamaño del buffer de muestras en 1024 muestras.
 
 \end{itemize}
 
-\subsection{Pruebas De Integración} \label{pruebasIntegracion}
+\subsection{Pruebas de Integración} \label{pruebasIntegracion}
 
 Las pruebas de integración se realizaron a partir de la aplicación principal esquematizada en la figura \ref{fig:VOP_mde_v1}. Esta aplicación abarca todas las funcionalidades del equipo excepto el acceso por USB. Al ser la máquina de estados totalmente conocida, y poder acceder mediante el debugger a la posición real del firmware del controlador (estados observables), se puede realizar una prueba exhaustiva de la función de interfaz de usuario. 
-Utilizando la aplicación Blueterm en una tablet Android se realizó el recorrido por todos los estados posibles de la máquina (All-Path Coverage \citep{lin2013}), así como también se enviaron comandos erróneos o fuera de contexto. Estas pruebas permitieron corregir errores en las prioridades y tamaño de stack asignado a cada tarea.
+Utilizando la aplicación Blueterm en una tablet con Android se realizó el recorrido por todos los estados posibles de la máquina (All-Path Coverage \citep{lin2013}), así como también se enviaron comandos erróneos o fuera de contexto. Estas pruebas permitieron corregir errores en las prioridades y tamaño de stack asignado a cada tarea.
 Luego se realizaron las mismas pruebas, pero en lugar de verificar el funcionamiento mediante el debugger, se realizó mediante un puerto serie auxiliar, y agregando mensajes de testing en el firmware, que luego se removieron en la versión final. Esto permitió independizar la prueba de las demoras del debugger.
 
 
@@ -626,7 +627,7 @@ Se realizó el ruteo independiente de la alimentación digital (DVCC-DGND) y ana
 
 
 
-Este PCB se realizó en un router CNC redt MAGIC300 (Figura \ref{fig:magic300}) sobre una placa de cobre virgen doble faz de 10x5 cm. Se realizaron varias correcciones sobre la misma. Se agregó también un slot de memoria micro SD conectado al puerto SPI0 para realizar las primeras pruebas de adquisición. Pueden verse fotografías de este prototipo luego de haber realizado varias correcciones en las Figuras \ref{fig:prototipo1sup} y \ref{fig:prototipo1inf}
+Este PCB se realizó en un router CNC redt MAGIC300 (Figura \ref{fig:magic300}) sobre una placa de cobre virgen doble faz de 10x5 cm. Se realizaron varias correcciones sobre la misma. Se agregó también un slot de memoria micro SD conectado al puerto SPI0 para realizar las primeras pruebas de adquisición. Pueden verse fotografías de este prototipo luego de haber realizado varias correcciones en las Figura \ref{fig:prototipo1sup}.
 
 \begin{figure}[!htbp]
 	\centering
@@ -639,18 +640,9 @@ Este PCB se realizó en un router CNC redt MAGIC300 (Figura \ref{fig:magic300}) 
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[angle = 90, width=0.65\textwidth]{./Figures/prototipo11.jpeg}		
-	\caption{Vista superior del primer prototipo realizado.}
+	\includegraphics[width=0.65\textwidth]{./Figures/prototipo11.jpeg}		
+	\caption{Vista superior del primer prototipo realizado con LPCXpresso montado.}
 	\label{fig:prototipo1sup}
-\end{figure}
-
-
-\begin{figure}[!htbp]
-	\centering
-	
-	\includegraphics[angle = 90, width=0.65\textwidth]{./Figures/prototipo12.jpeg}		
-	\caption{Vista inferior del primer prototipo realizado.}
-	\label{fig:prototipo1inf}
 \end{figure}
 
 
@@ -708,8 +700,8 @@ Este prototipo se fabricó también en un router CNC redt Magic300 en una sola c
 
 \begin{figure}[!htbp]
 	\centering	
-	\includegraphics[angle = 90, width=0.6\textwidth]{./Figures/pcbBateriaInf.jpeg}			
-	\caption{Circuito impreso del prototipo para carga de bateria y USB}
+	\includegraphics[width=0.6\textwidth]{./Figures/pcbBateriaInf.png}			
+	\caption{Modelo en KiCAD del circuito impreso del prototipo para carga de batería y USB}
 	\label{fig:pcbBateriaInf}
 \end{figure}
 
@@ -750,7 +742,7 @@ se incluyó una tira de pines al puerto SWD para programar el microcontrolador u
 
 \end{itemize}
 
-De acuerdo a los Requerimientos 2.1 y 2.2 se procedió al diseño de un circuito impreso lo más pequeño posible. Se establecieron las medidas de 4x4cm, pero resultó ser insuficiente y se optó finalmente por un tamaño de 6x6 cm. Se realizó una placa doble faz y se terciarizó su fabricación en la empresa Seeed Studio (https://www.seeedstudio.io/). En las figuras 
+De acuerdo a los Requerimientos 2.1 y 2.2 se procedió al diseño de un circuito impreso lo más pequeño posible. Se establecieron las medidas de 4x4cm, pero resultó ser insuficiente y se optó finalmente por un tamaño de 6x6 cm. Se realizó una placa doble faz y se terciarizó su fabricación en la empresa Seeed Studio (https://www.seeedstudio.io/). En las figura \ref{fig:pcbFinal} 
 
 \begin{figure}[!htbp]
 	\centering	
@@ -762,7 +754,7 @@ De acuerdo a los Requerimientos 2.1 y 2.2 se procedió al diseño de un circuito
 
 \begin{figure}[!htbp]
 	\centering	
-	\includegraphics[width=0.9\textwidth]{./Figures/pcbFinalSinComponentes.png}			
+	\includegraphics[width=0.9\textwidth]{./Figures/pcbFinalSinComponentes.jpeg}			
 	\caption{Vista frontal y trasera del Circuito impreso Fabricado sin Componentes}
 	\label{fig:pcbFinalSinComponentes}
 \end{figure}
