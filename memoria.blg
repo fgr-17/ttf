@@ -23,13 +23,12 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: memoria-blx.bib
 Database file #2: references.bib
-Warning--I didn't find a database entry for "eqn:consumoMedio"
 Biblatex version: 3.8
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 You've used 30 entries,
             6268 wiz_defined-function locations,
-            1315 strings with 13154 characters,
+            1313 strings with 13122 characters,
 and the built_in function-call counts, 145389 in all, are:
 = -- 9820
 > -- 2744
@@ -68,4 +67,3 @@ warning$ -- 0
 while$ -- 1983
 width$ -- 0
 write$ -- 870
-(There was 1 warning)

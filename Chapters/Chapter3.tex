@@ -209,39 +209,10 @@ De toda la lista completa de requerimientos surgen los casos de uso con operacio
 		\item Post-Condiciones: salir correctamente de la experiencia.
 	\end{enumerate}
 
-
 	\underline{Caso de uso CU0004:}
 
 	\begin{enumerate} 
 		\item Nombre: CU0004
-		\begin{enumerate} [label*=\arabic*.]
-			\item Descripción: Experiencia
-			\item Actor Principal: Usuario
-			\item Disparador: Ingreso a experiencia desde la terminal
-		\end{enumerate}
-		\item Flujo de eventos
-		\begin{enumerate} [label*=\arabic*.]
-			\item Flujo básico: el usuario desde la terminal ingresa al modo de adquisición y visualización, comprueba el correcto funcionamiento de los sensores habilitados observando la señal adquirida. Luego ingresa al modo almacenamiento y comprueba que no haya error en el almacenamiento de datos. Luego selecciona dejar de enviar para que la experiencia continúe en modo silencioso. Al finalizar la experiencia, el usuario envía la orden para terminar la adquisición. El usuario luego comprueba que la adquisición fue completa.
-			\item Flujo alternativo:
-			\begin{itemize}
-				\item Si los sensores no muestran una señal adecuada, se debe salir de la adquisición y chequear conectores.
-				\item Si los sensores no muestran ninguna señal, se debe comprobar el canal.
-				\item Si hay error al comenzar a almacenar, se detiene la adquisición para comprobar el funcionamiento de la tarjeta SD.
-				\item Si se necesita ver las señales por una eventual desconexión, se puede conectar mediante Bluetooth para visualizar las señales y luego salir. 
-				\item Si no se puede volver a conectar con la terminal, se debe acceder físicamente a conectar el equipo a una PC.
-				\item Si la batería esta en un nivel crítico, el equipo debe guardar el archivo y finalizar la experiencia. El usuario se notifica de esto al intentar conectarse.					
-			\end{itemize}				
-		\end{enumerate}
-
-		\item Requerimientos especiales: conexión Bluetooth
-		\item Pre-condiciones: equipo en modo inactivo
-		\item Post-Condiciones: salir correctamente de la experiencia.
-	\end{enumerate}
-
-	\underline{Caso de uso CU0005:}
-
-	\begin{enumerate} 
-		\item Nombre: CU0005
 		\begin{enumerate} [label*=\arabic*.]
 			\item Descripción: Descarga de datos y carga de batería.
 			\item Actor Principal: Usuario
@@ -266,48 +237,48 @@ A partir de los requerimientos y casos de uso se arma la matriz de trazabilidad,
 
 \footnotesize
 
-\begin{longtable}[c]{lllllll}
+\begin{longtable}[c]{llllll}
 \caption{Matriz de Trazabilidad} \\
 \hline
-\textbf{REQ/CU} & \textbf{CU0001} & \textbf{CU0002} & \textbf{CU0003} & \textbf{CU0004} & \textbf{CU0005} & \textbf{Ensayo} \\ \hline
+\textbf{REQ/CU} & \textbf{CU0001} & \textbf{CU0002} & \textbf{CU0003} & \textbf{CU0004} &             \textbf{Ensayo} \\ \hline
 \endhead
 %
-R1.1 & X &  &  &  &  & \begin{tabular}[c]{@{}l@{}}Comprobación post-experiencia\\ 			Medición de corriente consumida\end{tabular} \\ \hline
-R1.2 &  &  &  &  &  & Conexión desde terminal \\ \hline
-R2.1 &  &  &  &  &  & Pesaje del equipo \\ \hline
-R2.2 &  &  &  &  &  & Medición del equipo \\ \hline
-R2.3 &  &  &  &  &  & Medición temperatura \textless 40º \\ \hline
-R3.1 &  &  & X &  &  & Test MDE \\ \hline
-R3.2 &  &  & X &  &  & Test MDE \\ \hline
-R3.3 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
-R3.4 &  &  &  &  & X & Test conexión PC \\ \hline
-R4.1 &  &  & X &  &  & Test Calibración \\ \hline
-R4.2 &  &  & X &  & X & \begin{tabular}[c]{@{}l@{}}Test conexión PC\\ 			Comprobación post-experiencia\end{tabular} \\ \hline
-R4.3 &  &  &  &  & X & Comprobación post-experiencia \\ \hline
-R5.1 &  &  & X &  &  & Comprobación post-experiencia \\ \hline
-R5.2 &  &  & X &  &  & Comprobación post-experiencia \\ \hline
-R5.3 &  &  &  &  &  & Medición de corriente consumida \\ \hline
-R6.1 &  &  & X &  &  & Test MDE \\ \hline
-R6.2 &  &  & X &  &  & Test MDE \\ \hline
-R6.3 &  &  & X &  &  & Test MDE \\ \hline
-R6.4 &  &  & X &  &  & Test MDE \\ \hline
-R6.5 &  &  & X &  &  & Test MDE \\ \hline
-R6.6 &  &  & X &  &  & Test MDE \\ \hline
-R6.7 &  &  & X &  &  & Test MDE \\ \hline
-R6.8 &  &  & X &  &  & Test MDE \\ \hline
-R6.9 &  &  & X &  &  & Test MDE \\ \hline
-R6.10 &  &  &  & X &  & Test MDE \\ \hline
-R6.11 &  &  &  & X &  & Test MDE \\ \hline
-R6.12 &  &  & X &  & X & Comprobación post-experiencia \\ \hline
-R6.13 &  &  & X &  & X & Comprobación post-experiencia \\ \hline
-R6.14 &  &  &  &  & X & Comprobación post-experiencia \\ \hline
-R6.15 &  &  & X &  &  & Comprobación visual \\ \hline
-R7.1 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
-R7.2 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
-R7.3 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
-R7.4 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
-R7.5 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
-R7.6 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
+R1.1 & X &  &  &  & \begin{tabular}[c]{@{}l@{}}Comprobación post-experiencia\\ 			Medición de corriente consumida\end{tabular} \\ \hline
+R1.2 &  &  &  &  & Conexión desde terminal \\ \hline
+R2.1 &  &  &  &  & Pesaje del equipo \\ \hline
+R2.2 &  &  &  &  & Medición del equipo \\ \hline
+R2.3 &  &  &  &  & Medición temperatura \textless 40º \\ \hline
+R3.1 &  &  & X &  & Test MDE \\ \hline
+R3.2 &  &  & X &  & Test MDE \\ \hline
+R3.3 &  & X &  &  & Comprobación post-experiencia \\ \hline
+R3.4 &  &  &  & X & Test conexión PC \\ \hline
+R4.1 &  &  & X &  & Test Calibración \\ \hline
+R4.2 &  &  & X & X & \begin{tabular}[c]{@{}l@{}}Test conexión PC\\ 			Comprobación post-experiencia\end{tabular} \\ \hline
+R4.3 &  &  &  & X & Comprobación post-experiencia \\ \hline
+R5.1 &  &  & X &  & Comprobación post-experiencia \\ \hline
+R5.2 &  &  & X &  & Comprobación post-experiencia \\ \hline
+R5.3 &  &  &  &  & Medición de corriente consumida \\ \hline
+R6.1 &  &  & X &  & Test MDE \\ \hline
+R6.2 &  &  & X &  & Test MDE \\ \hline
+R6.3 &  &  & X &  & Test MDE \\ \hline
+R6.4 &  &  & X &  & Test MDE \\ \hline
+R6.5 &  &  & X &  & Test MDE \\ \hline
+R6.6 &  &  & X &  & Test MDE \\ \hline
+R6.7 &  &  & X &  & Test MDE \\ \hline
+R6.8 &  &  & X &  & Test MDE \\ \hline
+R6.9 &  &  & X &  & Test MDE \\ \hline
+R6.10 &  &  & X &  & Test MDE \\ \hline
+R6.11 &  &  & X &  & Test MDE \\ \hline
+R6.12 &  &  & X & X & Comprobación post-experiencia \\ \hline
+R6.13 &  &  & X & X & Comprobación post-experiencia \\ \hline
+R6.14 &  &  &  & X & Comprobación post-experiencia \\ \hline
+R6.15 &  &  & X &  & Comprobación visual \\ \hline
+R7.1 &  & X &  &  & Comprobación post-experiencia \\ \hline
+R7.2 &  & X &  &  & Comprobación post-experiencia \\ \hline
+R7.3 &  & X &  &  & Comprobación post-experiencia \\ \hline
+R7.4 &  & X &  &  & Comprobación post-experiencia \\ \hline
+R7.5 &  & X &  &  & Comprobación post-experiencia \\ \hline
+R7.6 &  & X &  &  & Comprobación post-experiencia \\ \hline
 \label{tab:matrizTrazabilidad}\\
 \end{longtable}
 
@@ -318,7 +289,6 @@ R7.6 &  & X &  &  &  & Comprobación post-experiencia \\ \hline
 
 Una vez especificados y analizados todos los requerimientos, se da a lugar al diseño del sistema en alto nivel, es decir, analizar los subsitemas que lo conforman y su relación entre sí. Los subsistemas que entran en juego se presentan en la Tabla \ref{tab:subsistemas}, son los bloques básicos desde de los cuales se conforma el dispositivo. Es necesario recurrir a patrones de diseño \citep{douglass2011} para articular entre sí los diferentes módulos.
 
-\clearpage
 \footnotesize
 \begin{tabularx}{\textwidth}{XXXX}
 \caption{Subsistemas del equipo} \\
@@ -455,7 +425,7 @@ El estado de configuración se trata de un estado compuesto en el cual se puede 
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[scale=0.28]{./Figures/VOP24_configuracion_v1.png}
+	\includegraphics[scale=0.14]{./Figures/VOP24_configuracion_v1.png}
 	\caption{Máquina de estados de configuración de usuario}
 	\label{fig:VOP24_configuracion_v1}
 \end{figure}
@@ -603,7 +573,7 @@ Luego se realizaron las mismas pruebas, pero en lugar de verificar el funcionami
 
 \subsection{Pruebas de Sistema} \label{pruebasSistema}
 
-Las pruebas de sistema se discutirán en el capítulo 4 como ''Ensayos y Resultados''.
+Las pruebas de sistema se discutirán en el capítulo 4 como ''Ensayos y Resultados'' a partir de los casos de uso.
 
 \section{Implementación del Hardware} \label{implementacionHw}
 
