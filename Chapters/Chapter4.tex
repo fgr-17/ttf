@@ -30,7 +30,7 @@ Acceso a ver señal                  & I$_4$ = 75 mA                            
 \end{tabular}
 \end{table}
 
-Se calculó el consumo medio teórico realizando el promedio ponderado de los consumos en las situaciones anteriores. Puede verse en la formula \citep{eqn:consumoMedio}
+Se calculó el consumo medio teórico realizando el promedio ponderado de los consumos en las situaciones anteriores. Puede verse en la formula \ref{eqn:consumoMedio}
 
 \begin{equation} \label{eqn:consumoMedio}
 consumoMedio = I_{0}*t_{0}+I_{1}*t_{1}+I_{2}*t_{2}+I_{3}*t_{3}+I_{4}*t_{4} = 1186.3 mAh
@@ -38,7 +38,7 @@ consumoMedio = I_{0}*t_{0}+I_{1}*t_{1}+I_{2}*t_{2}+I_{3}*t_{3}+I_{4}*t_{4} = 118
 
 
 
-Asimismo, la corriente mediala podemos calcular dividiendo por el tiempo total. Esto nos permite estimar la eficiencia del regulador para esa tensión, como en la fórmula \ref{eqn:corrienteMedia}.
+Asimismo, la corriente mediala podemos calcular dividiendo por el tiempo total, como en la fórmula \ref{eqn:corrienteMedia}. Esto nos permite estimar la eficiencia del regulador para esa tensión.
 
 \begin{equation} \label{eqn:corrienteMedia}
 I_{med} = \frac{I_{0}*t_{0}+I_{1}*t_{1}+I_{2}*t_{2}+I_{3}*t_{3}+I_{4}*t_{4}}{t_{0}+t_{1}+t_{2}+t_{3}+t_{4}}= 46.54mA
@@ -58,7 +58,7 @@ porcentajeDescarga = \frac{V_{ini} - V_{fin}}{V_{ini}} * 100\% = \frac{3.7V- 1.8
 	\label{fig:bateria}
 \end{figure}
 
-Teniendo en cuenta la eficiencia del 90\% y el porcentaje de descarga máxima de 51.35\%, la autonomía aprovechable de la batería será aproximadamente de 1109mAh, según lo calculado en \ref{eqn:autonomiaReal}.
+Teniendo en cuenta la eficiencia del 90\% y el porcentaje de descarga máxima de 51.35\%, la autonomía aprovechable de la batería será aproximadamente de 1109mAh, según lo calculado en la fórmula \ref{eqn:autonomiaReal}.
 Este valor está cerca del consumo teórico calculado. 
 \begin{equation} \label{eqn:autonomiaReal}
 \begin{split}
@@ -66,4 +66,4 @@ autonomiaReal = autonomiaReal*eficiencia*porcentajeDescarga = \\ 2400mAh * 90\% 
 \end{split}
 \end{equation}
 
-
+Se realizó un ensayo de la autonomía real del equipo siguiendo la secuencia normal de ensayo 
