@@ -29,7 +29,9 @@
 \contentsline {subsection}{\numberline {3.2.3}Dise\IeC {\~n}o final del circuito impreso}{39}{subsection.188}
 \contentsline {chapter}{\numberline {4}Ensayos y Resultados}{43}{chapter.193}
 \contentsline {section}{\numberline {4.1}An\IeC {\'a}lisis de casos de uso y cumplimiento de los requerimientos}{43}{section.194}
-\contentsline {chapter}{\numberline {5}Conclusiones}{49}{chapter.205}
-\contentsline {section}{\numberline {5.1}Conclusiones generales }{49}{section.206}
-\contentsline {section}{\numberline {5.2}Pr\IeC {\'o}ximos pasos}{49}{section.207}
-\contentsline {chapter}{Bibliograf\'{\i }a}{51}{appendix*.208}
+\contentsline {section}{\numberline {4.2}Ensayos adicionales}{48}{section.205}
+\contentsline {section}{\numberline {4.3}Resumen de los resultados}{48}{section.206}
+\contentsline {chapter}{\numberline {5}Conclusiones}{51}{chapter.208}
+\contentsline {section}{\numberline {5.1}Conclusiones generales }{51}{section.209}
+\contentsline {section}{\numberline {5.2}Pr\IeC {\'o}ximos pasos}{51}{section.210}
+\contentsline {chapter}{Bibliograf\'{\i }a}{53}{appendix*.211}

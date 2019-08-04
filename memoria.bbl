@@ -912,5 +912,27 @@
     \field{type}{techreport}
     \field{year}{2006}
   \endentry
+
+  \entry{rs2019}{online}{}
+    \name{author}{1}{}{%
+      {{hash=CR}{%
+         family={Catalog},
+         familyi={C\bibinitperiod},
+         given={RS},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CR1}
+    \strng{fullhash}{CR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Ansmann 3.7V Wire Lead Terminal Lithium Rechargeable Battery,
+  5.2Ah 2}
+    \verb{url}
+    \verb https://uk.rs-online.com/web/p/lithium-rechargeable-batteries/7760863
+    \verb /
+    \endverb
+    \field{year}{2019}
+  \endentry
 \enddatalist
 \endinput
