@@ -1,5 +1,6 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {spanish}{}
+\defcounter {refsection}{0}\relax 
+\select@language {spanish}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Esquema de medici\IeC {\'o}n de VOP\relax }}{1}{figure.caption.8}
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Forma de onda caracter\IeC {\'\i }stica de la presi\IeC {\'o}n humana\relax }}{2}{figure.caption.10}
@@ -25,7 +26,7 @@
 \contentsline {figure}{\numberline {3.13}{\ignorespaces M\IeC {\'a}quina de estados de configuraci\IeC {\'o}n de usuario\relax }}{30}{figure.caption.133}
 \contentsline {figure}{\numberline {3.14}{\ignorespaces Esquem\IeC {\'a}tico de conexiones del conversor anal\IeC {\'o}gico digital de alta resoluci\IeC {\'o}n ADS1292\relax }}{36}{figure.caption.178}
 \contentsline {figure}{\numberline {3.15}{\ignorespaces Router CNC empleado para los dos primeros prototipos.\relax }}{37}{figure.caption.179}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Vista superior e inferior del primer prototipo realizado con LPCXpresso montado.\relax }}{37}{figure.caption.180}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Vista superior del primer prototipo con LPCXpresso montado.\relax }}{37}{figure.caption.180}
 \contentsline {figure}{\numberline {3.17}{\ignorespaces Esquem\IeC {\'a}tico de conexi\IeC {\'o}n de la entrada USB\relax }}{38}{figure.caption.182}
 \contentsline {figure}{\numberline {3.18}{\ignorespaces Esquem\IeC {\'a}tico de conexi\IeC {\'o}n de la entrada USB\relax }}{38}{figure.caption.183}
 \contentsline {figure}{\numberline {3.19}{\ignorespaces Esquem\IeC {\'a}tico de conexi\IeC {\'o}n del LTC4411.\relax }}{39}{figure.caption.184}

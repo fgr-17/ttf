@@ -38,7 +38,7 @@ consumoMedio = I_{0}*t_{0}+I_{1}*t_{1}+I_{2}*t_{2}+I_{3}*t_{3}+I_{4}*t_{4} = 118
 
 
 
-Asimismo, la corriente media se puede calcular dividiendo por el tiempo total, como se muestra en la ecuación\ref{eqn:corrienteMedia}. A partir de este dato es posible estimar la eficiencia del regulador para esa tensión.
+Asimismo, la corriente media se puede calcular dividiendo por el tiempo total, como se muestra en la Ecuación \ref{eqn:corrienteMedia}. A partir de este dato es posible estimar la eficiencia del regulador para esa tensión.
 
 \begin{equation} \label{eqn:corrienteMedia}
 I_{med} = \frac{I_{0}*t_{0}+I_{1}*t_{1}+I_{2}*t_{2}+I_{3}*t_{3}+I_{4}*t_{4}}{t_{0}+t_{1}+t_{2}+t_{3}+t_{4}}= 46.54mA
@@ -67,7 +67,7 @@ autonomiaReal = autonomiaReal*eficiencia*porcentajeDescarga = \\ 2400mAh * 90\% 
 \end{split}
 \end{equation}
 
-Este valor es cercano al consumo teórico calculado en \ref{eqn:consumoMedio}.
+Este valor es cercano al consumo teórico calculado en la Ecuación \ref{eqn:consumoMedio}.
 Se realizaron varias experiencias para verificar la autonomía del equipo y se obtuvieron en todas resultados similares. La duración de la batería fue de aproximadamente 22 horas. Puede verse la curva de descarga de una de las experiencias en la figura \ref{fig:descargaBateria}. En esta figura se decimaron las muestras obtenidas y se visualiza una medición cada media hora. El divisor resistivo de entrada del ADC conectado a la batería es de 330kOhm y 820kOhm, lo que da una relación de 0.287. Este valor se usó para convertir las muestras entregadas por el ADC a Volts.
 
 \begin{figure} [!htpb]
@@ -148,7 +148,7 @@ También se realizaron ensayos para cubrir los requerimientos no funcionales, co
 
 \section{Resumen de los resultados} \label{resumenResultados}
 
-A continuación en la Tabla \ref{tab:tablaConformidad} se sintetiza toda la información anterior: se muestra una lista de los requerimientos iniciales y su grado de conformidad.
+A continuación en la Tabla \ref{tab:tablaConformidad} se sintetiza toda la información presentada previamente: se muestra una lista de los requerimientos iniciales y su grado de conformidad. Se observa que casi todos los requerimientos fueron cumplidos en forma completa, algunos en forma parcial, y el que no se cumplió resultó irrelevante.
 
 \pagebreak
 
